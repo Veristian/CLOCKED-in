@@ -25,12 +25,12 @@
                 },
                 {
                     "name": "Gyro",
-                    "type": "PassThrough",
+                    "type": "Value",
                     "id": "a65aecba-f306-4b1a-856e-898474d38a4b",
                     "expectedControlType": "Quaternion",
                     "processors": "",
                     "interactions": "",
-                    "initialStateCheck": false
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [

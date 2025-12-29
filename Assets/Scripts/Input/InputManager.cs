@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using TMPro;
@@ -7,45 +5,40 @@ using TMPro;
 [RequireComponent(typeof(PlayerInput))]
 public class InputManager : MonoBehaviour
 {
-    [Header("UI")]
     public TextMeshProUGUI attitudeText;
-
 
     public static PlayerInput playerInput;
     private static UnityEngine.InputSystem.Gyroscope gyro;
     public static Vector3 deviceRotation;
-        
-    public static InputAction _gyroAction;
-    // private UnityEngine.InputSystem.Gyroscope gyro;
 
-    private void OnValidate()
+    public static InputAction _gyroAction;
+
+
+
+    private void OnEnable()
     {
-        if (playerInput == null)
-        {
-            playerInput = GetComponent<PlayerInput>();
-        }
+        if (_gyroAction != null)
+            _gyroAction.Enable();
+    }
+
+    private void OnDisable()
+    {
+        if (_gyroAction != null)
+            _gyroAction.Disable();
     }
     private void Awake()
     {
-        if (playerInput == null)
-        {
-            playerInput = GetComponent<PlayerInput>();
-        }
         playerInput = GetComponent<PlayerInput>();
         _gyroAction = playerInput.actions["Gyro"];
-    }
 
-    void Start()
-    {
-        // Enable the gyroscope if available
         gyro = UnityEngine.InputSystem.Gyroscope.current;
-        if (gyro != null)
+        if (UnityEngine.InputSystem.Gyroscope.current != null)
         {
-            InputSystem.EnableDevice(gyro);
+            InputSystem.EnableDevice(UnityEngine.InputSystem.Gyroscope.current);
         }
-        else
+        if (AttitudeSensor.current != null)
         {
-            Debug.LogWarning("No gyroscope found on this device.");
+            InputSystem.EnableDevice(AttitudeSensor.current);
         }
     }
 
@@ -56,21 +49,23 @@ public class InputManager : MonoBehaviour
             attitudeText.text = "Gyroscope not available.";
             return;
         }
-        
+        Vector3 angularVelocity = UnityEngine.InputSystem.Gyroscope.current.angularVelocity.ReadValue();
+        Quaternion attitude = AttitudeSensor.current.attitude.ReadValue();
 
-        // Read the device rotation
-        Quaternion attitude = _gyroAction.ReadValue<Quaternion>();
+        // Quaternion attitude = _gyroAction.ReadValue<Quaternion>();
 
-        // Convert from right-handed device space to Unity's left-handed coordinates
-        Quaternion unityAttitude = new Quaternion(attitude.x, attitude.y, -attitude.z, -attitude.w);
+        // Device → Unity coordinate conversion
+        Quaternion unityAttitude = new Quaternion(
+            attitude.x,
+            attitude.y,
+            -attitude.z,
+            -attitude.w
+        );
 
-        // Convert to Euler angles
         Vector3 euler = unityAttitude.eulerAngles;
         deviceRotation = euler;
-        // Display in TextMeshPro
-        if (attitudeText != null)
-        {
-            attitudeText.text = $"Device Rotation:\nX: {euler.x:F1}\nY: {euler.y:F1}\nZ: {euler.z:F1}";
-        }
+
+        attitudeText.text =
+            $"Device Rotation\nX: {euler.x:F1}\nY: {euler.y:F1}\nZ: {euler.z:F1} and {unityAttitude.x:F1},{unityAttitude.y:F1},{unityAttitude.z:F1},{unityAttitude.w:F1}";
     }
 }
