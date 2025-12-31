@@ -3,7 +3,7 @@ using UnityEngine.InputSystem;
 using TMPro;
 
 [RequireComponent(typeof(PlayerInput))]
-public class InputManager : MonoBehaviour
+public class InputManager : Singleton<InputManager>
 {
     public TextMeshProUGUI attitudeText;
 
@@ -14,6 +14,8 @@ public class InputManager : MonoBehaviour
     public static InputAction _gyroAction;
 
 
+    public Vector3 rotationOffset = new Vector3(0, 0, 0);
+    public Vector3 newPos = new Vector3(0, 0, 0);
 
     private void OnEnable()
     {
@@ -65,7 +67,42 @@ public class InputManager : MonoBehaviour
         Vector3 euler = unityAttitude.eulerAngles;
         deviceRotation = euler;
 
+        Vector3 delta = angularVelocity * Time.deltaTime * 180/ Mathf.PI; // convert from radian to degree
+        newPos += delta;
+
+        newPos.x = Mathf.Repeat(newPos.x + 180, 360) - 180;
+        newPos.y = Mathf.Repeat(newPos.y + 180, 360) - 180;
+        newPos.z = Mathf.Repeat(newPos.z + 180, 360) - 180;
+
+        float angle1 = newPos.y * Mathf.Deg2Rad;
+        float angle2 = newPos.z * Mathf.Deg2Rad;
+
+        float x = Mathf.Cos(angle1) + Mathf.Cos(angle2);
+        float y = Mathf.Sin(angle1) + Mathf.Sin(angle2);
+
+        float finalDirection = Mathf.Atan2(y, x) * Mathf.Rad2Deg;
+
+        int sector;
+
+        if (finalDirection < -30f && finalDirection >= -90f)
+            sector = 1;
+        else if (finalDirection < 30f && finalDirection >= -30f)
+            sector = 2;
+        else if (finalDirection < 90f && finalDirection >= 30f)
+            sector = 3;
+        else
+            sector = 0;
+
         attitudeText.text =
-            $"Device Rotation\nX: {euler.x:F1}\nY: {euler.y:F1}\nZ: {euler.z:F1} and {unityAttitude.x:F1},{unityAttitude.y:F1},{unityAttitude.z:F1},{unityAttitude.w:F1}";
+            $"Device Rotation\nX: {euler.x:F1} Y: {euler.y:F1} Z: {euler.z:F1} and {unityAttitude.x:F1},{unityAttitude.y:F1},{unityAttitude.z:F1},{unityAttitude.w:F1}\nPosition+offset\nX: {(euler.x + rotationOffset.x):F1} Y: {(euler.y + rotationOffset.y):F1} Z: {(euler.z + rotationOffset.z):F1}\nangularVelocity\nX: {angularVelocity.x:F1} Y: {angularVelocity.y:F1} Z: {angularVelocity.z:F1} \n new position\nX: {newPos.x:F1} Y: {newPos.y:F1} Z: {newPos.z:F1}\n Final Direction: {finalDirection:F1} Sector: {sector}";
+
+        CanvasManager.Instance.MoveToSector(sector);
+
+    }
+
+    public void OnSetPosition()
+    {
+        rotationOffset = new Vector3(-deviceRotation.x, -deviceRotation.y, -deviceRotation.z);
+        newPos = new Vector3(0, 0, 0);
     }
 }
