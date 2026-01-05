@@ -845,6 +845,10 @@ MonoBehaviour:
   attitudeText: {fileID: 405714974}
   rotationOffset: {x: 0, y: 0, z: 0}
   newPos: {x: 0, y: 0, z: 0}
+  touchPosition: {x: 0, y: 0}
+  swipeMinDistance: 100
+  swipeMaxTime: 0.5
+  isPanning: 0
 --- !u!114 &829171090
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -858,7 +862,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Actions: {fileID: -944628639613478452, guid: 8eaaa60b7c1bfe94fbff710fb87cf44c, type: 3}
-  m_NotificationBehavior: 0
+  m_NotificationBehavior: 3
   m_UIInputModule: {fileID: 0}
   m_DeviceLostEvent:
     m_PersistentCalls:
@@ -869,7 +873,20 @@ MonoBehaviour:
   m_ControlsChangedEvent:
     m_PersistentCalls:
       m_Calls: []
-  m_ActionEvents: []
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: eb49e62e-6e7d-41b3-a16f-ad51b5f00ee5
+    m_ActionName: 'Controls/TouchDelta[/Touchscreen/delta,/Device Simulator Touchscreen/delta]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 2b880e58-6d03-4bbb-b2a6-ea9cd94ebe8c
+    m_ActionName: 'Controls/TouchPos[/Touchscreen/position,/Device Simulator Touchscreen/position]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: b5c7358b-5632-4627-9b35-450d8ef19a21
+    m_ActionName: 'Controls/TouchContact[/Touchscreen/primaryTouch/press,/Device
+      Simulator Touchscreen/primaryTouch/press]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Controls

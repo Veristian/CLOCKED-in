@@ -24,10 +24,28 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Gyro",
+                    "name": "TouchContact",
+                    "type": "Button",
+                    "id": "b5c7358b-5632-4627-9b35-450d8ef19a21",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "TouchStartPosition",
+                    "type": "PassThrough",
+                    "id": "a85315f5-5338-405a-bd6d-01140fab2469",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "TouchStartTime",
                     "type": "Value",
-                    "id": "a65aecba-f306-4b1a-856e-898474d38a4b",
-                    "expectedControlType": "Quaternion",
+                    "id": "571d107a-d292-4861-aa67-f08ff2f0b198",
+                    "expectedControlType": "Double",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
@@ -58,12 +76,34 @@
                 },
                 {
                     "name": "",
-                    "id": "6ca4aa39-7a99-43c1-9e69-62495e7fff45",
-                    "path": "<AttitudeSensor>/attitude",
+                    "id": "6248d4c3-d4df-4642-a24d-94e85b056d1b",
+                    "path": "<Touchscreen>/primaryTouch/press",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Gyro",
+                    "action": "TouchContact",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "09b915ac-4f59-462c-b1c2-e4010af06456",
+                    "path": "<Touchscreen>/primaryTouch/startPosition",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "TouchStartPosition",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "7a2cc4ec-cbb9-4e4c-8fa1-261ec6c0b42a",
+                    "path": "<Touchscreen>/primaryTouch/startTime",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "TouchStartTime",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
