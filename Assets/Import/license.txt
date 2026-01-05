@@ -1,0 +1,11 @@
+Model Information:
+* title:	Office Stamp
+* source:	https://sketchfab.com/3d-models/office-stamp-18890f7a234a407a85bb9a1509ef4b8f
+* author:	amhyde (https://sketchfab.com/amhyde)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Office Stamp" (https://sketchfab.com/3d-models/office-stamp-18890f7a234a407a85bb9a1509ef4b8f) by amhyde (https://sketchfab.com/amhyde) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
