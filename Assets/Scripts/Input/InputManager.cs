@@ -214,20 +214,21 @@ public class InputManager : Singleton<InputManager>
 
     void Update()
     {
-        InputEventsRecognizer();
+        // InputEventsRecognizer();
         GyroInputUpdate();
     }
 
-    private void InputEventsRecognizer()
-    {
+    // private void InputEventsRecognizer()
+    // {
         
-    }
+    // }
 
     private void GyroInputUpdate()
     {
         if (gyro == null)
         {
-            attitudeText.text = "Gyroscope not available.";
+            if (attitudeText != null)
+                attitudeText.text = "Gyroscope not available.";
             return;
         }
         Vector3 angularVelocity = UnityEngine.InputSystem.Gyroscope.current.angularVelocity.ReadValue();
