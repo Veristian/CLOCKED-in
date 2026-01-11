@@ -75,13 +75,13 @@ public class Snake : MonoBehaviour
     //     }
     // }
     private void OnHandleInput(Vector2Int dir)
-{
-    Vector2Int last = input.Count > 0 ? input[input.Count - 1] : direction;
+    {
+        Vector2Int last = input.Count > 0 ? input[input.Count - 1] : direction;
 
-    if (dir + last == Vector2Int.zero) return; // prevent reversing
+        if (dir + last == Vector2Int.zero) return; // prevent reversing
 
-    input.Add(dir);
-}
+        input.Add(dir);
+    }
 
 
     private void Update()
@@ -97,8 +97,8 @@ public class Snake : MonoBehaviour
         {
             if (input[0] != Vector2Int.zero)
             {
-direction = input[0];
-input.RemoveAt(0);
+                direction = input[0];
+                input.RemoveAt(0);
             }
         }
 
@@ -123,7 +123,7 @@ input.RemoveAt(0);
 
     public void Grow()
     {
-        Transform segment = Instantiate(segmentPrefab);
+        Transform segment = Instantiate(segmentPrefab, this.transform.parent);
         segment.position = segments[segments.Count - 1].position;
         segments.Add(segment);
     }
