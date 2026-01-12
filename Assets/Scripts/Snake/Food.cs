@@ -26,7 +26,7 @@ public class Food : MonoBehaviour
         int y = Mathf.RoundToInt(Random.Range(bounds.min.y, bounds.max.y));
 
         // Prevent the food from spawning on the snake and near other food
-        while (snake.Occupies(x, y) || Physics2D.OverlapCircle(new Vector2(x, y), 0.4f) != null)
+        while (snake.Occupies(x, y))
         {
             x++;
 
