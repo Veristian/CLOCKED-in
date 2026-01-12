@@ -9,7 +9,8 @@ public class Snake : MonoBehaviour
     public Vector2Int direction = Vector2Int.right;
     public float speed = 20f;
     public float speedMultiplier = 1f;
-    public int initialSize = 4;
+    public float speedIncreasePerFood = 0.1f;
+    public int initialSize = 4;    
     public bool moveThroughWalls = false;
 
     private readonly List<Transform> segments = new List<Transform>();
@@ -123,6 +124,7 @@ public class Snake : MonoBehaviour
 
     public void Grow()
     {
+        speedMultiplier += speedIncreasePerFood;
         Transform segment = Instantiate(segmentPrefab, this.transform.parent);
         segment.position = segments[segments.Count - 1].position;
         segments.Add(segment);
@@ -132,7 +134,7 @@ public class Snake : MonoBehaviour
     {
         direction = Vector2Int.right;
         transform.position = Vector3.zero;
-
+        speedMultiplier = 1f;
         // Start at 1 to skip destroying the head
         for (int i = 1; i < segments.Count; i++)
         {

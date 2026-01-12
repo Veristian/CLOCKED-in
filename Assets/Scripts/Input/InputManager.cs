@@ -3,6 +3,7 @@ using UnityEngine.InputSystem;
 using TMPro;
 using UnityEngine.InputSystem.EnhancedTouch;
 using Touch = UnityEngine.InputSystem.EnhancedTouch.Touch;
+using System.Threading.Tasks;
 
 [RequireComponent(typeof(PlayerInput))]
 public class InputManager : Singleton<InputManager>
@@ -37,6 +38,8 @@ public class InputManager : Singleton<InputManager>
     public bool isPanning;
     public bool isTouching;
 
+    
+
     protected override void Awake()
     {
         base.Awake();
@@ -46,6 +49,10 @@ public class InputManager : Singleton<InputManager>
         playerInput.actions["TouchContact"].performed += OnTouchDown;
         playerInput.actions["TouchContact"].canceled += OnTouchUp;
         playerInput.actions["TouchPos"].performed += OnTouchPosition;
+        playerInput.actions["W"].performed += ctx => OnSwipeUp?.Invoke();
+        playerInput.actions["S"].performed += ctx => OnSwipeDown?.Invoke();
+        playerInput.actions["A"].performed += ctx => OnSwipeLeft?.Invoke();
+        playerInput.actions["D"].performed += ctx => OnSwipeRight?.Invoke();
         // playerInput.actions["TouchStartTime"].performed += ctx => OnTouchStartTime(ctx.ReadValue<float>());
         // playerInput.actions["TouchStartPosition"]. += OnTouchStartPosition;
 
@@ -126,6 +133,21 @@ public class InputManager : Singleton<InputManager>
         startPos = touchPosition;
         startTime = Time.time;
         // Debug.Log("Touch Contact: " + isTouching + touchPosition);
+        _ = EndSwipe();
+    }
+
+    private async Task EndSwipe()
+    {
+        await Task.Delay(100);
+        if (!isTouching)
+            return;
+        endPos = touchPosition;
+        Vector2 distance = endPos - startPos;
+        if (distance.magnitude >= swipeMinDistance)
+        {
+            SwipeHandler(distance.normalized);
+        }
+        
     }
     public void OnTouchUp(InputAction.CallbackContext context)
     {
@@ -214,8 +236,8 @@ public class InputManager : Singleton<InputManager>
 
     void Update()
     {
-        // InputEventsRecognizer();
         GyroInputUpdate();
+
     }
 
     // private void InputEventsRecognizer()

@@ -7,9 +7,12 @@ EditorBuildSettings:
   m_Scenes:
   - enabled: 0
     path: Assets/Scenes/SampleScene.unity
-    guid: 8c9cfa26abfee488c85f1582747f6a02
-  - enabled: 1
+    guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 0
     path: Assets/Scenes/InputTestScene.unity
     guid: eb0f6ee51902af34d95eeff0f05e2512
+  - enabled: 1
+    path: Assets/Scenes/Snake.unity
+    guid: 7db7337d074d738428bd206f08d1239e
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0
