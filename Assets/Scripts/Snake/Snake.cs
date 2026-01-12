@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using TMPro;
@@ -137,7 +137,7 @@ public class Snake : MonoBehaviour
 
     public void ResetState()
     {
-        hitEffect.Play();
+        
         direction = Vector2Int.right;
         transform.position = Vector3.zero;
         speedMultiplier = 1f;
@@ -176,7 +176,7 @@ public class Snake : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Food"))
         {
-            eatEffect.Play();
+            PlayEatEffect();
             score += 1;
             scoreText.text = "Score : " + score.ToString();
             Grow();
@@ -184,7 +184,9 @@ public class Snake : MonoBehaviour
         else if (other.gameObject.CompareTag("Obstacle"))
         {
             score = 0;
+            Debug.Log("Hit Obstacle" + other.gameObject.name);
             scoreText.text = "Score : " + score.ToString();
+            PlayCrashEffect();
             ResetState();
         }
         else if (other.gameObject.CompareTag("Wall"))
@@ -196,7 +198,9 @@ public class Snake : MonoBehaviour
             else
             {
                 score = 0;
+                Debug.Log("Hit Wall");
                 scoreText.text ="Score : " + score.ToString();
+                PlayCrashEffect();
                 ResetState();
             }
         }
@@ -216,6 +220,24 @@ public class Snake : MonoBehaviour
         }
 
         transform.position = position;
+    }
+
+    void PlayCrashEffect()
+    {
+        if (hitEffect == null) return;
+        if (hitEffect.isPlaying)
+        {
+            return;
+        }
+        hitEffect.transform.position = transform.position;
+        hitEffect.Play();
+    }
+
+    void PlayEatEffect()
+    {
+        if (eatEffect == null) return;
+        eatEffect.transform.position = transform.position;
+        eatEffect.Play();
     }
 
 }
