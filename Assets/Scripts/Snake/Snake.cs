@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using TMPro;
 
 [RequireComponent(typeof(BoxCollider2D))]
 public class Snake : MonoBehaviour
@@ -18,6 +19,10 @@ public class Snake : MonoBehaviour
     private float nextUpdate;
     private System.Action up, down, left, right;
 
+    public ParticleSystem eatEffect;
+    public ParticleSystem hitEffect;
+    private int score = 0;
+    public TMPro.TextMeshProUGUI scoreText;
     private void Start()
     {
         if (input == null)
@@ -132,6 +137,7 @@ public class Snake : MonoBehaviour
 
     public void ResetState()
     {
+        hitEffect.Play();
         direction = Vector2Int.right;
         transform.position = Vector3.zero;
         speedMultiplier = 1f;
@@ -170,10 +176,15 @@ public class Snake : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Food"))
         {
+            eatEffect.Play();
+            score += 1;
+            scoreText.text = "Score : " + score.ToString();
             Grow();
         }
         else if (other.gameObject.CompareTag("Obstacle"))
         {
+            score = 0;
+            scoreText.text = "Score : " + score.ToString();
             ResetState();
         }
         else if (other.gameObject.CompareTag("Wall"))
@@ -184,6 +195,8 @@ public class Snake : MonoBehaviour
             }
             else
             {
+                score = 0;
+                scoreText.text ="Score : " + score.ToString();
                 ResetState();
             }
         }
