@@ -19,6 +19,7 @@ public class Snake : MonoBehaviour
     private float nextUpdate;
     private System.Action up, down, left, right;
 
+    [Header("Effects & UI")]
     public ParticleSystem eatEffect;
     public ParticleSystem hitEffect;
     private int score = 0;
