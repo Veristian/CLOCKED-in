@@ -23,6 +23,7 @@ public class Snake : MonoBehaviour
     public ParticleSystem hitEffect;
     private int score = 0;
     public TMPro.TextMeshProUGUI scoreText;
+    public TMPro.TextMeshProUGUI speedText;
     private void Start()
     {
         if (input == null)
@@ -178,14 +179,16 @@ public class Snake : MonoBehaviour
         {
             PlayEatEffect();
             score += 1;
-            scoreText.text = "Score : " + score.ToString();
+            scoreText.text = "Score: " + score.ToString();
+            speedText.text = "Speed: " + speedMultiplier.ToString("F1");
             Grow();
         }
         else if (other.gameObject.CompareTag("Obstacle"))
         {
             score = 0;
             Debug.Log("Hit Obstacle" + other.gameObject.name);
-            scoreText.text = "Score : " + score.ToString();
+            scoreText.text = "Score: " + score.ToString();
+            speedText.text = "Speed: " + speedMultiplier.ToString("F1");
             PlayCrashEffect();
             ResetState();
         }
@@ -199,7 +202,8 @@ public class Snake : MonoBehaviour
             {
                 score = 0;
                 Debug.Log("Hit Wall");
-                scoreText.text ="Score : " + score.ToString();
+                scoreText.text ="Score: " + score.ToString();
+                speedText.text = "Speed: " + speedMultiplier.ToString("F1");
                 PlayCrashEffect();
                 ResetState();
             }
