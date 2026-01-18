@@ -1,0 +1,85 @@
+﻿using System.Collections;
+using System.Threading.Tasks;
+using UnityEngine;
+
+[RequireComponent(typeof(Rigidbody2D))]
+public class Ball : MonoBehaviour
+{
+    private Rigidbody2D rb;
+    public float speed = 10f;
+
+    // bool IsReady = false;
+    // TaskCompletionSource<bool> resetCompletionSource;
+
+    private void Awake()
+    {
+        if (rb == null)
+            rb = GetComponent<Rigidbody2D>();
+    }
+
+    // void OnEnable()
+    // {
+    //     if (InputManager.Instance == null) return;
+    //     InputManager.Instance.OnTouchDownPerformed += ReadyReset;
+    //     InputManager.Instance.OnTouchUpPerformed += CancelReset;
+    // }
+    // void OnDisable()
+    // {
+    //     if (InputManager.Instance == null) return;
+    //     InputManager.Instance.OnTouchDownPerformed -= ReadyReset;
+    //     InputManager.Instance.OnTouchUpPerformed -= CancelReset;
+    // }
+
+    private void Start()
+    {
+        ResetBall();
+    }
+
+    public void ResetBall()
+    {
+        StartCoroutine(ResetBallCoroutine());
+    }
+    public IEnumerator ResetBallCoroutine()
+    {
+        rb.velocity = Vector2.zero;
+        transform.position = Vector2.zero;
+        yield return new WaitForSeconds(0.5f);
+        // await Task.Delay(1000); // small delay to avoid immediate launch
+        yield return new WaitUntil(OnPlayerReady);
+        // create a new waiter each reset
+        // IsReady = true;
+        // resetCompletionSource = new TaskCompletionSource<bool>();
+        // await resetCompletionSource.Task;
+        Vector2 force = new Vector2(Random.Range(-1f, 1f), -1f);
+        rb.AddForce(force.normalized * speed, ForceMode2D.Impulse);
+    }
+
+    
+
+    // called by InputManager or UI
+    // public void ReadyReset()
+    // {
+    //     if (resetCompletionSource != null && !resetCompletionSource.Task.IsCompleted)
+    //         resetCompletionSource.SetResult(true);
+    // }
+
+    // // optional: cancel instead of "not ready"
+    // public void CancelReset()
+    // {
+    //     if (resetCompletionSource != null && !resetCompletionSource.Task.IsCompleted)
+    //         resetCompletionSource.SetCanceled();
+    // }
+
+    private bool OnPlayerReady()
+    {
+        if (InputManager.Instance == null) return false;
+        if (!InputManager.Instance.isTouching) return false;
+        return true;
+    }
+
+    private void FixedUpdate()
+    {
+        rb.velocity = rb.velocity.normalized * speed;
+    }
+
+}

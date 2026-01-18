@@ -24,6 +24,9 @@ public class InputManager : Singleton<InputManager>
     public event System.Action OnSwipeDown;
     public event System.Action OnSwipeLeft;
     public event System.Action OnSwipeRight;
+    public event System.Action OnTouchDownPerformed;
+    public event System.Action OnTouchUpPerformed;
+
 
     public event System.Action<Vector2> OnPan;
 
@@ -55,7 +58,7 @@ public class InputManager : Singleton<InputManager>
         playerInput.actions["D"].performed += ctx => OnSwipeRight?.Invoke();
         // playerInput.actions["TouchStartTime"].performed += ctx => OnTouchStartTime(ctx.ReadValue<float>());
         // playerInput.actions["TouchStartPosition"]. += OnTouchStartPosition;
-
+        
         gyro = UnityEngine.InputSystem.Gyroscope.current;
         if (UnityEngine.InputSystem.Gyroscope.current != null)
         {
@@ -134,6 +137,7 @@ public class InputManager : Singleton<InputManager>
         startTime = Time.time;
         // Debug.Log("Touch Contact: " + isTouching + touchPosition);
         _ = EndSwipe();
+        OnTouchDownPerformed?.Invoke();
     }
 
     private async Task EndSwipe()
@@ -160,6 +164,7 @@ public class InputManager : Singleton<InputManager>
         {
             SwipeHandler(distance.normalized);
         }
+        OnTouchUpPerformed?.Invoke();
         // Debug.Log("Touch Contact: " + isTouching + touchPosition);
     }
     public void OnTouchPosition(InputAction.CallbackContext context)
@@ -247,6 +252,7 @@ public class InputManager : Singleton<InputManager>
 
     private void GyroInputUpdate()
     {
+        
         if (gyro == null)
         {
             if (attitudeText != null)
