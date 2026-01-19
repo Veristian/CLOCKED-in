@@ -54,5 +54,8 @@ public class Brick : MonoBehaviour
             Hit();
         }
     }
-
+    public int GetHealth()
+    {
+        return health;
+    }
 }

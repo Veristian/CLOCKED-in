@@ -8,6 +8,13 @@ public class Ball : MonoBehaviour
     private Rigidbody2D rb;
     public float speed = 10f;
 
+    [Header("Particle Effects")]
+    public ParticleSystem BlastEffect;
+    public ParticleSystem BlastEffect_2;
+    public ParticleSystemRenderer blastRenderer;
+    public ParticleSystemRenderer blastRenderer_2;
+    public Material[] BlastMaterial = new Material[0];
+
     // bool IsReady = false;
     // TaskCompletionSource<bool> resetCompletionSource;
 
@@ -80,6 +87,40 @@ public class Ball : MonoBehaviour
     private void FixedUpdate()
     {
         rb.velocity = rb.velocity.normalized * speed;
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.name == "Brick")
+        {
+            Brick brick = collision.gameObject.GetComponent<Brick>();
+            if (brick != null)
+            {
+                int brickHealth = brick.GetHealth();
+                blastRenderer.material = BlastMaterial[brickHealth ];
+                blastRenderer_2.material = BlastMaterial[brickHealth ];
+
+            }
+            PlayBlastEffect();
+        }
+    }
+
+    void PlayBlastEffect()
+    {
+        if (BlastEffect == null) return;
+      //  if (BlastEffect.isPlaying)
+       // {
+      //      return;
+        //}
+        BlastEffect.transform.position = transform.position;
+        BlastEffect.Play();
+
+        if (BlastEffect_2 == null) return;
+        //if (BlastEffect_2.isPlaying)
+       // {
+        //    return;
+        //}
+        BlastEffect_2.transform.position = transform.position;
+        BlastEffect_2.Play();
     }
 
 }
