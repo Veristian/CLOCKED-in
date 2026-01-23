@@ -9,6 +9,10 @@ public class Player : MonoBehaviour
     private Projectile laser;
     Vector2 screenSize;
 
+    [Header("Particle Effects")]
+    public GameObject BoomEffect;
+
+
     private void Awake()
     {
         screenSize = new Vector2(Screen.currentResolution.height, Screen.currentResolution.width);
@@ -67,6 +71,7 @@ public class Player : MonoBehaviour
     {
         if (other.gameObject.layer == LayerMask.NameToLayer("Missile") ||
             other.gameObject.layer == LayerMask.NameToLayer("Invader")) {
+            Instantiate(BoomEffect, transform.position, Quaternion.identity);
             SpaceInvadersManager.Instance.OnPlayerKilled(this);
         }
     }

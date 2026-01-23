@@ -12,6 +12,9 @@ public class MysteryShip : MonoBehaviour
     private int direction = -1;
     private bool spawned;
 
+    [Header("Particle Effects")]
+    public GameObject BoomEffect;
+
     private void Start()
     {
         // Transform the viewport to world coordinates so we can set the mystery
@@ -85,8 +88,10 @@ public class MysteryShip : MonoBehaviour
     {
         if (other.gameObject.layer == LayerMask.NameToLayer("Laser"))
         {
+            Instantiate(BoomEffect, transform.position, Quaternion.identity);
             Despawn();
             SpaceInvadersManager.Instance.OnMysteryShipKilled(this);
+
         }
     }
 

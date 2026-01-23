@@ -8,6 +8,10 @@ public class Projectile : MonoBehaviour
     public Vector3 direction = Vector3.up;
     public float speed = 20f;
 
+    [Header("Particle Effects")]
+    public GameObject BoomEffect;
+
+
     private void Awake()
     {
         boxCollider = GetComponent<BoxCollider2D>();
@@ -34,6 +38,7 @@ public class Projectile : MonoBehaviour
 
         if (bunker == null || bunker.CheckCollision(boxCollider, transform.position)) {
             Destroy(gameObject);
+           // Instantiate(BoomEffect, transform.position, Quaternion.identity);
         }
     }
 

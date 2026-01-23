@@ -1,3 +1,5 @@
+using System.Collections;
+using UnityEditor.Timeline.Actions;
 using UnityEngine;
 
 [RequireComponent(typeof(SpriteRenderer))]
@@ -11,6 +13,9 @@ public class Invader : MonoBehaviour
 
     private SpriteRenderer spriteRenderer;
     private int animationFrame;
+
+    [Header("Particle Effects")]
+    public GameObject BoomEffect;
 
     private void Awake()
     {
@@ -38,10 +43,22 @@ public class Invader : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.layer == LayerMask.NameToLayer("Laser")) {
+            //StartCoroutine(PlayBoomEffect());
+             Instantiate(BoomEffect, transform.position, Quaternion.identity);
+   
             SpaceInvadersManager.Instance.OnInvaderKilled(this);
         } else if (other.gameObject.layer == LayerMask.NameToLayer("Boundary")) {
             SpaceInvadersManager.Instance.OnBoundaryReached();
         }
     }
+
+    //IEnumerator PlayBoomEffect()
+    //{
+    //    Instantiate(BoomEffect, transform.position, Quaternion.identity);
+    //    yield return new WaitForSeconds(0.5f);
+    //    Destroy(BoomEffect);
+
+    //}
+    
 
 }

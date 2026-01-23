@@ -175,3 +175,4 @@ MonoBehaviour:
   animationSprites: []
   animationTime: 1
   score: 10
+  BoomEffect: {fileID: 0}
