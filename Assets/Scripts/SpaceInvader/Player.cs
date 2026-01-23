@@ -6,8 +6,6 @@ using UnityEngine.UI;
 public class Player : MonoBehaviour
 {
     public float speed = 5f;
-    public float timeToMove = 0.3f;
-    float time = 0;
     public Projectile laserPrefab;
     private Projectile laser;
     Vector2 screenSize;
@@ -27,7 +25,7 @@ public class Player : MonoBehaviour
             return;
         InputManager.Instance.OnVolDownPerformed += ShootLaser;
         InputManager.Instance.OnVolUpPerformed += ShootLaser;
-        InputManager.Instance.OnQuickTap += ShootLaser;
+        InputManager.Instance.OnTouchDownPerformed += ShootLaser;
 
     }
 
@@ -37,7 +35,7 @@ public class Player : MonoBehaviour
             return;
         InputManager.Instance.OnVolDownPerformed -= ShootLaser;
         InputManager.Instance.OnVolUpPerformed -= ShootLaser;
-        InputManager.Instance.OnQuickTap -= ShootLaser;
+        InputManager.Instance.OnTouchDownPerformed -= ShootLaser;
 
     }
     private void Update()
@@ -47,24 +45,14 @@ public class Player : MonoBehaviour
         Vector3 position = transform.position;
         if (InputManager.Instance == null)
             return;
-        if (InputManager.Instance.isTouching)
-        {
-            time += Time.deltaTime; 
-            if (time < timeToMove)
-            {
-                return;
-            }
-        }
-        else
-        {
-            time = 0;
-        }
+
         // Update the position of the player based on the input
         if (InputManager.Instance.touchPosition.x < screenSize.y/2 && InputManager.Instance.touchPosition.y < screenSize.x/2 && InputManager.Instance.isTouching) {
             position.x -= speed * Time.deltaTime;
         } else if (InputManager.Instance.touchPosition.x > screenSize.y/2 && InputManager.Instance.touchPosition.y < screenSize.x/2 && InputManager.Instance.isTouching) {
             position.x += speed * Time.deltaTime;
         }
+
 
         // Clamp the position of the character so they do not go out of bounds
         Vector3 leftEdge = Camera.main.ViewportToWorldPoint(Vector3.zero);
@@ -82,6 +70,8 @@ public class Player : MonoBehaviour
 
     public void ShootLaser()
     {
+        if (InputManager.Instance.touchPosition.y < screenSize.x/2) 
+            return;
         if (laser == null) {
             laser = Instantiate(laserPrefab, transform.position, Quaternion.identity);
         }
