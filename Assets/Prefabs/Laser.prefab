@@ -174,4 +174,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   direction: {x: 0, y: 1, z: 0}
   speed: 40
+  timeLimit: 2.5
   BoomEffect: {fileID: 179956792862611606, guid: e82ec153fe77ba5479ac345c87bbfa26, type: 3}

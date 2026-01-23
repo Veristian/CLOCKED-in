@@ -6,7 +6,7 @@ public class SpaceInvadersManager : Singleton<SpaceInvadersManager>
 {
 
     [SerializeField] private GameObject gameOverUI;
-    [SerializeField] private GameObject shootButton;
+    // [SerializeField] private GameObject shootButton;
 
     [SerializeField] private Text scoreText;
     [SerializeField] private Text livesText;
@@ -56,7 +56,7 @@ public class SpaceInvadersManager : Singleton<SpaceInvadersManager>
     private void NewGame()
     {
         gameOverUI.SetActive(false);
-        shootButton.SetActive(true);
+        // shootButton.SetActive(true);
         SetScore(0);
         SetLives(3);
         NewRound();
@@ -84,7 +84,7 @@ public class SpaceInvadersManager : Singleton<SpaceInvadersManager>
 
     private void GameOver()
     {
-        shootButton.SetActive(false);
+        // shootButton.SetActive(false);
         gameOverUI.SetActive(true);
         invaders.gameObject.SetActive(false);
     }

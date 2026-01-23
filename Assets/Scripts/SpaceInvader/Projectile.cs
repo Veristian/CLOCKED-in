@@ -7,6 +7,8 @@ public class Projectile : MonoBehaviour
     private BoxCollider2D boxCollider;
     public Vector3 direction = Vector3.up;
     public float speed = 20f;
+    public float timeLimit = 5;
+    float time;
 
     [Header("Particle Effects")]
     public GameObject BoomEffect;
@@ -20,6 +22,11 @@ public class Projectile : MonoBehaviour
     private void Update()
     {
         transform.position += speed * Time.deltaTime * direction;
+        time += Time.deltaTime;
+        if (time > timeLimit)
+        {
+            Destroy(gameObject);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D other)

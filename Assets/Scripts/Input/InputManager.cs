@@ -28,13 +28,16 @@ public class InputManager : Singleton<InputManager>
     public event System.Action OnTouchUpPerformed;
     public event System.Action OnVolUpPerformed;
     public event System.Action OnVolDownPerformed;
-
+    public event System.Action OnQuickTap;
 
     public event System.Action<Vector2> OnPan;
 
     [Header("Swipe Settings")]
     public float swipeMinDistance = 100f;
     public float swipeMaxTime = 0.5f;
+
+    [Header("QuickTap Settings")]
+    public float quickTapTime = 0.3f;
 
     private Vector2 startPos;
     private Vector2 endPos;
@@ -166,6 +169,10 @@ public class InputManager : Singleton<InputManager>
         Vector2 distance = endPos - startPos;
         endTime = Time.time;
         float time = endTime - startTime;
+        if (time <= quickTapTime)
+        {
+            OnQuickTap?.Invoke();
+        }
         if (distance.magnitude >= swipeMinDistance && time <= swipeMaxTime)
         {
             SwipeHandler(distance.normalized);

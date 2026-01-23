@@ -1,10 +1,13 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(BoxCollider2D))]
 public class Player : MonoBehaviour
 {
     public float speed = 5f;
+    public float timeToMove = 0.3f;
+    float time = 0;
     public Projectile laserPrefab;
     private Projectile laser;
     Vector2 screenSize;
@@ -24,6 +27,8 @@ public class Player : MonoBehaviour
             return;
         InputManager.Instance.OnVolDownPerformed += ShootLaser;
         InputManager.Instance.OnVolUpPerformed += ShootLaser;
+        InputManager.Instance.OnQuickTap += ShootLaser;
+
     }
 
     void OnDisable()
@@ -32,6 +37,8 @@ public class Player : MonoBehaviour
             return;
         InputManager.Instance.OnVolDownPerformed -= ShootLaser;
         InputManager.Instance.OnVolUpPerformed -= ShootLaser;
+        InputManager.Instance.OnQuickTap -= ShootLaser;
+
     }
     private void Update()
     {
@@ -40,10 +47,22 @@ public class Player : MonoBehaviour
         Vector3 position = transform.position;
         if (InputManager.Instance == null)
             return;
+        if (InputManager.Instance.isTouching)
+        {
+            time += Time.deltaTime; 
+            if (time < timeToMove)
+            {
+                return;
+            }
+        }
+        else
+        {
+            time = 0;
+        }
         // Update the position of the player based on the input
-        if (InputManager.Instance.touchPosition.x < screenSize.x/2 && InputManager.Instance.touchPosition.y < screenSize.y/2 && InputManager.Instance.isTouching) {
+        if (InputManager.Instance.touchPosition.x < screenSize.y/2 && InputManager.Instance.touchPosition.y < screenSize.x/2 && InputManager.Instance.isTouching) {
             position.x -= speed * Time.deltaTime;
-        } else if (InputManager.Instance.touchPosition.x > screenSize.x/2 && InputManager.Instance.touchPosition.y < screenSize.y/2 && InputManager.Instance.isTouching) {
+        } else if (InputManager.Instance.touchPosition.x > screenSize.y/2 && InputManager.Instance.touchPosition.y < screenSize.x/2 && InputManager.Instance.isTouching) {
             position.x += speed * Time.deltaTime;
         }
 
@@ -58,6 +77,7 @@ public class Player : MonoBehaviour
         // Only one laser can be active at a given time so first check that
         // there is not already an active laser
         
+    
     }
 
     public void ShootLaser()
