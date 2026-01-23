@@ -26,6 +26,8 @@ public class InputManager : Singleton<InputManager>
     public event System.Action OnSwipeRight;
     public event System.Action OnTouchDownPerformed;
     public event System.Action OnTouchUpPerformed;
+    public event System.Action OnVolUpPerformed;
+    public event System.Action OnVolDownPerformed;
 
 
     public event System.Action<Vector2> OnPan;
@@ -56,6 +58,8 @@ public class InputManager : Singleton<InputManager>
         playerInput.actions["S"].performed += ctx => OnSwipeDown?.Invoke();
         playerInput.actions["A"].performed += ctx => OnSwipeLeft?.Invoke();
         playerInput.actions["D"].performed += ctx => OnSwipeRight?.Invoke();
+        playerInput.actions["Space"].performed += ctx => OnVolUpPerformed?.Invoke();
+        playerInput.actions["Space"].performed += ctx => OnVolDownPerformed?.Invoke();
         // playerInput.actions["TouchStartTime"].performed += ctx => OnTouchStartTime(ctx.ReadValue<float>());
         // playerInput.actions["TouchStartPosition"]. += OnTouchStartPosition;
         
@@ -139,6 +143,8 @@ public class InputManager : Singleton<InputManager>
         _ = EndSwipe();
         OnTouchDownPerformed?.Invoke();
     }
+
+
 
     private async Task EndSwipe()
     {
@@ -310,5 +316,17 @@ public class InputManager : Singleton<InputManager>
     {
         rotationOffset = new Vector3(-deviceRotation.x, -deviceRotation.y, -deviceRotation.z);
         newPos = new Vector3(0, 0, 0);
+    }
+
+    public void OnVolumeUp(string msg)
+    {
+        Debug.Log("Volume Up pressed");
+        OnVolUpPerformed?.Invoke();
+    }
+
+    public void OnVolumeDown(string msg)
+    {
+        Debug.Log("Volume Down pressed");
+        OnVolDownPerformed?.Invoke();
     }
 }

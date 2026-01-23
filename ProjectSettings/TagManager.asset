@@ -7,6 +7,9 @@ TagManager:
   - Wall
   - Food
   - Obstacle
+  - Ball
+  - Paddle
+  - Brick
   layers:
   - Default
   - TransparentFX
@@ -15,10 +18,10 @@ TagManager:
   - Water
   - UI
   - Food
-  - 
-  - 
-  - 
-  - 
+  - Laser
+  - Boundry
+  - Missile
+  - Invader
   - 
   - 
   - 
