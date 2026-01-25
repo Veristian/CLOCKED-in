@@ -25,7 +25,7 @@ public class Player : MonoBehaviour
             return;
         InputManager.Instance.OnVolDownPerformed += ShootLaser;
         InputManager.Instance.OnVolUpPerformed += ShootLaser;
-        InputManager.Instance.OnTouchDownPerformed += ShootLaser;
+        InputManager.Instance.OnTouchDownPerformed += CheckShoot;
 
     }
 
@@ -35,7 +35,7 @@ public class Player : MonoBehaviour
             return;
         InputManager.Instance.OnVolDownPerformed -= ShootLaser;
         InputManager.Instance.OnVolUpPerformed -= ShootLaser;
-        InputManager.Instance.OnTouchDownPerformed -= ShootLaser;
+        InputManager.Instance.OnTouchDownPerformed -= CheckShoot;
 
     }
     private void Update()
@@ -68,10 +68,14 @@ public class Player : MonoBehaviour
     
     }
 
-    public void ShootLaser()
+    public void CheckShoot()
     {
         if (InputManager.Instance.touchPosition.y < screenSize.x/2) 
-            return;
+            return; 
+        ShootLaser();
+    }
+    public void ShootLaser()
+    {
         if (laser == null) {
             laser = Instantiate(laserPrefab, transform.position, Quaternion.identity);
         }
