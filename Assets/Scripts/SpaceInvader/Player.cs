@@ -26,6 +26,7 @@ public class Player : MonoBehaviour
         InputManager.Instance.OnVolDownPerformed += ShootLaser;
         InputManager.Instance.OnVolUpPerformed += ShootLaser;
         InputManager.Instance.OnTouchDownPerformed += CheckShoot;
+        InputManager.Instance.EnableJoystick();
 
     }
 
@@ -36,6 +37,7 @@ public class Player : MonoBehaviour
         InputManager.Instance.OnVolDownPerformed -= ShootLaser;
         InputManager.Instance.OnVolUpPerformed -= ShootLaser;
         InputManager.Instance.OnTouchDownPerformed -= CheckShoot;
+        InputManager.Instance.DisableJoystick();
 
     }
     private void Update()
@@ -47,11 +49,12 @@ public class Player : MonoBehaviour
             return;
 
         // Update the position of the player based on the input
-        if (InputManager.Instance.touchPosition.x < screenSize.y/2 && InputManager.Instance.touchPosition.y < screenSize.x/2 && InputManager.Instance.isTouching) {
-            position.x -= speed * Time.deltaTime;
-        } else if (InputManager.Instance.touchPosition.x > screenSize.y/2 && InputManager.Instance.touchPosition.y < screenSize.x/2 && InputManager.Instance.isTouching) {
-            position.x += speed * Time.deltaTime;
-        }
+        // if (InputManager.Instance.touchPosition.x < screenSize.y/2 && InputManager.Instance.touchPosition.y < screenSize.x/2 && InputManager.Instance.isTouching) {
+        //     position.x -= speed * Time.deltaTime;
+        // } else if (InputManager.Instance.touchPosition.x > screenSize.y/2 && InputManager.Instance.touchPosition.y < screenSize.x/2 && InputManager.Instance.isTouching) {
+        //     position.x += speed * Time.deltaTime;
+        // }
+        position.x += InputManager.Instance.joystick.Horizontal * speed * Time.deltaTime;
 
 
         // Clamp the position of the character so they do not go out of bounds

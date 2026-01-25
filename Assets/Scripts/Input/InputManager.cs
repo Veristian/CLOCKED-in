@@ -38,7 +38,9 @@ public class InputManager : Singleton<InputManager>
 
     [Header("QuickTap Settings")]
     public float quickTapTime = 0.3f;
-
+    [Header("JoyStick")]
+    public FloatingJoystick joystick;
+    public float speed;
     private Vector2 startPos;
     private Vector2 endPos;
     private float startTime;
@@ -50,6 +52,7 @@ public class InputManager : Singleton<InputManager>
 
     protected override void Awake()
     {
+        
         base.Awake();
         playerInput = GetComponent<PlayerInput>();
 
@@ -335,5 +338,15 @@ public class InputManager : Singleton<InputManager>
     {
         Debug.Log("Volume Down pressed");
         OnVolDownPerformed?.Invoke();
+    }
+
+    public void DisableJoystick()
+    {
+        joystick.gameObject.SetActive(false);
+    }
+
+    public void EnableJoystick()
+    {
+        joystick.gameObject.SetActive(true);
     }
 }
