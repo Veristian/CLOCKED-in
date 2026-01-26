@@ -9,13 +9,17 @@ public class Player : MonoBehaviour
     public Projectile laserPrefab;
     private Projectile laser;
     Vector2 screenSize;
+    public Vector3 leftEdge = new Vector3(-30f, 0f, 0f);
+    public Vector3 rightEdge = new Vector3(30f, 0f, 0f);
 
     [Header("Particle Effects")]
     public GameObject BoomEffect;
 
+    Camera mainCamera;
 
     private void Awake()
     {
+        mainCamera = Camera.main ?? FindAnyObjectByType<Camera>();
         screenSize = new Vector2(Screen.currentResolution.height, Screen.currentResolution.width);
     }
 
@@ -44,7 +48,7 @@ public class Player : MonoBehaviour
     {
         if (!gameObject.activeSelf)
             return;
-        Vector3 position = transform.position;
+        Vector3 position = transform.localPosition;
         if (InputManager.Instance == null)
             return;
 
@@ -58,12 +62,12 @@ public class Player : MonoBehaviour
 
 
         // Clamp the position of the character so they do not go out of bounds
-        Vector3 leftEdge = Camera.main.ViewportToWorldPoint(Vector3.zero);
-        Vector3 rightEdge = Camera.main.ViewportToWorldPoint(Vector3.right);
+        // Vector3 leftEdge = mainCamera.ViewportToWorldPoint(Vector3.zero);
+        // Vector3 rightEdge = mainCamera.ViewportToWorldPoint(Vector3.right);
         position.x = Mathf.Clamp(position.x, leftEdge.x, rightEdge.x);
 
         // Set the new position
-        transform.position = position;
+        transform.localPosition = position;
 
         // Only one laser can be active at a given time so first check that
         // there is not already an active laser

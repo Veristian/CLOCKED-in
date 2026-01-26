@@ -12,12 +12,17 @@ public class Invaders : MonoBehaviour
     public int rows = 5;
     public int columns = 11;
 
+    public Vector3 leftEdge;
+    public Vector3 rightEdge;
+
     [Header("Missiles")]
     public Projectile missilePrefab;
     public float missileSpawnRate = 1f; // will change to graph too
 
+    Camera mainCamera;
     private void Awake()
     {
+        mainCamera = Camera.main ?? FindAnyObjectByType<Camera>();
         initialPosition = transform.position;
 
         CreateInvaderGrid();
@@ -91,8 +96,8 @@ public class Invaders : MonoBehaviour
 
         // Transform the viewport to world coordinates so we can check when the
         // invaders reach the edge of the screen
-        Vector3 leftEdge = Camera.main.ViewportToWorldPoint(Vector3.zero);
-        Vector3 rightEdge = Camera.main.ViewportToWorldPoint(Vector3.right);
+        // Vector3 leftEdge = mainCamera.ViewportToWorldPoint(Vector3.zero);
+        // Vector3 rightEdge = mainCamera.ViewportToWorldPoint(Vector3.right);
 
         // The invaders will advance to the next row after reaching the edge of
         // the screen

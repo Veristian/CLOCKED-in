@@ -19,15 +19,15 @@ public class SpaceInvadersManager : Singleton<SpaceInvadersManager>
     public int score { get; private set; } = 0;
     public int lives { get; private set; } = 3;
 
-
+    Transform initialPlayerPosition;
 
     private void Start()
     {
-        
         player = FindObjectOfType<Player>();
         invaders = FindObjectOfType<Invaders>();
         mysteryShip = FindObjectOfType<MysteryShip>();
         bunkers = FindObjectsOfType<Bunker>();
+        initialPlayerPosition = player.transform;
 
         NewGame();
     }
@@ -77,7 +77,7 @@ public class SpaceInvadersManager : Singleton<SpaceInvadersManager>
     private void Respawn()
     {
         Vector3 position = player.transform.position;
-        position.x = 0f;
+        position.x = initialPlayerPosition.position.x;
         player.transform.position = position;
         player.gameObject.SetActive(true);
     }

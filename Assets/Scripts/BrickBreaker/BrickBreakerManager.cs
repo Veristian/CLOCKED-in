@@ -51,7 +51,7 @@ public class BrickBreakerManager : Singleton<BrickBreakerManager>
 
     private void ResetLevel()
     {
-        // paddle.ResetPaddle();
+        paddle.ResetPaddle();
         ball.ResetBall();
     }
 
