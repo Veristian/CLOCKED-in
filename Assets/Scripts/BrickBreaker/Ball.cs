@@ -15,13 +15,13 @@ public class Ball : MonoBehaviour
     public ParticleSystemRenderer blastRenderer_2;
     public Material[] BlastMaterial = new Material[0];
 
-    Transform initialPosition;
+    Vector3 initialPosition;
     // bool IsReady = false;
     // TaskCompletionSource<bool> resetCompletionSource;
 
     private void Awake()
     {
-        initialPosition = transform;
+        initialPosition = transform.position;
         if (rb == null)
             rb = GetComponent<Rigidbody2D>();
     }
@@ -51,7 +51,7 @@ public class Ball : MonoBehaviour
     public IEnumerator ResetBallCoroutine()
     {
         rb.velocity = Vector3.zero;
-        transform.position = initialPosition.position;
+        transform.position = initialPosition;
         yield return new WaitForSeconds(0.5f);
         // await Task.Delay(1000); // small delay to avoid immediate launch
         yield return new WaitUntil(OnPlayerReady);

@@ -12,6 +12,10 @@ public class Paddle : MonoBehaviour
 
     Vector3 initialPosition;
 
+    public BoxCollider2D paddleCollider;
+    public BoxCollider2D leftLimit;
+    public BoxCollider2D rightLimit;
+
     private void Awake()
     {
         initialPosition = transform.position;
@@ -55,11 +59,18 @@ public class Paddle : MonoBehaviour
         
         Vector3 worldPos = mainCamera.ScreenToWorldPoint(screenPos);
 
-        transform.position = Vector3.Lerp(
+        Vector3 targetPos = Vector3.Lerp(
             transform.position,
             new Vector3(worldPos.x, transform.position.y, transform.position.z),
             speed * Time.deltaTime
         );
+
+        float leftX = leftLimit.transform.position.x + leftLimit.bounds.size.x / 2f + paddleCollider.bounds.size.x / 2;
+        float rightX = rightLimit.transform.position.x - rightLimit.bounds.size.x / 2f - paddleCollider.bounds.size.x / 2;
+
+        targetPos.x = Mathf.Clamp(targetPos.x, leftX, rightX);
+
+        transform.position = targetPos;
     }
 
     // private void FixedUpdate()
