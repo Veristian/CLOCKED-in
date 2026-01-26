@@ -27,18 +27,36 @@ public class Paddle : MonoBehaviour
     //     transform.position = new Vector2(0f, transform.position.y);
     // }
 
+    // private void Update()
+    // {
+    //     // if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow)) {
+    //     //     direction = Vector2.left;
+    //     // } else if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow)) {
+    //     //     direction = Vector2.right;
+    //     // } else {
+    //     //     direction = Vector2.zero;
+    //     // }
+    //     if (InputManager.Instance == null) return;
+    //     if (!InputManager.Instance.isTouching) return;
+    //     transform.position = Vector2.Lerp(transform.position, new Vector3(mainCamera.ScreenToWorldPoint(InputManager.Instance.touchPosition).x, transform.position.y, Mathf.Infinity), speed * Time.deltaTime);
+    // }
     private void Update()
     {
-        // if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow)) {
-        //     direction = Vector2.left;
-        // } else if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow)) {
-        //     direction = Vector2.right;
-        // } else {
-        //     direction = Vector2.zero;
-        // }
         if (InputManager.Instance == null) return;
         if (!InputManager.Instance.isTouching) return;
-        transform.position = Vector2.Lerp(transform.position, new Vector2(mainCamera.ScreenToWorldPoint(InputManager.Instance.touchPosition).x, transform.position.y), speed * Time.deltaTime);
+
+        Vector3 screenPos = InputManager.Instance.touchPosition;
+
+        float zDistance = Mathf.Abs(transform.position.z - mainCamera.transform.position.z);
+        screenPos.z = zDistance;
+
+        Vector3 worldPos = mainCamera.ScreenToWorldPoint(screenPos);
+
+        transform.position = Vector2.Lerp(
+            transform.position,
+            new Vector2(worldPos.x, transform.position.y),
+            speed * Time.deltaTime
+        );
     }
 
     // private void FixedUpdate()

@@ -25,8 +25,10 @@ public class Snake : MonoBehaviour
     private int score = 0;
     public TMPro.TextMeshProUGUI scoreText;
     public TMPro.TextMeshProUGUI speedText;
+    Vector3 initialPosition;
     private void Start()
     {
+        initialPosition = Vector3Int.RoundToInt(this.transform.position);
         if (input == null)
             input = new List<Vector2Int>();
         ResetState();
@@ -37,8 +39,8 @@ public class Snake : MonoBehaviour
     {
         up = () => OnHandleInput(Vector2Int.up);
         down = () => OnHandleInput(Vector2Int.down);
-        left = () => OnHandleInput(Vector2Int.left);
-        right = () => OnHandleInput(Vector2Int.right);
+        left = () => OnHandleInput(Vector2Int.right);
+        right = () => OnHandleInput(Vector2Int.left);
 
         InputManager.Instance.OnSwipeUp += up;
         InputManager.Instance.OnSwipeDown += down;
@@ -123,7 +125,7 @@ public class Snake : MonoBehaviour
         // Round the values to ensure it aligns to the grid
         int x = Mathf.RoundToInt(transform.position.x) + direction.x;
         int y = Mathf.RoundToInt(transform.position.y) + direction.y;
-        transform.position = new Vector2(x, y);
+        transform.position = new Vector3(x, y, transform.position.z);
 
         // Set the next update time based on the speed
         nextUpdate = Time.time + (1f / (speed * speedMultiplier));
@@ -132,8 +134,8 @@ public class Snake : MonoBehaviour
     public void Grow()
     {
         speedMultiplier += speedIncreasePerFood;
-        Transform segment = Instantiate(segmentPrefab, this.transform.parent);
-        segment.position = segments[segments.Count - 1].position;
+        Transform segment = Instantiate(segmentPrefab, segments[segments.Count - 1].position, Quaternion.identity, this.transform.parent);
+        segment.transform.position = new Vector3(segment.transform.localPosition.x, segment.transform.localPosition.y, 0f);
         segments.Add(segment);
     }
 
@@ -141,7 +143,7 @@ public class Snake : MonoBehaviour
     {
         
         direction = Vector2Int.right;
-        transform.position = Vector3.zero;
+        transform.position = initialPosition;
         speedMultiplier = 1f;
         // Start at 1 to skip destroying the head
         for (int i = 1; i < segments.Count; i++)
