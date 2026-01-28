@@ -47,8 +47,8 @@ public class InputManager : Singleton<InputManager>
     private float endTime;
     public bool isPanning;
     public bool isTouching;
-
-    
+    public bool onTouchDown;
+    public bool onTouchUp;
 
     protected override void Awake()
     {
@@ -79,6 +79,8 @@ public class InputManager : Singleton<InputManager>
             InputSystem.EnableDevice(AttitudeSensor.current);
         }
     }
+
+
 
     // private void OnEnable()
     // {
@@ -258,6 +260,8 @@ public class InputManager : Singleton<InputManager>
     void Update()
     {
         GyroInputUpdate();
+        onTouchDown = playerInput.actions["TouchContact"].WasPressedThisFrame();
+        onTouchUp = playerInput.actions["TouchContact"].WasReleasedThisFrame();
 
     }
 
