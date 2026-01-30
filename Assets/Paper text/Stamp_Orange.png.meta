@@ -1,0 +1,724 @@
+fileFormatVersion: 2
+guid: 04266ad2637437947b99d140add074de
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -5976911854062699603
+    second: Stamp_Orange_0
+  - first:
+      213: -3837033311186834094
+    second: Stamp_Orange_1
+  - first:
+      213: -2174205224608527600
+    second: Stamp_Orange_2
+  - first:
+      213: 8975395967544570018
+    second: Stamp_Orange_3
+  - first:
+      213: 2793928993934395640
+    second: Stamp_Orange_4
+  - first:
+      213: 1054186918270357054
+    second: Stamp_Orange_5
+  - first:
+      213: -3324842514807568065
+    second: Stamp_Orange_6
+  - first:
+      213: 5198835325012722834
+    second: Stamp_Orange_7
+  - first:
+      213: -8308806449681917602
+    second: Stamp_Orange_8
+  - first:
+      213: 3286426719922331564
+    second: Stamp_Orange_9
+  - first:
+      213: -7608435621521758052
+    second: Stamp_Orange_10
+  - first:
+      213: 7642398526619212816
+    second: Stamp_Orange_11
+  - first:
+      213: 128746550528670211
+    second: Stamp_Orange_12
+  - first:
+      213: -3258276498983196868
+    second: Stamp_Orange_13
+  - first:
+      213: -5263071640516914679
+    second: Stamp_Orange_14
+  - first:
+      213: 7577988803024109542
+    second: Stamp_Orange_15
+  - first:
+      213: -2650185803927275328
+    second: Stamp_Orange_16
+  - first:
+      213: -8019966032196145827
+    second: Stamp_Orange_17
+  - first:
+      213: -5925141374489753994
+    second: Stamp_Orange_18
+  - first:
+      213: -2526757546395004556
+    second: Stamp_Orange_19
+  - first:
+      213: -4647527741174726236
+    second: Stamp_Orange_20
+  - first:
+      213: -5268316696741142065
+    second: Stamp_Orange_21
+  - first:
+      213: -1323334730878361298
+    second: Stamp_Orange_22
+  - first:
+      213: 2516780202280443396
+    second: Stamp_Orange_23
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Stamp_Orange_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 531
+        width: 109
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dab75c4f55ebd0da0800000000000000
+      internalID: -5976911854062699603
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stamp_Orange_1
+      rect:
+        serializedVersion: 2
+        x: 155
+        y: 537
+        width: 98
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 25d2e5f688e10cac0800000000000000
+      internalID: -3837033311186834094
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stamp_Orange_2
+      rect:
+        serializedVersion: 2
+        x: 299
+        y: 537
+        width: 98
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 01b096e1edba3d1e0800000000000000
+      internalID: -2174205224608527600
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stamp_Orange_3
+      rect:
+        serializedVersion: 2
+        x: 443
+        y: 537
+        width: 98
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2a0b7fb24130f8c70800000000000000
+      internalID: 8975395967544570018
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stamp_Orange_4
+      rect:
+        serializedVersion: 2
+        x: 587
+        y: 537
+        width: 98
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8f8cf1bfd9706c620800000000000000
+      internalID: 2793928993934395640
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stamp_Orange_5
+      rect:
+        serializedVersion: 2
+        x: 731
+        y: 537
+        width: 98
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e3e4e56ba6931ae00800000000000000
+      internalID: 1054186918270357054
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stamp_Orange_6
+      rect:
+        serializedVersion: 2
+        x: 875
+        y: 537
+        width: 98
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f3947ca3959cbd1d0800000000000000
+      internalID: -3324842514807568065
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stamp_Orange_7
+      rect:
+        serializedVersion: 2
+        x: 1019
+        y: 537
+        width: 98
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 294c229fe29f52840800000000000000
+      internalID: 5198835325012722834
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stamp_Orange_8
+      rect:
+        serializedVersion: 2
+        x: 1163
+        y: 500
+        width: 60
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e591c335e8031bc80800000000000000
+      internalID: -8308806449681917602
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stamp_Orange_9
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 387
+        width: 25
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: caf925580bbbb9d20800000000000000
+      internalID: 3286426719922331564
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stamp_Orange_10
+      rect:
+        serializedVersion: 2
+        x: 1198
+        y: 356
+        width: 25
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c9864ca0d18696690800000000000000
+      internalID: -7608435621521758052
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stamp_Orange_11
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 243
+        width: 25
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 01c5b1308f04f0a60800000000000000
+      internalID: 7642398526619212816
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stamp_Orange_12
+      rect:
+        serializedVersion: 2
+        x: 1198
+        y: 212
+        width: 25
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 30a715a3e4669c100800000000000000
+      internalID: 128746550528670211
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stamp_Orange_13
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 99
+        width: 25
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c376a1a89c648c2d0800000000000000
+      internalID: -3258276498983196868
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stamp_Orange_14
+      rect:
+        serializedVersion: 2
+        x: 1198
+        y: 68
+        width: 25
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9029e875a30d5f6b0800000000000000
+      internalID: -5263071640516914679
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stamp_Orange_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 69
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6efb32c9aac6a2960800000000000000
+      internalID: 7577988803024109542
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stamp_Orange_16
+      rect:
+        serializedVersion: 2
+        x: 115
+        y: 0
+        width: 98
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0c8b1287d06a83bd0800000000000000
+      internalID: -2650185803927275328
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stamp_Orange_17
+      rect:
+        serializedVersion: 2
+        x: 259
+        y: 0
+        width: 98
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d5def34a26b53b090800000000000000
+      internalID: -8019966032196145827
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stamp_Orange_18
+      rect:
+        serializedVersion: 2
+        x: 403
+        y: 0
+        width: 98
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6768199005ba5cda0800000000000000
+      internalID: -5925141374489753994
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stamp_Orange_19
+      rect:
+        serializedVersion: 2
+        x: 547
+        y: 0
+        width: 98
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 471969d16672fecd0800000000000000
+      internalID: -2526757546395004556
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stamp_Orange_20
+      rect:
+        serializedVersion: 2
+        x: 691
+        y: 0
+        width: 98
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4a1c18f942aa08fb0800000000000000
+      internalID: -4647527741174726236
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stamp_Orange_21
+      rect:
+        serializedVersion: 2
+        x: 835
+        y: 0
+        width: 98
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fc12c7680ed23e6b0800000000000000
+      internalID: -5268316696741142065
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stamp_Orange_22
+      rect:
+        serializedVersion: 2
+        x: 979
+        y: 0
+        width: 98
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e21ee07d21292ade0800000000000000
+      internalID: -1323334730878361298
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stamp_Orange_23
+      rect:
+        serializedVersion: 2
+        x: 1123
+        y: 0
+        width: 100
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 40e59ae62466de220800000000000000
+      internalID: 2516780202280443396
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Stamp_Orange_0: -5976911854062699603
+      Stamp_Orange_1: -3837033311186834094
+      Stamp_Orange_10: -7608435621521758052
+      Stamp_Orange_11: 7642398526619212816
+      Stamp_Orange_12: 128746550528670211
+      Stamp_Orange_13: -3258276498983196868
+      Stamp_Orange_14: -5263071640516914679
+      Stamp_Orange_15: 7577988803024109542
+      Stamp_Orange_16: -2650185803927275328
+      Stamp_Orange_17: -8019966032196145827
+      Stamp_Orange_18: -5925141374489753994
+      Stamp_Orange_19: -2526757546395004556
+      Stamp_Orange_2: -2174205224608527600
+      Stamp_Orange_20: -4647527741174726236
+      Stamp_Orange_21: -5268316696741142065
+      Stamp_Orange_22: -1323334730878361298
+      Stamp_Orange_23: 2516780202280443396
+      Stamp_Orange_3: 8975395967544570018
+      Stamp_Orange_4: 2793928993934395640
+      Stamp_Orange_5: 1054186918270357054
+      Stamp_Orange_6: -3324842514807568065
+      Stamp_Orange_7: 5198835325012722834
+      Stamp_Orange_8: -8308806449681917602
+      Stamp_Orange_9: 3286426719922331564
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

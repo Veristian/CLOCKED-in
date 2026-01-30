@@ -1,0 +1,724 @@
+fileFormatVersion: 2
+guid: 76f2aeb396474d74899ab39128370fdf
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -5887600298204653638
+    second: Stamp_Green_0
+  - first:
+      213: 1953552036401141429
+    second: Stamp_Green_1
+  - first:
+      213: 2891659254414191500
+    second: Stamp_Green_2
+  - first:
+      213: 4335386346733555163
+    second: Stamp_Green_3
+  - first:
+      213: -4820534971098177997
+    second: Stamp_Green_4
+  - first:
+      213: 5310881117622321757
+    second: Stamp_Green_5
+  - first:
+      213: 8408676397447809744
+    second: Stamp_Green_6
+  - first:
+      213: 7172349058296664986
+    second: Stamp_Green_7
+  - first:
+      213: -1623268796703487937
+    second: Stamp_Green_8
+  - first:
+      213: -8458876904288185207
+    second: Stamp_Green_9
+  - first:
+      213: -4603312098938460564
+    second: Stamp_Green_10
+  - first:
+      213: -2192833077002313663
+    second: Stamp_Green_11
+  - first:
+      213: 2145708577411763032
+    second: Stamp_Green_12
+  - first:
+      213: 828358368120433895
+    second: Stamp_Green_13
+  - first:
+      213: 8850837485123929766
+    second: Stamp_Green_14
+  - first:
+      213: 7395851894066516390
+    second: Stamp_Green_15
+  - first:
+      213: -8878569629332867377
+    second: Stamp_Green_16
+  - first:
+      213: 641948684082196750
+    second: Stamp_Green_17
+  - first:
+      213: -8352653436693782731
+    second: Stamp_Green_18
+  - first:
+      213: 4213717655739167872
+    second: Stamp_Green_19
+  - first:
+      213: -3562921548297268059
+    second: Stamp_Green_20
+  - first:
+      213: 4404045703908264496
+    second: Stamp_Green_21
+  - first:
+      213: 7569961392972428145
+    second: Stamp_Green_22
+  - first:
+      213: -4084581940710108480
+    second: Stamp_Green_23
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Stamp_Green_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 531
+        width: 109
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ab7170ef8ba0b4ea0800000000000000
+      internalID: -5887600298204653638
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stamp_Green_1
+      rect:
+        serializedVersion: 2
+        x: 155
+        y: 537
+        width: 98
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5b65eeb0a396c1b10800000000000000
+      internalID: 1953552036401141429
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stamp_Green_2
+      rect:
+        serializedVersion: 2
+        x: 299
+        y: 537
+        width: 98
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c8b24de65cc312820800000000000000
+      internalID: 2891659254414191500
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stamp_Green_3
+      rect:
+        serializedVersion: 2
+        x: 443
+        y: 537
+        width: 98
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bddc12999e26a2c30800000000000000
+      internalID: 4335386346733555163
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stamp_Green_4
+      rect:
+        serializedVersion: 2
+        x: 587
+        y: 537
+        width: 98
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 33e585cebf40a1db0800000000000000
+      internalID: -4820534971098177997
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stamp_Green_5
+      rect:
+        serializedVersion: 2
+        x: 731
+        y: 537
+        width: 98
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d52453cfc3a04b940800000000000000
+      internalID: 5310881117622321757
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stamp_Green_6
+      rect:
+        serializedVersion: 2
+        x: 875
+        y: 537
+        width: 98
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0da8615e1ae91b470800000000000000
+      internalID: 8408676397447809744
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stamp_Green_7
+      rect:
+        serializedVersion: 2
+        x: 1019
+        y: 537
+        width: 98
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a9351e0c77d498360800000000000000
+      internalID: 7172349058296664986
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stamp_Green_8
+      rect:
+        serializedVersion: 2
+        x: 1163
+        y: 500
+        width: 60
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f38438d31adf879e0800000000000000
+      internalID: -1623268796703487937
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stamp_Green_9
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 387
+        width: 25
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9849529c5480c9a80800000000000000
+      internalID: -8458876904288185207
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stamp_Green_10
+      rect:
+        serializedVersion: 2
+        x: 1198
+        y: 356
+        width: 25
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c66e3801900cd10c0800000000000000
+      internalID: -4603312098938460564
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stamp_Green_11
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 243
+        width: 25
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 140ec814fed7191e0800000000000000
+      internalID: -2192833077002313663
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stamp_Green_12
+      rect:
+        serializedVersion: 2
+        x: 1198
+        y: 212
+        width: 25
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 85b032c259617cd10800000000000000
+      internalID: 2145708577411763032
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stamp_Green_13
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 99
+        width: 25
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7ec6a860c8bee7b00800000000000000
+      internalID: 828358368120433895
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stamp_Green_14
+      rect:
+        serializedVersion: 2
+        x: 1198
+        y: 68
+        width: 25
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6a606898ccd74da70800000000000000
+      internalID: 8850837485123929766
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stamp_Green_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 69
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6a11c3ddc1853a660800000000000000
+      internalID: 7395851894066516390
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stamp_Green_16
+      rect:
+        serializedVersion: 2
+        x: 115
+        y: 0
+        width: 98
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fc6fa0a76fbf8c480800000000000000
+      internalID: -8878569629332867377
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stamp_Green_17
+      rect:
+        serializedVersion: 2
+        x: 259
+        y: 0
+        width: 98
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e01bfbe4de8a8e800800000000000000
+      internalID: 641948684082196750
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stamp_Green_18
+      rect:
+        serializedVersion: 2
+        x: 403
+        y: 0
+        width: 98
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 53fdbed14f9651c80800000000000000
+      internalID: -8352653436693782731
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stamp_Green_19
+      rect:
+        serializedVersion: 2
+        x: 547
+        y: 0
+        width: 98
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 084ff16f1e12a7a30800000000000000
+      internalID: 4213717655739167872
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stamp_Green_20
+      rect:
+        serializedVersion: 2
+        x: 691
+        y: 0
+        width: 98
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5a4182f9ab5fd8ec0800000000000000
+      internalID: -3562921548297268059
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stamp_Green_21
+      rect:
+        serializedVersion: 2
+        x: 835
+        y: 0
+        width: 98
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 03a890ceb305e1d30800000000000000
+      internalID: 4404045703908264496
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stamp_Green_22
+      rect:
+        serializedVersion: 2
+        x: 979
+        y: 0
+        width: 98
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 173fa8f87c7ed0960800000000000000
+      internalID: 7569961392972428145
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stamp_Green_23
+      rect:
+        serializedVersion: 2
+        x: 1123
+        y: 0
+        width: 100
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0c29fffad56a057c0800000000000000
+      internalID: -4084581940710108480
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Stamp_Green_0: -5887600298204653638
+      Stamp_Green_1: 1953552036401141429
+      Stamp_Green_10: -4603312098938460564
+      Stamp_Green_11: -2192833077002313663
+      Stamp_Green_12: 2145708577411763032
+      Stamp_Green_13: 828358368120433895
+      Stamp_Green_14: 8850837485123929766
+      Stamp_Green_15: 7395851894066516390
+      Stamp_Green_16: -8878569629332867377
+      Stamp_Green_17: 641948684082196750
+      Stamp_Green_18: -8352653436693782731
+      Stamp_Green_19: 4213717655739167872
+      Stamp_Green_2: 2891659254414191500
+      Stamp_Green_20: -3562921548297268059
+      Stamp_Green_21: 4404045703908264496
+      Stamp_Green_22: 7569961392972428145
+      Stamp_Green_23: -4084581940710108480
+      Stamp_Green_3: 4335386346733555163
+      Stamp_Green_4: -4820534971098177997
+      Stamp_Green_5: 5310881117622321757
+      Stamp_Green_6: 8408676397447809744
+      Stamp_Green_7: 7172349058296664986
+      Stamp_Green_8: -1623268796703487937
+      Stamp_Green_9: -8458876904288185207
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
