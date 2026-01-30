@@ -1338,6 +1338,7 @@ GameObject:
   - component: {fileID: 4100414855968030304}
   - component: {fileID: 7976451379405479150}
   - component: {fileID: 5386968183587293976}
+  - component: {fileID: 4544880657491774093}
   m_Layer: 0
   m_Name: stamp
   m_TagString: Untagged
@@ -1409,6 +1410,18 @@ MonoBehaviour:
   OnEndDrag:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &4544880657491774093
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7676772101807766268}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b7bc26eba6b8464caa541024dc3e4eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8533356795606349148
 GameObject:
   m_ObjectHideFlags: 0

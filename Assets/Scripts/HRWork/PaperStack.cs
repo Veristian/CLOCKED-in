@@ -38,7 +38,10 @@ public class PaperStack : MonoBehaviour
     }
     private void OnTriggerExit(Collider other)
     {
-        enteringPaper?.OnEndDrag.RemoveAllListeners();
+        Draggable3D exitingPaper = other.GetComponent<Draggable3D>();
+        if (exitingPaper == null || !paperList.Contains(exitingPaper))
+            return;
+        exitingPaper?.OnEndDrag.RemoveListener(() => EnterPaperToStack(exitingPaper));
         enteringPaper = null;
     }
 

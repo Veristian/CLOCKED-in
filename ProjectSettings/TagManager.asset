@@ -11,6 +11,9 @@ TagManager:
   - Paddle
   - Brick
   - Paper
+  - StampArea
+  - InkArea
+  - SubmissionArea
   layers:
   - Default
   - TransparentFX
@@ -24,8 +27,8 @@ TagManager:
   - Missile
   - Invader
   - Draggable
-  - 
-  - 
+  - Stampable
+  - SubmissionBox
   - 
   - 
   - 
