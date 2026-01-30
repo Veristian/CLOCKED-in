@@ -10,6 +10,7 @@ TagManager:
   - Ball
   - Paddle
   - Brick
+  - Paper
   layers:
   - Default
   - TransparentFX
@@ -22,7 +23,7 @@ TagManager:
   - Boundry
   - Missile
   - Invader
-  - Paper
+  - Draggable
   - 
   - 
   - 

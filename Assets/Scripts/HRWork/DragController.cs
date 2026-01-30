@@ -52,7 +52,7 @@ public class DragController : MonoBehaviour
         }
 
         // ---------- Begin Drag ----------
-        if (hovered != null && InputManager.Instance.onTouchDown && dragging == null)
+        if (hovered != null && InputManager.Instance.onTouchDown && dragging == null && hovered.CanDrag)
         {
             dragging = hovered;
             dragging.IsDragging = true;
@@ -65,7 +65,7 @@ public class DragController : MonoBehaviour
         }
 
         // ---------- Drag ----------
-        if (dragging != null && InputManager.Instance.isTouching)
+        if (dragging != null && InputManager.Instance.isTouching && dragging.CanDrag)
         {
             if (dragPlane.Raycast(ray, out float d))
             {
@@ -76,7 +76,7 @@ public class DragController : MonoBehaviour
         }
 
         // ---------- End Drag ----------
-        if (dragging != null && InputManager.Instance.onTouchUp)
+        if (dragging != null && (InputManager.Instance.onTouchUp || !dragging.CanDrag))
         {
             dragging.IsDragging = false;
             dragging.EndDrag();

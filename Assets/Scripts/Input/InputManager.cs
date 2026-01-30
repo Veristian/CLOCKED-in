@@ -210,18 +210,18 @@ public class InputManager : Singleton<InputManager>
 
     public void SwipeHandler(Vector2 direction)
     {
-        Debug.Log("Swipe Detected in direction: " + direction);
+        // Debug.Log("Swipe Detected in direction: " + direction);
         //detect swipe for all 4 directions
         if (Mathf.Abs(direction.x) > Mathf.Abs(direction.y))
         {
             if (direction.x > 0)
             {
-                Debug.Log("Swipe Right");
+                // Debug.Log("Swipe Right");
                 OnSwipeRight?.Invoke();
             }
             else
             {
-                Debug.Log("Swipe Left");
+                // Debug.Log("Swipe Left");
                 OnSwipeLeft?.Invoke();
             }
         }
@@ -229,12 +229,12 @@ public class InputManager : Singleton<InputManager>
         {
             if (direction.y > 0)
             {
-                Debug.Log("Swipe Up");
+                // Debug.Log("Swipe Up");
                 OnSwipeUp?.Invoke();
             }
             else
             {
-                Debug.Log("Swipe Down");
+                // Debug.Log("Swipe Down");
                 OnSwipeDown?.Invoke();
             }
         }
