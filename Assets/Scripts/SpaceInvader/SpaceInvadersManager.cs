@@ -21,12 +21,15 @@ public class SpaceInvadersManager : Singleton<SpaceInvadersManager>
 
     Transform initialPlayerPosition;
 
+    MinigameSelector minigameSelector;
+
     private void Start()
     {
         player = FindObjectOfType<Player>();
         invaders = FindObjectOfType<Invaders>();
         mysteryShip = FindObjectOfType<MysteryShip>();
         bunkers = FindObjectsOfType<Bunker>();
+        minigameSelector = FindObjectOfType<MinigameSelector>();
         initialPlayerPosition = player.transform;
 
         NewGame();
@@ -49,7 +52,9 @@ public class SpaceInvadersManager : Singleton<SpaceInvadersManager>
     void RestartGame()
     {
         if (lives <= 0) {
+            minigameSelector.gameExit();
             NewGame();
+
         }
     }
 

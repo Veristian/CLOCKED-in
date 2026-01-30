@@ -12,7 +12,6 @@ public class ResetZone : MonoBehaviour
     public Material BlastMaterial;
     private void OnTriggerEnter2D(Collider2D other)
     {
-
         blastRenderer.material = BlastMaterial;
         blastRenderer_2.material = BlastMaterial;
         PlayBlastEffect();

@@ -26,8 +26,11 @@ public class Snake : MonoBehaviour
     public TMPro.TextMeshProUGUI scoreText;
     public TMPro.TextMeshProUGUI speedText;
     Vector3 initialPosition;
+
+    MinigameSelector minigameSelector;
     private void Start()
     {
+        minigameSelector = FindObjectOfType<MinigameSelector>();
         initialPosition = Vector3Int.RoundToInt(this.transform.position);
         if (input == null)
             input = new List<Vector2Int>();
@@ -160,6 +163,7 @@ public class Snake : MonoBehaviour
         {
             Grow();
         }
+        minigameSelector.gameExit();
     }
 
     public bool Occupies(int x, int y)
@@ -194,6 +198,7 @@ public class Snake : MonoBehaviour
             speedText.text = "Speed: " + speedMultiplier.ToString("F1");
             PlayCrashEffect();
             ResetState();
+
         }
         else if (other.gameObject.CompareTag("Wall"))
         {
@@ -209,6 +214,7 @@ public class Snake : MonoBehaviour
                 speedText.text = "Speed: " + speedMultiplier.ToString("F1");
                 PlayCrashEffect();
                 ResetState();
+
             }
         }
     }

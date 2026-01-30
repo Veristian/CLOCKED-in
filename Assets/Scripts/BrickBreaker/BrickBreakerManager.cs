@@ -12,6 +12,8 @@ public class BrickBreakerManager : Singleton<BrickBreakerManager>
     public int score { get; private set; } = 0;
     public int lives { get; private set; } = 3;
 
+    MinigameSelector minigameSelector;
+
     private void Start()
     {
         FindSceneReferences();
@@ -21,6 +23,7 @@ public class BrickBreakerManager : Singleton<BrickBreakerManager>
         ball = FindAnyObjectByType<Ball>();
         paddle = FindAnyObjectByType<Paddle>();
         bricks = FindObjectsByType<Brick>(FindObjectsSortMode.None);
+        minigameSelector = FindObjectOfType<MinigameSelector>();
     }
 
     private void LoadLevel()
@@ -30,6 +33,7 @@ public class BrickBreakerManager : Singleton<BrickBreakerManager>
             bricks[i].ResetBrick();
         }
         ball.ResetBall();
+
     }
 
     // private void OnLevelLoaded(Scene scene, LoadSceneMode mode)
@@ -57,10 +61,13 @@ public class BrickBreakerManager : Singleton<BrickBreakerManager>
 
     private void GameOver()
     {
+
         NewGame();
+        Invoke(nameof(ExitMinigame), 0.5f);
+
     }
 
-    private void NewGame()
+    public void NewGame()
     {
         score = 0;
         lives = 3;
@@ -89,4 +96,11 @@ public class BrickBreakerManager : Singleton<BrickBreakerManager>
         return true;
     }
 
+    private void ExitMinigame()
+    {
+        if (minigameSelector != null)
+        {
+            minigameSelector.gameExit();
+        }
+    }
 }
