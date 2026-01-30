@@ -413,6 +413,8 @@ MonoBehaviour:
   speed: 0
   isPanning: 0
   isTouching: 0
+  onTouchDown: 0
+  onTouchUp: 0
 --- !u!114 &7736044332584199285
 MonoBehaviour:
   m_ObjectHideFlags: 0

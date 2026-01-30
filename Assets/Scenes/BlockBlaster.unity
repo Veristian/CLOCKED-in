@@ -176,6 +176,8 @@ MonoBehaviour:
   speed: 0
   isPanning: 0
   isTouching: 0
+  onTouchDown: 0
+  onTouchUp: 0
 --- !u!114 &195486215
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -567,6 +569,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3465627728337568416, guid: c5bf556e49133db488495563b9fe0c33, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
+    - target: {fileID: 4789067205173773867, guid: c5bf556e49133db488495563b9fe0c33, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
     - target: {fileID: 5116303222764511775, guid: c5bf556e49133db488495563b9fe0c33, type: 3}
       propertyPath: m_Name
       value: BrickBlaster

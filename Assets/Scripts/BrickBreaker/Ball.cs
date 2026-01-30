@@ -98,8 +98,11 @@ public class Ball : MonoBehaviour
             if (brick != null)
             {
                 int brickHealth = brick.GetHealth();
-                blastRenderer.material = BlastMaterial[brickHealth ];
-                blastRenderer_2.material = BlastMaterial[brickHealth ];
+                if (brickHealth > 0)
+                {
+                    blastRenderer.material = BlastMaterial[brickHealth];
+                    blastRenderer_2.material = BlastMaterial[brickHealth];
+                }
 
             }
             PlayBlastEffect();

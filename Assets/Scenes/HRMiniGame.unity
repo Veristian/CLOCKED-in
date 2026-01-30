@@ -132,6 +132,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: Paper Stack (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 3421736548434689074, guid: 73d3dc35387413b4388b3bf35f02b785, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
+    - target: {fileID: 3968472482828160163, guid: 73d3dc35387413b4388b3bf35f02b785, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
+    - target: {fileID: 4538218378162512662, guid: 73d3dc35387413b4388b3bf35f02b785, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
+    - target: {fileID: 4721314794733194455, guid: 73d3dc35387413b4388b3bf35f02b785, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
+    - target: {fileID: 4775611121323745169, guid: 73d3dc35387413b4388b3bf35f02b785, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
+    - target: {fileID: 5558598228935222745, guid: 73d3dc35387413b4388b3bf35f02b785, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
     - target: {fileID: 6207107420744793748, guid: 73d3dc35387413b4388b3bf35f02b785, type: 3}
       propertyPath: m_LocalPosition.x
       value: -178.4
@@ -172,6 +196,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7581170286121738336, guid: 73d3dc35387413b4388b3bf35f02b785, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -189,6 +217,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: Paper Stack
       objectReference: {fileID: 0}
+    - target: {fileID: 3421736548434689074, guid: 73d3dc35387413b4388b3bf35f02b785, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
+    - target: {fileID: 3968472482828160163, guid: 73d3dc35387413b4388b3bf35f02b785, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
+    - target: {fileID: 4538218378162512662, guid: 73d3dc35387413b4388b3bf35f02b785, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
+    - target: {fileID: 4721314794733194455, guid: 73d3dc35387413b4388b3bf35f02b785, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
+    - target: {fileID: 4775611121323745169, guid: 73d3dc35387413b4388b3bf35f02b785, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
+    - target: {fileID: 5558598228935222745, guid: 73d3dc35387413b4388b3bf35f02b785, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
     - target: {fileID: 6207107420744793748, guid: 73d3dc35387413b4388b3bf35f02b785, type: 3}
       propertyPath: m_LocalPosition.x
       value: -178.4
@@ -229,6 +281,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7581170286121738336, guid: 73d3dc35387413b4388b3bf35f02b785, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
