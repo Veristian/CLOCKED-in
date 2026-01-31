@@ -23,6 +23,8 @@ public class SpaceInvadersManager : Singleton<SpaceInvadersManager>
 
     MinigameSelector minigameSelector;
 
+    [SerializeField] private AnimationCurve sanityPerScoreCurve = AnimationCurve.Linear(0f, 1f, 1000f, 50f);
+
     private void Start()
     {
         player = FindObjectOfType<Player>();
@@ -96,6 +98,8 @@ public class SpaceInvadersManager : Singleton<SpaceInvadersManager>
 
     private void SetScore(int score)
     {
+        float addedScore = score - this.score;
+        AttributeManager.Instance.IncreaseSanity(sanityPerScoreCurve.Evaluate(addedScore));
         this.score = score;
         scoreText.text = score.ToString().PadLeft(4, '0');
     }

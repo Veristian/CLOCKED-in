@@ -14,6 +14,8 @@ public class BrickBreakerManager : Singleton<BrickBreakerManager>
 
     MinigameSelector minigameSelector;
 
+    [SerializeField] private AnimationCurve sanityPerScoreCurve = AnimationCurve.Linear(0f, 1f, 5000f, 50f);
+
     private void Start()
     {
         FindSceneReferences();
@@ -77,6 +79,7 @@ public class BrickBreakerManager : Singleton<BrickBreakerManager>
 
     public void OnBrickHit(Brick brick)
     {
+        AttributeManager.Instance.IncreaseSanity(sanityPerScoreCurve.Evaluate(brick.points));
         score += brick.points;
 
         if (Cleared()) {
