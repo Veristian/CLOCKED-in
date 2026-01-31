@@ -1,8 +1,4 @@
 using System.Collections;
-<<<<<<< Updated upstream
-=======
-//using UnityEditor.Timeline.Actions;
->>>>>>> Stashed changes
 using UnityEngine;
 
 [RequireComponent(typeof(SpriteRenderer))]
