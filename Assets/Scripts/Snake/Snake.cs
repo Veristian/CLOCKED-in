@@ -13,6 +13,8 @@ public class Snake : MonoBehaviour
     public float speedIncreasePerFood = 0.1f;
     public int initialSize = 4;    
     public bool moveThroughWalls = false;
+    [SerializeField] private AnimationCurve sanityPerFoodCurve = AnimationCurve.Linear(0f, 5f, 100f, 20f);
+
 
     private readonly List<Transform> segments = new List<Transform>();
     private List<Vector2Int> input = new List<Vector2Int>();
@@ -189,6 +191,7 @@ public class Snake : MonoBehaviour
             scoreText.text = "Score: " + score.ToString();
             speedText.text = "Speed: " + speedMultiplier.ToString("F1");
             Grow();
+            AttributeManager.Instance.IncreaseSanity(sanityPerFoodCurve.Evaluate(score));
         }
         else if (other.gameObject.CompareTag("Obstacle"))
         {
