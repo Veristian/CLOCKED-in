@@ -16,7 +16,7 @@ public class Paper : MonoBehaviour
     public GameObject purpleMarkings;
     public GameObject orangeMarkings;
     public GameObject greenMarkings;
-
+    public bool isSubmitted = false;
 
     public enum PaperStampColor
     {
@@ -48,11 +48,21 @@ public class Paper : MonoBehaviour
     public Draggable3D draggable3D;
     private void Start()
     {
+        RandomizePaper();
         paperMarkingsColor = PaperStampColor.None;
         SetPaperAppearance();
         if (draggable3D == null)
             draggable3D = GetComponent<Draggable3D>();
         draggable3D.OnEndDrag.AddListener(CheckPlaceInSubmissionBox);
+        
+    }
+
+    void RandomizePaper()
+    {
+        // Randomly assign stamp color
+        paperStampColor = (PaperStampColor)Random.Range(0, 3);
+        // Randomly assign label color
+        paperLabelColor = (PaperLabelColor)Random.Range(0, 3);
     }
 
     void SetPaperAppearance()

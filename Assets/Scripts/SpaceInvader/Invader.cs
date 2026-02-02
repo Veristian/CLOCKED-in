@@ -1,7 +1,4 @@
 using System.Collections;
-HEAD
-Updated upstream
-Updated upstream
 using UnityEngine;
 
 [RequireComponent(typeof(SpriteRenderer))]
