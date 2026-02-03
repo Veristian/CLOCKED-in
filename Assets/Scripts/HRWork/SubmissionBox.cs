@@ -16,6 +16,7 @@ public class SubmissionBox : MonoBehaviour
             paper.transform.position = transform.position + Vector3.up * 0.5f * submittedPapers.Count;
             // paper.transform.rotation = Quaternion.Euler(0, 0, 0);
             Debug.Log("SubmissionBox: Received paper with Stamp Color " + paper.paperStampColor + " and Label Color " + paper.paperLabelColor);
+            GameManager.Instance.UpdateTaskDisplay();
             GameManager.Instance.CheckWinGame();
         }
         else

@@ -42,12 +42,14 @@ public class GameManager : Singleton<GameManager>
 
     [Header("References")]
     public TMPro.TextMeshPro timeDisplayText;
-
+    public TMPro.TextMeshPro taskDisplayText;
 
     private void Start()
     {
         SetupGame();
         ResetLevelTimer();
+        DisplayTimeRemaining();
+        UpdateTaskDisplay();
     }
     void Update()
     {
@@ -157,5 +159,17 @@ public class GameManager : Singleton<GameManager>
     }
     #endregion
 
+    #region Task
+    public void UpdateTaskDisplay()
+    {
+        //Update task display UI here
+        if (taskDisplayText != null)
+        {
+            string completedTasks = HRMiniGameManager.Instance.CheckSubmittedCount().ToString();
+            string totalTasks = gameLevels[currentLevelIndex].papersToSpawn.ToString();
+            taskDisplayText.text = completedTasks + "/" + totalTasks;
+        }
+    }
+    #endregion
 
 }
