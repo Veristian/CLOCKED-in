@@ -21,13 +21,24 @@ public class AttributeManager : Singleton<AttributeManager>
     {
         // Sanity -= Time.deltaTime * 2f; //temp
         //if (!GameManager.Instance.gameActive) return;
+        // if (!countdownActive)
+        // {
+        //     _ = SanityCountDown(5f);
+        // }
+
+        if (Sanity <= 0 && !countdownActive)
+        {
+            StartSanityCountdown();
+        }
+    }
+
+    public void StartSanityCountdown() //call this when sanity reaches 0
+    {
         if (!countdownActive)
         {
             _ = SanityCountDown(5f);
         }
     }
-
-
 
     public async Task SanityCountDown(float delay)
     {

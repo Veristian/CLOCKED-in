@@ -41,7 +41,7 @@ public class GameManager : Singleton<GameManager>
     public string gameSceneName = "SampleScene";
 
     [Header("References")]
-    public TMPro.TextMeshProUGUI timeDisplayText;
+    public TMPro.TextMeshPro timeDisplayText;
 
 
     private void Start()
@@ -142,7 +142,7 @@ public class GameManager : Singleton<GameManager>
     public string GetFormattedTimeRemaining()
     {
         //returns the string in HH:MM format of time between 9:00 AM to 5:00 PM
-        int totalSeconds = Mathf.CeilToInt(currentLevelTimeRemaining);
+        int totalSeconds = Mathf.CeilToInt(timePerLevelInSeconds - currentLevelTimeRemaining) * 8 * 60 * 60 / Mathf.CeilToInt(timePerLevelInSeconds);
         int hours = totalSeconds / 3600;
         int minutes = (totalSeconds % 3600) / 60;
         return string.Format("{0:00}:{1:00}", hours + 9, minutes); 

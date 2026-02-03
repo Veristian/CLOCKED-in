@@ -18,6 +18,7 @@ public class CanvasManager : Singleton<CanvasManager>
     [SerializeField] private float snapDistance = 0.1f;
     private Vector3 targetPosition = Vector3.zero;
 
+    private int activeSector;
     void Start()
     {
         MoveToSector(2); // Start at sector 2
@@ -51,6 +52,7 @@ public class CanvasManager : Singleton<CanvasManager>
                 Debug.LogError("Invalid sector number");
                 return;
         }
+        activeSector = sector;
 
     }
 
@@ -59,5 +61,36 @@ public class CanvasManager : Singleton<CanvasManager>
         camera1.gameObject.SetActive(cameraNumber == 1);
         camera2.gameObject.SetActive(cameraNumber == 2);
         camera3.gameObject.SetActive(cameraNumber == 3);
+        Debug.Log("Activated Camera " + cameraNumber);
+        if (cameraNumber == 1)
+        {
+            MinigameSelector.Instance.OpenMinigameSelector();
+        }
+        else if (cameraNumber == 2 || cameraNumber == 3)
+        {
+            MinigameSelector.Instance.CloseMinigameSelector();
+        }
+    }
+
+    void Update()
+    {
+        if (InputManager.Instance.FakeGyroLeft)
+        {
+            if (activeSector > 1)
+            {
+                            Debug.Log("Fake Gyro Left detected in CanvasManager");
+
+                MoveToSector(activeSector - 1);
+            }
+        }
+        else if (InputManager.Instance.FakeGyroRight)
+        {
+            if (activeSector < 3)
+            {
+                            Debug.Log("Fake Gyro Right detected in CanvasManager");
+
+                MoveToSector(activeSector + 1);
+            }
+        }
     }
 }

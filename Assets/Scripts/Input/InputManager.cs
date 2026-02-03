@@ -50,6 +50,9 @@ public class InputManager : Singleton<InputManager>
     public bool onTouchDown;
     public bool onTouchUp;
 
+    public bool FakeGyroLeft;
+    public bool FakeGyroRight;
+
     protected override void Awake()
     {
         
@@ -262,6 +265,8 @@ public class InputManager : Singleton<InputManager>
         GyroInputUpdate();
         onTouchDown = playerInput.actions["TouchContact"].WasPressedThisFrame();
         onTouchUp = playerInput.actions["TouchContact"].WasReleasedThisFrame();
+        FakeGyroLeft = playerInput.actions["K"].WasPressedThisFrame();
+        FakeGyroRight = playerInput.actions["J"].WasPressedThisFrame();
 
     }
 

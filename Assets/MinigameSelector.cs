@@ -2,8 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MinigameSelector : MonoBehaviour
+public class MinigameSelector : Singleton<MinigameSelector>
 {
+    public GameObject minigameSelectorUI;
+    public GameObject workImage;
     public GameObject snake;
     public GameObject brickBreaker;
     public GameObject galaga;
@@ -15,6 +17,22 @@ public class MinigameSelector : MonoBehaviour
     {
         gameExit();
         Ball = FindObjectOfType<Ball>();
+    }
+    public void OpenMinigameSelector()
+    {
+        if (minigameSelectorUI != null && workImage != null)
+        {
+            minigameSelectorUI.SetActive(true);
+            workImage.SetActive(false);
+        }
+    }
+    public void CloseMinigameSelector()
+    {
+        if (minigameSelectorUI != null && workImage != null)
+        {
+            minigameSelectorUI.SetActive(false);
+            workImage.SetActive(true);
+        }
     }
     public void OpenSnake ()
     {
