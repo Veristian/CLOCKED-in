@@ -76,7 +76,7 @@ public class Invaders : MonoBehaviour
             // alive (the more invaders alive the lower the chance)
             if (Random.value < (1f / amountAlive))
             {
-                Instantiate(missilePrefab, invader.position, Quaternion.identity);
+                Instantiate(missilePrefab, invader.position, Quaternion.identity, transform.parent);
                 break;
             }
         }

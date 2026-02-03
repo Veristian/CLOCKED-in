@@ -84,7 +84,7 @@ public class Player : MonoBehaviour
     public void ShootLaser()
     {
         if (laser == null) {
-            laser = Instantiate(laserPrefab, transform.position, Quaternion.identity);
+            laser = Instantiate(laserPrefab, transform.position, Quaternion.identity, transform.parent);
         }
     }
 
@@ -92,7 +92,7 @@ public class Player : MonoBehaviour
     {
         if (other.gameObject.layer == LayerMask.NameToLayer("Missile") ||
             other.gameObject.layer == LayerMask.NameToLayer("Invader")) {
-            Instantiate(BoomEffect, transform.position, Quaternion.identity);
+            Instantiate(BoomEffect, transform.position, Quaternion.identity, transform.parent);
             SpaceInvadersManager.Instance.OnPlayerKilled(this);
         }
     }

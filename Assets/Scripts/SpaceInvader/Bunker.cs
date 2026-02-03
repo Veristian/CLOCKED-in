@@ -49,7 +49,7 @@ public class Bunker : MonoBehaviour
     public bool CheckCollision(BoxCollider2D other, Vector3 hitPoint)
     {
         Vector2 offset = other.size / 2;
-        Instantiate(BoomEffect, hitPoint, Quaternion.identity);
+        Instantiate(BoomEffect, hitPoint, Quaternion.identity, transform.parent);
         // Check the hit point and each edge of the colliding object to see if
         // it splats with the bunker for more accurate collision detection
         return Splat(hitPoint) ||
@@ -124,7 +124,7 @@ public class Bunker : MonoBehaviour
     {
         if (other.gameObject.layer == LayerMask.NameToLayer("Invader")) {
             gameObject.SetActive(false);
-            Instantiate(BoomEffect, transform.position, Quaternion.identity);
+            Instantiate(BoomEffect, transform.position, Quaternion.identity, transform.parent);
         }
     }
 

@@ -248,8 +248,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: acc185b780eafa344800b2bd819d5d4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minigameSelectorUI: {fileID: 0}
-  workImage: {fileID: 0}
+  minigameSelectorUI: {fileID: 1092055776}
+  workImage: {fileID: 1813209914}
   snake: {fileID: 1139146704}
   brickBreaker: {fileID: 1895308777}
   galaga: {fileID: 1788232977}

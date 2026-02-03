@@ -98,7 +98,7 @@ public class MysteryShip : MonoBehaviour
     {
         if (other.gameObject.layer == LayerMask.NameToLayer("Laser"))
         {
-            Instantiate(BoomEffect, transform.position, Quaternion.identity);
+            Instantiate(BoomEffect, transform.position, Quaternion.identity, transform.parent);
             Despawn();
             SpaceInvadersManager.Instance.OnMysteryShipKilled(this);
 

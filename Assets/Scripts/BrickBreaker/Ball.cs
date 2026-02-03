@@ -16,6 +16,7 @@ public class Ball : MonoBehaviour
     public Material[] BlastMaterial = new Material[0];
 
     Vector3 initialPosition;
+    Vector3 currentVelocity;
     // bool IsReady = false;
     // TaskCompletionSource<bool> resetCompletionSource;
 
@@ -86,9 +87,24 @@ public class Ball : MonoBehaviour
         return true;
     }
 
+    void OnEnable()
+    {
+        rb.velocity = currentVelocity;
+
+        if (rb.velocity == Vector2.zero)
+        {
+            ResetBall();
+        }
+    }
+    // void OnDisable()
+    // {
+    //     currentVelocity = rb.velocity;
+    // }
+
     private void FixedUpdate()
     {
         rb.velocity = rb.velocity.normalized * speed;
+        currentVelocity = rb.velocity;
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {

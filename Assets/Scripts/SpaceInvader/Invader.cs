@@ -43,7 +43,7 @@ public class Invader : MonoBehaviour
     {
         if (other.gameObject.layer == LayerMask.NameToLayer("Laser")) {
             //StartCoroutine(PlayBoomEffect());
-             Instantiate(BoomEffect, transform.position, Quaternion.identity);
+             Instantiate(BoomEffect, transform.position, Quaternion.identity, transform.parent);
    
             SpaceInvadersManager.Instance.OnInvaderKilled(this);
         } else if (other.gameObject.layer == LayerMask.NameToLayer("Boundary")) {

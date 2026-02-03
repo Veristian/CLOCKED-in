@@ -22,37 +22,37 @@ public class Food : MonoBehaviour
     {
         Bounds bounds = gridArea.bounds;
 
-        // Pick a random position inside the bounds
-        // Round the values to ensure it aligns with the grid
-        int x = Mathf.RoundToInt(Random.Range(bounds.min.x, bounds.max.x));
-        int y = Mathf.RoundToInt(Random.Range(bounds.min.y, bounds.max.y));
+        int minX = Mathf.FloorToInt(bounds.min.x);
+        int maxX = Mathf.CeilToInt(bounds.max.x) - 1;
+
+        int minY = Mathf.FloorToInt(bounds.min.y);
+        int maxY = Mathf.CeilToInt(bounds.max.y) - 1;
+
+        int x, y;
+
         int counter = 0;
-        // Prevent the food from spawning on the snake and near other food
-        while (snake.Occupies(x, y) || Physics2D.OverlapCircle(new Vector3(x, y, transform.position.z), 0.4f, foodLayer) != null)
+
+        do
         {
+            x = Random.Range(minX, maxX + 1); // int version (safe)
+            y = Random.Range(minY, maxY + 1);
+
             counter++;
-            if (counter > 10)
+
+            if (counter > 50)
             {
-                Debug.LogWarning("Could not find a valid position for the food after 10 attempts. Placing it at the last tried position.");
+                Debug.LogWarning("No valid food position found.");
                 break;
             }
-            x++;
 
-            if (x > bounds.max.x)
-            {
-                x = Mathf.RoundToInt(bounds.min.x);
-                y++;
-
-                if (y > bounds.max.y) {
-                    y = Mathf.RoundToInt(bounds.min.y);
-                }
-            }
-            if (counter > 1)
-                Debug.Log("Trying new position for food: " + x + ", " + y);
-        }
+        } while (
+            snake.Occupies(x, y) ||
+            Physics2D.OverlapCircle(new Vector3(x, y, transform.position.z), 0.4f, foodLayer) != null
+        );
 
         transform.position = new Vector3(x, y, transform.position.z);
     }
+
 
     private void OnTriggerEnter2D(Collider2D other)
     {

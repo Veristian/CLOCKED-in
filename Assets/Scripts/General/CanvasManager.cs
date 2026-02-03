@@ -61,12 +61,11 @@ public class CanvasManager : Singleton<CanvasManager>
         camera1.gameObject.SetActive(cameraNumber == 1);
         camera2.gameObject.SetActive(cameraNumber == 2);
         camera3.gameObject.SetActive(cameraNumber == 3);
-        Debug.Log("Activated Camera " + cameraNumber);
-        if (cameraNumber == 1)
+        if (cameraNumber == 3)
         {
             MinigameSelector.Instance.OpenMinigameSelector();
         }
-        else if (cameraNumber == 2 || cameraNumber == 3)
+        else if (cameraNumber == 2 || cameraNumber == 1)
         {
             MinigameSelector.Instance.CloseMinigameSelector();
         }
@@ -78,8 +77,6 @@ public class CanvasManager : Singleton<CanvasManager>
         {
             if (activeSector > 1)
             {
-                            Debug.Log("Fake Gyro Left detected in CanvasManager");
-
                 MoveToSector(activeSector - 1);
             }
         }
@@ -87,8 +84,6 @@ public class CanvasManager : Singleton<CanvasManager>
         {
             if (activeSector < 3)
             {
-                            Debug.Log("Fake Gyro Right detected in CanvasManager");
-
                 MoveToSector(activeSector + 1);
             }
         }
