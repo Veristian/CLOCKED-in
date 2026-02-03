@@ -480,8 +480,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0.7071068, w: 0}
   m_LocalPosition: {x: 0.0010005574, y: 0.559989, z: 0.35300013}
-  m_LocalScale: {x: 0.04034805, y: 0.028610723, z: 0.28938094}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.0070000007, y: 0.0049636867, z: 0.05020483}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 8274283926759566700}
   m_LocalEulerAnglesHint: {x: 90, y: 90, z: -90}
@@ -526,7 +526,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: ded5f72da8d54b44d85ace0c5548180d, type: 3}
+  m_Sprite: {fileID: 499297633931439955, guid: 773372291fe12ff46929c7957047ede6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -920,8 +920,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0.7071068, w: 0}
   m_LocalPosition: {x: 0.0010005574, y: 0.559989, z: 0.35300013}
-  m_LocalScale: {x: 0.04034805, y: 0.028610723, z: 0.28938094}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.0070000007, y: 0.0049636867, z: 0.05020483}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 8274283926759566700}
   m_LocalEulerAnglesHint: {x: 90, y: 90, z: -90}
@@ -966,7 +966,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 9291c8a2243a8954aa4836cbb3d8cd46, type: 3}
+  m_Sprite: {fileID: 3863732307306848393, guid: 127c31c466291e348ac2d595088e5209, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1088,8 +1088,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0.7071068, w: 0}
   m_LocalPosition: {x: 0.0010005574, y: 0.559989, z: 0.35300013}
-  m_LocalScale: {x: 0.04034805, y: 0.028610723, z: 0.28938094}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.0070000007, y: 0.0049636867, z: 0.05020483}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 8274283926759566700}
   m_LocalEulerAnglesHint: {x: 90, y: 90, z: -90}
@@ -1134,7 +1134,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: fae375f9c3347604890ddde51bb04cdb, type: 3}
+  m_Sprite: {fileID: 1794298765655499527, guid: 67ffdc1dcf2253e4ba8e8fd83a7d6052, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
