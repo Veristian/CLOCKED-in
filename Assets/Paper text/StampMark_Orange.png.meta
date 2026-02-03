@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 773372291fe12ff46929c7957047ede6
+guid: 0b64d374f5f05a949b95579221454552
 TextureImporter:
   internalIDToNameTable:
   - first:
@@ -46,7 +46,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -113,10 +113,10 @@ TextureImporter:
       name: StampMark_Orange_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 2250
-        height: 2250
+        x: 86
+        y: 80
+        width: 1051
+        height: 400
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -133,14 +133,15 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      StampMark_Orange_0: 499297633931439955
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
