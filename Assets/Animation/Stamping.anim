@@ -29,7 +29,7 @@ AnimationClip:
         outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
       - serializedVersion: 3
         time: 0.16666667
-        value: {x: 0, y: -0, z: 0.0211}
+        value: {x: 0, y: 0, z: 0.021}
         inSlope: {x: 0, y: 0, z: 0}
         outSlope: {x: 0, y: 0, z: 0}
         tangentMode: 0
@@ -48,7 +48,8 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Sketchfab_model/50ee3ef474264475b4f4dd94fb82e6d1.fbx/RootNode/Cube.017/Cylinder.011
+    path: Sketchfab_model/50ee3ef474264475b4f4dd94fb82e6d1.fbx/RootNode/Cube.017/Top
+      Stamper
   m_ScaleCurves: []
   m_FloatCurves: []
   m_PPtrCurves: []
@@ -60,7 +61,7 @@ AnimationClip:
   m_ClipBindingConstant:
     genericBindings:
     - serializedVersion: 2
-      path: 2308682035
+      path: 4010309195
       attribute: 1
       script: {fileID: 0}
       typeID: 4
@@ -125,7 +126,8 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.x
-    path: Sketchfab_model/50ee3ef474264475b4f4dd94fb82e6d1.fbx/RootNode/Cube.017/Cylinder.011
+    path: Sketchfab_model/50ee3ef474264475b4f4dd94fb82e6d1.fbx/RootNode/Cube.017/Top
+      Stamper
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -144,7 +146,7 @@ AnimationClip:
         outWeight: 0.33333334
       - serializedVersion: 3
         time: 0.16666667
-        value: -0
+        value: 0
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -164,7 +166,8 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.y
-    path: Sketchfab_model/50ee3ef474264475b4f4dd94fb82e6d1.fbx/RootNode/Cube.017/Cylinder.011
+    path: Sketchfab_model/50ee3ef474264475b4f4dd94fb82e6d1.fbx/RootNode/Cube.017/Top
+      Stamper
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -183,7 +186,7 @@ AnimationClip:
         outWeight: 0.33333334
       - serializedVersion: 3
         time: 0.16666667
-        value: 0.0211
+        value: 0.021
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -203,7 +206,8 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.z
-    path: Sketchfab_model/50ee3ef474264475b4f4dd94fb82e6d1.fbx/RootNode/Cube.017/Cylinder.011
+    path: Sketchfab_model/50ee3ef474264475b4f4dd94fb82e6d1.fbx/RootNode/Cube.017/Top
+      Stamper
     classID: 4
     script: {fileID: 0}
     flags: 0
