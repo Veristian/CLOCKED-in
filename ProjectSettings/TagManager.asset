@@ -51,3 +51,6 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Stamps
+    uniqueID: 1847621389
+    locked: 0
