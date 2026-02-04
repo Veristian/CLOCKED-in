@@ -5747,6 +5747,33 @@ BoxCollider2D:
   m_CorrespondingSourceObject: {fileID: 5359135331814030382, guid: c5bf556e49133db488495563b9fe0c33, type: 3}
   m_PrefabInstance: {fileID: 1655471084}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1425555771 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7374091406518337502, guid: e07b1a96ee080674cb833c35ae09808c, type: 3}
+  m_PrefabInstance: {fileID: 4606311647735060713}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1425555777
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1425555771}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 0bc163488dca5c44188c9529140b6dfe, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &1437674449
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12965,6 +12992,14 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[3]'
       value: 
       objectReference: {fileID: 2100000, guid: 2db0d913edbb55349ba75f1f1a84f729, type: 2}
+    - target: {fileID: 3596623461869698686, guid: e07b1a96ee080674cb833c35ae09808c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.0082
+      objectReference: {fileID: 0}
+    - target: {fileID: 3732919483270893487, guid: e07b1a96ee080674cb833c35ae09808c, type: 3}
+      propertyPath: stamping
+      value: 
+      objectReference: {fileID: 1425555777}
     - target: {fileID: 3732919483270893487, guid: e07b1a96ee080674cb833c35ae09808c, type: 3}
       propertyPath: greenMaterial
       value: 
@@ -13096,6 +13131,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3150039943886565678, guid: e07b1a96ee080674cb833c35ae09808c, type: 3}
       insertIndex: -1
       addedObject: {fileID: 4606311647735060716}
+    - targetCorrespondingSourceObject: {fileID: 7374091406518337502, guid: e07b1a96ee080674cb833c35ae09808c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1425555777}
   m_SourcePrefab: {fileID: 100100000, guid: e07b1a96ee080674cb833c35ae09808c, type: 3}
 --- !u!4 &4606311647735060714 stripped
 Transform:

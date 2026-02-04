@@ -15,6 +15,8 @@ public class Stamp : MonoBehaviour
     public Material orangeMaterial;
     public Material greenMaterial;
 
+    public Animator stamping;
+
     Draggable3D draggable3D;
     // void OnTriggerEnter(Collider other)
     // {
@@ -60,6 +62,7 @@ public class Stamp : MonoBehaviour
             if (stampArea != null)
             {
                 stampArea.ApplyStamp(activeStampColor);
+                stamping.SetTrigger("Stamp");
             }
         }
 
@@ -87,6 +90,7 @@ public class Stamp : MonoBehaviour
                 {
                     stampRenderer.material = defaultMaterial;
                 }
+                stamping.SetTrigger("Stamp");
             }
         }
     }
