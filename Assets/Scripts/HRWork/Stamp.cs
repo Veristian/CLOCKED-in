@@ -6,7 +6,14 @@ public class Stamp : MonoBehaviour
 {
     public Paper.PaperStampColor activeStampColor;
     public LayerMask interactableLayer;
-    public BoxCollider stampCollider; 
+    public BoxCollider stampCollider;
+
+    [Header("Stamp material")]
+    public Renderer stampRenderer;
+    public Material defaultMaterial;
+    public Material purpleMaterial;
+    public Material orangeMaterial;
+    public Material greenMaterial;
 
     Draggable3D draggable3D;
     // void OnTriggerEnter(Collider other)
@@ -63,6 +70,23 @@ public class Stamp : MonoBehaviour
             if (inkArea != null)
             {
                 activeStampColor = inkArea.inkColor;
+
+                if (activeStampColor == Paper.PaperStampColor.Purple)
+                {
+                    stampRenderer.material = purpleMaterial;
+                }
+                else if (activeStampColor == Paper.PaperStampColor.Orange)
+                {
+                    stampRenderer.material = orangeMaterial;
+                }
+                else if (activeStampColor == Paper.PaperStampColor.Green)
+                {
+                    stampRenderer.material = greenMaterial;
+                }
+                else 
+                {
+                    stampRenderer.material = defaultMaterial;
+                }
             }
         }
     }
