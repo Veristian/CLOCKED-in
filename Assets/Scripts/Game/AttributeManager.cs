@@ -19,12 +19,12 @@ public class AttributeManager : Singleton<AttributeManager>
 
     void Update()
     {
-        // Sanity -= Time.deltaTime * 2f; //temp
+         Sanity -= Time.deltaTime * 2f; //temp
         //if (!GameManager.Instance.gameActive) return;
-        // if (!countdownActive)
-        // {
-        //     _ = SanityCountDown(5f);
-        // }
+         if (!countdownActive)
+         {
+             _ = SanityCountDown(5f);
+         }
 
         if (Sanity <= 0 && !countdownActive)
         {
