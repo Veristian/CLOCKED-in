@@ -18,6 +18,7 @@ public class SubmissionBox : MonoBehaviour
             Debug.Log("SubmissionBox: Received paper with Stamp Color " + paper.paperStampColor + " and Label Color " + paper.paperLabelColor);
             GameManager.Instance.UpdateTaskDisplay();
             GameManager.Instance.CheckWinGame();
+            AttributeManager.Instance.DecreaseSanity(AttributeManager.Instance.sanityLossPerWorkDone);
         }
         else
         {

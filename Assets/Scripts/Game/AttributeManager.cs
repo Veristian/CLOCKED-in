@@ -7,6 +7,9 @@ public class AttributeManager : Singleton<AttributeManager>
 {
     [Header("Attributes")]
     public float Sanity;
+    public float sanityLossPerSecond = 2f;
+    public float sanityLossDuringGrace = 0.1f;
+    public float sanityLossPerWorkDone = 10f;
     public float WorkProgress;
 
 
@@ -19,16 +22,22 @@ public class AttributeManager : Singleton<AttributeManager>
 
     void Update()
     {
-         Sanity -= Time.deltaTime * 2f; //temp
-        //if (!GameManager.Instance.gameActive) return;
-         if (!countdownActive)
-         {
-             _ = SanityCountDown(5f);
-         }
 
         if (Sanity <= 0 && !countdownActive)
         {
             StartSanityCountdown();
+        }
+        else
+        {
+
+            if (Sanity <= 0)
+            {
+                Sanity -= Time.deltaTime * sanityLossDuringGrace;
+            }
+            else
+            {
+                Sanity -= Time.deltaTime * sanityLossPerSecond;
+            }
         }
     }
 
