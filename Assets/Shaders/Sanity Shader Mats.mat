@@ -37,12 +37,12 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _BreathSpeed: 2
+    - _BreathSpeed: 0
     - _NoiseDensity: 3.7
     - _NoiseIntensity: 2
     - _NoisePower: 2
     - _NoiseSpeed: 8.78
-    - _VignetteIntensity: 2
+    - _VignetteIntensity: 1
     - _VignettePower: 3.41
     m_Colors:
     - _VignetteColor: {r: 1, g: 0, b: 0, a: 0}

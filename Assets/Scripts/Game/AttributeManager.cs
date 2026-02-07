@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class AttributeManager : Singleton<AttributeManager>
 {
@@ -12,6 +13,7 @@ public class AttributeManager : Singleton<AttributeManager>
     public float sanityLossPerWorkDone = 10f;
     public float WorkProgress;
     public Material sanityEffectMaterial;
+    public Slider sanitySlider;
 
 
     bool countdownActive = false;
@@ -23,6 +25,7 @@ public class AttributeManager : Singleton<AttributeManager>
 
     void Update()
     {
+        UpdateSanityUI();
 
         if (Sanity <= 0 && !countdownActive)
         {
@@ -96,5 +99,14 @@ public class AttributeManager : Singleton<AttributeManager>
     {
         WorkProgress = amount;
         WorkProgress = Mathf.Clamp(WorkProgress, 0f, 100f);
+    }
+
+
+    public void UpdateSanityUI()
+    {
+        if (sanitySlider != null)
+        {
+            sanitySlider.value = Sanity;
+        }
     }
 }
