@@ -43,11 +43,13 @@ public class AttributeManager : Singleton<AttributeManager>
 
         if (Sanity <= 40f)
         {
-            float intensity =2f * Mathf.InverseLerp(0f, 40f, Sanity);
-            sanityEffectMaterial.SetFloat("_BreathSpeed", 2f - intensity);
+            float intensity = Mathf.InverseLerp(40f, 0f, Sanity);  // 0 at Sanity=40, 1 at Sanity=0
+            sanityEffectMaterial.SetFloat("_VignetteIntensity", 1f + intensity);
+            sanityEffectMaterial.SetFloat("_BreathSpeed", 2f);
         }
         else
         {
+            sanityEffectMaterial.SetFloat("_VignetteIntensity", 1f);
             sanityEffectMaterial.SetFloat("_BreathSpeed", 0f);
         }
     }
