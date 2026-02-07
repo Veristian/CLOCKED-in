@@ -11,6 +11,7 @@ public class AttributeManager : Singleton<AttributeManager>
     public float sanityLossDuringGrace = 0.1f;
     public float sanityLossPerWorkDone = 10f;
     public float WorkProgress;
+    public Material sanityEffectMaterial;
 
 
     bool countdownActive = false;
@@ -38,6 +39,16 @@ public class AttributeManager : Singleton<AttributeManager>
             {
                 Sanity -= Time.deltaTime * sanityLossPerSecond;
             }
+        }
+
+        if (Sanity <= 40f)
+        {
+            float intensity =2f * Mathf.InverseLerp(0f, 40f, Sanity);
+            sanityEffectMaterial.SetFloat("_BreathSpeed", 2f - intensity);
+        }
+        else
+        {
+            sanityEffectMaterial.SetFloat("_BreathSpeed", 0f);
         }
     }
 

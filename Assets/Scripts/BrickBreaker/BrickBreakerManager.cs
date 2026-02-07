@@ -16,9 +16,17 @@ public class BrickBreakerManager : Singleton<BrickBreakerManager>
 
     [SerializeField] private AnimationCurve sanityPerScoreCurve = AnimationCurve.Linear(0f, 1f, 5000f, 50f);
 
+    [Header("UI Elements")]
+    public TMPro.TextMeshProUGUI scoreText;
+    public TMPro.TextMeshProUGUI livesText;
+
     private void Start()
     {
         FindSceneReferences();
+    }
+    private void Update()
+    {
+        livesText.text = "Lives: " + lives.ToString();
     }
     private void FindSceneReferences()
     {
@@ -81,6 +89,7 @@ public class BrickBreakerManager : Singleton<BrickBreakerManager>
     {
         AttributeManager.Instance.IncreaseSanity(sanityPerScoreCurve.Evaluate(brick.points));
         score += brick.points;
+        scoreText.text = "Score: " + score.ToString();
 
         if (Cleared()) {
             LoadLevel();
