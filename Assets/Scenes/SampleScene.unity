@@ -5969,6 +5969,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1943836599}
   - {fileID: 1854828287}
   - {fileID: 1655471085}
   - {fileID: 1739783306}
@@ -11446,6 +11447,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1943836599}
+  - component: {fileID: 1943836600}
   m_Layer: 0
   m_Name: Boss
   m_TagString: Untagged
@@ -11462,14 +11464,26 @@ Transform:
   m_GameObject: {fileID: 1943836598}
   serializedVersion: 2
   m_LocalRotation: {x: 0.6454025, y: 0.28888693, z: -0.28888693, w: 0.6454025}
-  m_LocalPosition: {x: -168.3, y: -41.7, z: -412.8}
+  m_LocalPosition: {x: -1488.3, y: -641.7, z: -412.8}
   m_LocalScale: {x: 9.099597, y: 9.099597, z: 9.099597}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2026957086}
   - {fileID: 167527344}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1092055777}
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: -48.227}
+--- !u!114 &1943836600
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1943836598}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67abd7b6705ccaa4dac08c16a5964fb2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1978768921
 GameObject:
   m_ObjectHideFlags: 0
@@ -20643,4 +20657,3 @@ SceneRoots:
   - {fileID: 1648784300}
   - {fileID: 947009445}
   - {fileID: 787529349}
-  - {fileID: 1943836599}
