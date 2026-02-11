@@ -18,7 +18,7 @@ public class CanvasManager : Singleton<CanvasManager>
     [SerializeField] private float snapDistance = 0.1f;
     private Vector3 targetPosition = Vector3.zero;
 
-    private int activeSector;
+    public int activeSector;
     void Start()
     {
         MoveToSector(2); // Start at sector 2
