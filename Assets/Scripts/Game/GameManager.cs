@@ -58,13 +58,13 @@ public class GameManager : Singleton<GameManager>
     }
     #region PlayerPrefs
     //Get current level from player prefs
-    void GetLevelIndex()
+    public void GetLevelIndex()
     {
         int level = PlayerPrefs.GetInt("CurrentLevel", 1);
         currentLevelIndex = Mathf.Clamp(level - 1, 0, gameLevels.Count - 1);
         
     }
-    void SetLevelIndex(int level)
+    public void SetLevelIndex(int level)
     {
         currentLevelIndex = Mathf.Clamp(level - 1, 0, gameLevels.Count - 1);
         PlayerPrefs.SetInt("CurrentLevel", currentLevelIndex + 1);
