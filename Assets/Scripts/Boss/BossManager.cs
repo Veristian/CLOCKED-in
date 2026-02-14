@@ -8,8 +8,8 @@ public class BossManager : MonoBehaviour
 {
     public struct WorkGain
     {
-        int level;
-        int workGiven;
+        public int level;
+        public int workGiven;
 
         public WorkGain(int level, int workGiven)
         {
@@ -32,10 +32,10 @@ public class BossManager : MonoBehaviour
     public List<string> bossConverstation;
     // public List<string> bossListenToMe;
     public string reprimandDialog = "Hey! Look at me when im talking to you";
-    // public string introDialog = "Hey, look here for a second";
+    public string angryDialog = "Fine! If you don't want to listen, then just take more work!";
     bool startedDialog;
     float bossAngryTimer;
-    float bossSatisfiedTimer;  
+    // float bossSatisfiedTimer;  
     float dialogTimer;  
     string currentDialog;
     int currentDialogIndex;
@@ -70,6 +70,7 @@ public class BossManager : MonoBehaviour
         currentDialogIndex = 0;
         readyToContinue = true;
         startedDialog = true;
+        bossAngryTimer = 0;
         TriggerBossStartAnimation();
     }
     public void BossLeave()
@@ -85,25 +86,41 @@ public class BossManager : MonoBehaviour
     {
         currentDialog = dialog;
         bossDialogBox.text = "";
-        
     }
     void Dialog()
     {
-        if (!startedDialog) return; 
-        if (!readyToContinue && dialogTimer < 0)
+        if (!startedDialog)
         {
-            AnimateDialog(reprimandDialog);
+            if (bossAngryTimer > timeToBossAngry && dialogTimer < 0)
+            {
+                if (AnimateDialog(angryDialog)) {
+                    bossAngryTimer = 0;
+                }
+            }
+            else if (dialogTimer < 0)
+            {
+                bossDialogBox.text = "";
+            }
         }
-        else if (dialogTimer < 0)
+        else
         {
-            if (currentDialogIndex + 1 <= bossConverstation.Count)
+
+            if (!readyToContinue )//&& dialogTimer < 0)
             {
-                if (AnimateDialog(bossConverstation[currentDialogIndex])) currentDialogIndex++;
+                AnimateDialog(reprimandDialog);
             }
-            else
+            else if (dialogTimer < 0)
             {
-                BossLeave();
+                if (currentDialogIndex + 1 <= bossConverstation.Count)
+                {
+                    if (AnimateDialog(bossConverstation[currentDialogIndex])) currentDialogIndex++;
+                }
+                else
+                {
+                    BossLeave();
+                }
             }
+                    
         }
         dialogTimer -= Time.deltaTime;
     }
@@ -123,7 +140,9 @@ public class BossManager : MonoBehaviour
         {
             
             dialogTimer = dialogChangeTime;
-            readyToContinue = true;
+            // readyToContinue = true;
+            Debug.Log(bossDialogBox.text);
+            Debug.Log(dialog);
             return true;
         }
         return false;
@@ -131,17 +150,36 @@ public class BossManager : MonoBehaviour
     }
     private void FixedUpdate()
     {
+        Timer();
+        CallAttention();
         Dialog();
+        
     }
     //Boss Gives more works
     void GiveWork(int amount)
     {
-        
+        HRMiniGameManager.Instance.SpawnPaper(amount);
     }
 
     void OnBossAngry()
     {
-        
+        BossLeave();
+        GiveWork(workGainByLevel
+        .FirstOrDefault(w => w.level == GameManager.Instance.currentLevelIndex)
+        .workGiven);
+    }
+
+    void Timer()
+    {
+        if (!startedDialog) return;
+        if (!readyToContinue)
+        {
+            bossAngryTimer += Time.deltaTime;
+        }
+        if (bossAngryTimer > timeToBossAngry)
+        {
+            OnBossAngry();
+        }
     }
     //Boss detect ur listening
     bool CheckAttention()
@@ -150,10 +188,16 @@ public class BossManager : MonoBehaviour
     }
     void CallAttention()
     {
-        if (!CheckAttention() && startedDialog && readyToContinue)
+        if (!startedDialog) return;
+        if (!CheckAttention() && readyToContinue)
         {
-            
             readyToContinue = false;
+            Debug.Log("asdas");
+            currentDialogIndex = Mathf.Clamp(currentDialogIndex - 1, 0, bossConverstation.Count);
+        }
+        else if (CheckAttention() && !readyToContinue)
+        {
+            readyToContinue = true;
         }
     }
     

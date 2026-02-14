@@ -166,7 +166,7 @@ public class GameManager : Singleton<GameManager>
         if (taskDisplayText != null)
         {
             string completedTasks = HRMiniGameManager.Instance.CheckSubmittedCount().ToString();
-            string totalTasks = gameLevels[currentLevelIndex].papersToSpawn.ToString();
+            string totalTasks = HRMiniGameManager.Instance.allPapers.Count.ToString();
             taskDisplayText.text = completedTasks + "/" + totalTasks;
         }
     }

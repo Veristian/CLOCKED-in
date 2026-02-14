@@ -9,7 +9,7 @@ public class HRMiniGameManager : Singleton<HRMiniGameManager>
     // public Transform paperSpawnPoint;
     public GameObject paperPrefab;
     public PaperStack paperStack;
-    List<Paper> allPapers = new List<Paper>();
+    public List<Paper> allPapers = new List<Paper>();
     // List<SubmissionBox> allSubmissionBoxes = new List<SubmissionBox>();
 
     protected override void Awake()
@@ -30,6 +30,7 @@ public class HRMiniGameManager : Singleton<HRMiniGameManager>
             allPapers.Add(paper);
             paperStack.EnterPaperToStack(paper.GetComponent<Draggable3D>());
         }
+        GameManager.Instance.UpdateTaskDisplay();
     }
 
     //Submission Checks
