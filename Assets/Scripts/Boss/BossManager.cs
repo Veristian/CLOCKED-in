@@ -41,6 +41,11 @@ public class BossManager : MonoBehaviour
     int currentDialogIndex;
     bool readyToContinue;
 
+    [Header("Reentry Settings")]
+    public float minReentryInterval = 10f;
+    public float maxReentryInterval = 20f;
+    private float reentryTimer;
+
     [Header("References")]
     public TextMeshProUGUI bossDialogBox;
     public Animator bossAnimator;
@@ -78,6 +83,8 @@ public class BossManager : MonoBehaviour
         startedDialog = false;
         bossDialogBox.text = "";
         TriggerBossLeaveAnimation();
+
+        reentryTimer = Random.Range(minReentryInterval, maxReentryInterval);
     }
     //Boss Talk Counter
     
@@ -153,7 +160,8 @@ public class BossManager : MonoBehaviour
         Timer();
         CallAttention();
         Dialog();
-        
+        BossReentry();
+
     }
     //Boss Gives more works
     void GiveWork(int amount)
@@ -200,5 +208,17 @@ public class BossManager : MonoBehaviour
             readyToContinue = true;
         }
     }
-    
+
+     void BossReentry()
+    {
+        if (!startedDialog)
+        {
+            reentryTimer -= Time.fixedDeltaTime;
+            if (reentryTimer <= 0)
+            {
+                BossStart();
+            }
+        }
+    }
+
 }

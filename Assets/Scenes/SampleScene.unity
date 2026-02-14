@@ -3122,6 +3122,9 @@ MonoBehaviour:
   - I want ice cream
   - Entire bee movie script
   reprimandDialog: Hey! Look at me when im talking to you
+  angryDialog: Fine! If you don't want to listen, then just take more work!
+  minReentryInterval: 10
+  maxReentryInterval: 20
   bossDialogBox: {fileID: 1938146390}
   bossAnimator: {fileID: 1943836600}
 --- !u!1 &514407540
@@ -8834,6 +8837,30 @@ PrefabInstance:
       propertyPath: scoreText
       value: 
       objectReference: {fileID: 2139340134}
+    - target: {fileID: 5023262459705648228, guid: c5bf556e49133db488495563b9fe0c33, type: 3}
+      propertyPath: sanityPerScoreCurve.m_Curve.Array.data[0].time
+      value: -5.305725
+      objectReference: {fileID: 0}
+    - target: {fileID: 5023262459705648228, guid: c5bf556e49133db488495563b9fe0c33, type: 3}
+      propertyPath: sanityPerScoreCurve.m_Curve.Array.data[1].time
+      value: 4994.6943
+      objectReference: {fileID: 0}
+    - target: {fileID: 5023262459705648228, guid: c5bf556e49133db488495563b9fe0c33, type: 3}
+      propertyPath: sanityPerScoreCurve.m_Curve.Array.data[0].value
+      value: 10.498648
+      objectReference: {fileID: 0}
+    - target: {fileID: 5023262459705648228, guid: c5bf556e49133db488495563b9fe0c33, type: 3}
+      propertyPath: sanityPerScoreCurve.m_Curve.Array.data[1].value
+      value: 59.49865
+      objectReference: {fileID: 0}
+    - target: {fileID: 5023262459705648228, guid: c5bf556e49133db488495563b9fe0c33, type: 3}
+      propertyPath: sanityPerScoreCurve.m_Curve.Array.data[0].outSlope
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5023262459705648228, guid: c5bf556e49133db488495563b9fe0c33, type: 3}
+      propertyPath: sanityPerScoreCurve.m_Curve.Array.data[1].outSlope
+      value: 0.0098
+      objectReference: {fileID: 0}
     - target: {fileID: 5116303222764511775, guid: c5bf556e49133db488495563b9fe0c33, type: 3}
       propertyPath: m_Name
       value: BrickBlaster
@@ -10041,6 +10068,30 @@ PrefabInstance:
     - target: {fileID: 5907349491231060411, guid: ad27547063206de4ea739aa35490abe5, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7934396080884953513, guid: ad27547063206de4ea739aa35490abe5, type: 3}
+      propertyPath: sanityPerScoreCurve.m_Curve.Array.data[0].time
+      value: 4.563385
+      objectReference: {fileID: 0}
+    - target: {fileID: 7934396080884953513, guid: ad27547063206de4ea739aa35490abe5, type: 3}
+      propertyPath: sanityPerScoreCurve.m_Curve.Array.data[1].time
+      value: 1004.56335
+      objectReference: {fileID: 0}
+    - target: {fileID: 7934396080884953513, guid: ad27547063206de4ea739aa35490abe5, type: 3}
+      propertyPath: sanityPerScoreCurve.m_Curve.Array.data[0].value
+      value: 10.367399
+      objectReference: {fileID: 0}
+    - target: {fileID: 7934396080884953513, guid: ad27547063206de4ea739aa35490abe5, type: 3}
+      propertyPath: sanityPerScoreCurve.m_Curve.Array.data[1].value
+      value: 59.3674
+      objectReference: {fileID: 0}
+    - target: {fileID: 7934396080884953513, guid: ad27547063206de4ea739aa35490abe5, type: 3}
+      propertyPath: sanityPerScoreCurve.m_Curve.Array.data[0].outSlope
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7934396080884953513, guid: ad27547063206de4ea739aa35490abe5, type: 3}
+      propertyPath: sanityPerScoreCurve.m_Curve.Array.data[1].outSlope
+      value: 0.049
       objectReference: {fileID: 0}
     - target: {fileID: 8756245656798486907, guid: ad27547063206de4ea739aa35490abe5, type: 3}
       propertyPath: leftEdge.x
@@ -16682,6 +16733,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   paperPrefab: {fileID: 2728707531885835675, guid: 73d3dc35387413b4388b3bf35f02b785, type: 3}
   paperStack: {fileID: 0}
+  allPapers: []
 --- !u!23 &4641062582783290582
 MeshRenderer:
   m_ObjectHideFlags: 0
