@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class MinigameSelector : Singleton<MinigameSelector>
 {
@@ -9,7 +10,11 @@ public class MinigameSelector : Singleton<MinigameSelector>
     public GameObject snake;
     public GameObject brickBreaker;
     public GameObject galaga;
-    public  GameObject[] button;
+    public GameObject[] button;
+    public GameObject[] blackButton;
+
+    private List<int> buttonOrder;
+    private int currentIndex = 0;
     Ball Ball;
     // Start is called before the first frame update
 
@@ -22,25 +27,48 @@ public class MinigameSelector : Singleton<MinigameSelector>
     {
         if (minigameSelectorUI != null && workImage != null)
         {
-            minigameSelectorUI.SetActive(true);
             workImage.SetActive(false);
+
+            foreach (GameObject btn in blackButton)
+                btn.SetActive(true);
+
+            // Initialize the shuffled order only once, on first run
+            if (buttonOrder == null)
+            {
+                buttonOrder = new List<int> { 0, 1, 2 };
+                buttonOrder = buttonOrder.OrderBy(x => UnityEngine.Random.value).ToList();
+            }
+
+            int buttonIndex = buttonOrder[currentIndex];
+            currentIndex = (currentIndex + 1) % 3;
+
+            if (button != null)
+            {
+                button[buttonIndex].SetActive(true);
+            }
         }
+
     }
     public void CloseMinigameSelector()
     {
         if (minigameSelectorUI != null && workImage != null)
         {
-            minigameSelectorUI.SetActive(false);
+            foreach (GameObject btn in button)
+                btn.SetActive(false);
+            foreach (GameObject btn in blackButton)
+                btn.SetActive(false);
             workImage.SetActive(true);
         }
     }
-    public void OpenSnake ()
+    public void OpenSnake()
     {
         if (snake != null)
         {
             snake.SetActive(true);
 
             foreach (GameObject btn in button)
+                btn.SetActive(false);
+            foreach (GameObject btn in blackButton)
                 btn.SetActive(false);
         }
     }
@@ -52,6 +80,8 @@ public class MinigameSelector : Singleton<MinigameSelector>
             brickBreaker.SetActive(true);
 
             foreach (GameObject btn in button)
+                btn.SetActive(false);
+            foreach (GameObject btn in blackButton)
                 btn.SetActive(false);
             Invoke(nameof(BrickBreakerNewGame), 0.5f);
         }
@@ -65,13 +95,17 @@ public class MinigameSelector : Singleton<MinigameSelector>
 
             foreach (GameObject btn in button)
                 btn.SetActive(false);
+            foreach (GameObject btn in blackButton)
+                btn.SetActive(false);
         }
     }
 
     public void gameExit()
     {
         foreach (GameObject btn in button)
-            btn.SetActive(true);
+            btn.SetActive(false);
+        foreach (GameObject btn in blackButton)
+            btn.SetActive(false);
         if (snake != null)
             snake.SetActive(false);
         if (brickBreaker != null)
@@ -83,5 +117,5 @@ public class MinigameSelector : Singleton<MinigameSelector>
     private void BrickBreakerNewGame()
     {
         BrickBreakerManager.Instance.NewGame();
-    }   
+    }
 }

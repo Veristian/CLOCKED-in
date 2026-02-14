@@ -47,7 +47,10 @@ public class Ball : MonoBehaviour
 
     public void ResetBall()
     {
-        StartCoroutine(ResetBallCoroutine());
+        if (gameObject.activeInHierarchy)
+        {
+            StartCoroutine(ResetBallCoroutine());
+        }
     }
     public IEnumerator ResetBallCoroutine()
     {

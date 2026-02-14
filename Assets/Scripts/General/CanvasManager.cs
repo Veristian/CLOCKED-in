@@ -68,6 +68,7 @@ public class CanvasManager : Singleton<CanvasManager>
         else if (cameraNumber == 2 || cameraNumber == 1)
         {
             MinigameSelector.Instance.CloseMinigameSelector();
+            MinigameSelector.Instance.gameExit();
         }
     }
 

@@ -165,7 +165,7 @@ public class Snake : MonoBehaviour
         {
             Grow();
         }
-        minigameSelector.gameExit();
+
     }
 
     public bool Occupies(int x, int y)
@@ -217,6 +217,7 @@ public class Snake : MonoBehaviour
                 speedText.text = "Speed: " + speedMultiplier.ToString("F1");
                 PlayCrashEffect();
                 ResetState();
+                minigameSelector.gameExit();
 
             }
         }
