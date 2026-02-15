@@ -1,30 +1,37 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using TMPro;
 using UnityEngine;
+ 
 
 public class BossManager : MonoBehaviour
 {
-    public struct WorkGain
+    [Serializable]
+    public struct BossSettingPerLevel
     {
         public int level;
         public int workGiven;
+        public float minReentryInterval;
+        public float maxReentryInterval;
 
-        public WorkGain(int level, int workGiven)
+        public BossSettingPerLevel(int level, int workGiven, float minReentryInterval, float maxReentryInterval)
         {
             this.level = level;
             this.workGiven = workGiven;
+            this.minReentryInterval = minReentryInterval;
+            this.maxReentryInterval = maxReentryInterval;
         }
     }
-    public List<WorkGain> workGainByLevel = 
-    new List<WorkGain>
+    public List<BossSettingPerLevel> bossSettingPerLevel = 
+    new List<BossSettingPerLevel>
     {
-        new WorkGain(1,3),
-        new WorkGain(2,5),
-        new WorkGain(3,7),
-        new WorkGain(4,9),
-        new WorkGain(5,11)
+        new BossSettingPerLevel(1,3, 20f, 30f),
+        new BossSettingPerLevel(2,5, 20f, 30f),
+        new BossSettingPerLevel(3,7, 20f, 30f),
+        new BossSettingPerLevel(4,9, 20f, 30f),
+        new BossSettingPerLevel(5,11, 20f, 30f)
     };
     public float timeToBossAngry = 5f;
     public float timeToBossSatisfied = 10f;
@@ -41,9 +48,8 @@ public class BossManager : MonoBehaviour
     int currentDialogIndex;
     bool readyToContinue;
 
-    [Header("Reentry Settings")]
-    public float minReentryInterval = 10f;
-    public float maxReentryInterval = 20f;
+    private float minReentryInterval = 10f;
+    private float maxReentryInterval = 20f;
     private float reentryTimer;
 
     [Header("References")]
@@ -52,8 +58,18 @@ public class BossManager : MonoBehaviour
 
     private void Start()
     {
-        BossStart();
-        startedDialog = true;
+        SetBossReentryInterval();
+        // BossStart();
+
+    }
+
+    void SetBossReentryInterval()
+    {
+        BossSettingPerLevel boss = bossSettingPerLevel.FirstOrDefault(w => w.level == GameManager.Instance.currentLevelIndex + 1);
+        // Debug.Log(GameManager.Instance.currentLevelIndex);
+        minReentryInterval = boss.minReentryInterval;
+        maxReentryInterval = boss.maxReentryInterval;
+        reentryTimer = UnityEngine.Random.Range(minReentryInterval, maxReentryInterval);
     }
     //Boss Appeaar
     void TriggerBossAnim(string animName)
@@ -72,6 +88,7 @@ public class BossManager : MonoBehaviour
     }
     public void BossStart()
     {
+        reentryTimer = UnityEngine.Random.Range(minReentryInterval, maxReentryInterval);
         currentDialogIndex = 0;
         readyToContinue = true;
         startedDialog = true;
@@ -84,7 +101,6 @@ public class BossManager : MonoBehaviour
         bossDialogBox.text = "";
         TriggerBossLeaveAnimation();
 
-        reentryTimer = Random.Range(minReentryInterval, maxReentryInterval);
     }
     //Boss Talk Counter
     
@@ -172,8 +188,8 @@ public class BossManager : MonoBehaviour
     void OnBossAngry()
     {
         BossLeave();
-        GiveWork(workGainByLevel
-        .FirstOrDefault(w => w.level == GameManager.Instance.currentLevelIndex)
+        GiveWork(bossSettingPerLevel
+        .FirstOrDefault(w => w.level == GameManager.Instance.currentLevelIndex + 1)
         .workGiven);
     }
 
@@ -209,7 +225,7 @@ public class BossManager : MonoBehaviour
         }
     }
 
-     void BossReentry()
+    void BossReentry()
     {
         if (!startedDialog)
         {

@@ -9,13 +9,13 @@ public class GameManager : Singleton<GameManager>
     {
         public readonly int levelNumber;
         public int papersToSpawn;
-        public float bossAppearanceRate; //percentage chance of boss appearing this level for every minute
+        // public float bossAppearanceRate; //percentage chance of boss appearing this level for every minute
 
-        public GameLevel(int levelNumber, int papersToSpawn, float bossAppearanceRate = 0f)
+        public GameLevel(int levelNumber, int papersToSpawn)
         {
             this.levelNumber = levelNumber;
             this.papersToSpawn = papersToSpawn;
-            this.bossAppearanceRate = bossAppearanceRate;
+
         }
         
     }
@@ -24,16 +24,16 @@ public class GameManager : Singleton<GameManager>
 
     public List<GameLevel> gameLevels = new List<GameLevel>()
     {
-        new GameLevel(1, 3, 0.1f),
-        new GameLevel(2, 5, 0.2f),
-        new GameLevel(3, 7, 0.3f),
-        new GameLevel(4, 10, 0.4f),
-        new GameLevel(5, 15, 0.5f)
+        new GameLevel(1, 3),
+        new GameLevel(2, 5),
+        new GameLevel(3, 7),
+        new GameLevel(4, 10),
+        new GameLevel(5, 15)
     };
     public float timePerLevelInSeconds = 600f; // 10 minutes per level
     float currentLevelTimeRemaining;
     bool isGameOngoing = false;
-    [HideInInspector] public int currentLevelIndex = 0; //index starts at 0
+    public int currentLevelIndex = 0; //index starts at 0
 
     [Header("Scene Names")]
     public string winSceneName = "WinScreen";
@@ -44,6 +44,11 @@ public class GameManager : Singleton<GameManager>
     public TMPro.TextMeshPro timeDisplayText;
     public TMPro.TextMeshPro taskDisplayText;
 
+    protected override void Awake()
+    {
+        base.Awake();
+        GetLevelIndex();
+    }
     private void Start()
     {
         SetupGame();
@@ -77,7 +82,6 @@ public class GameManager : Singleton<GameManager>
 
     void SetupGame()
     {
-        GetLevelIndex();
         HRMiniGameManager.Instance.SpawnPaper(gameLevels[currentLevelIndex].papersToSpawn);
         isGameOngoing = true;
     }
