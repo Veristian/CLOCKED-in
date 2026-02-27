@@ -24,11 +24,11 @@ public class GameManager : Singleton<GameManager>
 
     public List<GameLevel> gameLevels = new List<GameLevel>()
     {
-        new GameLevel(1, 3),
-        new GameLevel(2, 5),
-        new GameLevel(3, 7),
-        new GameLevel(4, 10),
-        new GameLevel(5, 15)
+        new GameLevel(1, 10),
+        new GameLevel(2, 15),
+        new GameLevel(3, 20),
+        new GameLevel(4, 25),
+        new GameLevel(5, 30)
     };
     public float timePerLevelInSeconds = 600f; // 10 minutes per level
     float currentLevelTimeRemaining;
@@ -123,7 +123,7 @@ public class GameManager : Singleton<GameManager>
 
     }
 
-    void LoseGame()
+    public void LoseGame()
     {
         SetLevelIndex(1); //reset to one
         Debug.Log("GameManager: Player has lost Level " + (currentLevelIndex + 1));

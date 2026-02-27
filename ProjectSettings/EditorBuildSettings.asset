@@ -17,5 +17,14 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/Space Invaders.unity
     guid: 86819429458c2734a88db2bf9ccacc9a
+  - enabled: 1
+    path: Assets/Scenes/WinScene.unity
+    guid: 3196494029d13f34aa89bdb6a5219ef1
+  - enabled: 1
+    path: Assets/Scenes/LoseScene.unity
+    guid: 6caccf6d099bae548862350501324863
+  - enabled: 1
+    path: Assets/Scenes/IntermissionScene.unity
+    guid: 8651b4bf265f7b549b464fceaca995d0
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0

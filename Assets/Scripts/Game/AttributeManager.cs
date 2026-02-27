@@ -74,7 +74,7 @@ public class AttributeManager : Singleton<AttributeManager>
         {
             Debug.Log("Game Over due to sanity");
             countdownActive = false;
-            // GameManager.Instance.GameOver();
+             GameManager.Instance.LoseGame();
         }
         else
         {

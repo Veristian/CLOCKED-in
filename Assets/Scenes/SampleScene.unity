@@ -3190,6 +3190,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67abd7b6705ccaa4dac08c16a5964fb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bossSettingPerLevel:
+  - level: 1
+    workGiven: 3
+    minReentryInterval: 20
+    maxReentryInterval: 30
+  - level: 2
+    workGiven: 5
+    minReentryInterval: 19
+    maxReentryInterval: 29
+  - level: 3
+    workGiven: 7
+    minReentryInterval: 18
+    maxReentryInterval: 28
+  - level: 4
+    workGiven: 9
+    minReentryInterval: 17
+    maxReentryInterval: 27
+  - level: 5
+    workGiven: 11
+    minReentryInterval: 15
+    maxReentryInterval: 25
   timeToBossAngry: 5
   timeToBossSatisfied: 10
   dialogChangeTime: 2
@@ -3202,8 +3223,6 @@ MonoBehaviour:
   - Entire bee movie script
   reprimandDialog: Hey! Look at me when im talking to you
   angryDialog: Fine! If you don't want to listen, then just take more work!
-  minReentryInterval: 10
-  maxReentryInterval: 20
   bossDialogBox: {fileID: 1938146390}
   bossAnimator: {fileID: 1943836600}
 --- !u!1 &514407540
@@ -4713,8 +4732,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timePerLevelInSeconds: 600
   currentLevelIndex: 0
-  winSceneName: WinScreen
-  loseSceneName: LoseScreen
+  winSceneName: WinScene
+  loseSceneName: LoseScene
   gameSceneName: SampleScene
   timeDisplayText: {fileID: 895131054}
   taskDisplayText: {fileID: 1929080687}
