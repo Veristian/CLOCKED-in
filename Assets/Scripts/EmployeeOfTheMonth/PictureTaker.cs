@@ -12,6 +12,11 @@ public class PictureTaker : MonoBehaviour
 
     void Start()
     {
+        if (pictureRenderer == null)
+        {
+            Debug.LogError("Picture Renderer (UI Image) is not assigned.");
+            return;
+        }
         pictureRenderer.sprite = null;
         pictureRenderer.gameObject.SetActive(false);
 
@@ -127,22 +132,29 @@ public class PictureTaker : MonoBehaviour
     /// <summary>
     /// Load previously saved picture (if exists) on app start
     /// </summary>
-    private void LoadSavedPicture()
+    private Sprite LoadSavedPicture()
     {
         string savePath = Path.Combine(Application.persistentDataPath, savedFileName);
         Texture2D texture = LoadTextureFromFile(savePath);
 
         if (texture == null)
-            return;
+            return null;
 
         picture = texture;
-        pictureRenderer.sprite = Sprite.Create(
+        Sprite sprite = Sprite.Create(
             picture,
             new Rect(0, 0, picture.width, picture.height),
             new Vector2(0.5f, 0.5f)
         );
+        if (pictureRenderer == null)
+        {
+            Debug.LogError("Picture Renderer (UI Image) is not assigned.");
+            return sprite;
+        }
 
+        pictureRenderer.sprite = sprite;
         pictureRenderer.gameObject.SetActive(true);
+        return sprite;
     }
 
     private void TakePictureAndShow(int maxSize)
