@@ -52,6 +52,7 @@ public class PunchCard : MonoBehaviour
         {
             if (!string.IsNullOrEmpty(startSceneName))
             {
+                PlayerPrefs.SetInt("CurrentLevel", 1);
                 SceneManager.LoadScene(startSceneName);
             }
             return;

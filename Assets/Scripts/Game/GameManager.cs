@@ -39,6 +39,7 @@ public class GameManager : Singleton<GameManager>
     public string winSceneName = "WinScreen";
     public string loseSceneName = "LoseScreen";
     public string gameSceneName = "SampleScene";
+    public string intermissionSceneName = "IntermissionScene";
 
     [Header("References")]
     public TMPro.TextMeshPro timeDisplayText;
@@ -118,14 +119,14 @@ public class GameManager : Singleton<GameManager>
         else
         {
             SetLevelIndex(currentLevelIndex + 2); //advance to next level
-            UnityEngine.SceneManagement.SceneManager.LoadScene(gameSceneName);
+            UnityEngine.SceneManagement.SceneManager.LoadScene(intermissionSceneName);
         }
 
     }
 
     public void LoseGame()
     {
-        SetLevelIndex(1); //reset to one
+        // SetLevelIndex(1); //reset to one
         Debug.Log("GameManager: Player has lost Level " + (currentLevelIndex + 1));
         UnityEngine.SceneManagement.SceneManager.LoadScene(loseSceneName);
     }
