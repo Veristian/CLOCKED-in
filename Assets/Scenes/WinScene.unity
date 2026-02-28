@@ -427,10 +427,10 @@ RectTransform:
   - {fileID: 691839736}
   - {fileID: 889592422}
   - {fileID: 185634184}
-  - {fileID: 445448325}
   - {fileID: 283412434}
   - {fileID: 593767867}
   - {fileID: 370359439}
+  - {fileID: 445448325}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -520,7 +520,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 283412436}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1156694826}
+        m_TargetAssemblyTypeName: PictureTaker, Assembly-CSharp
+        m_MethodName: GetPicture
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &283412436
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -624,17 +636,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 445448324}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: 0.71180516, w: 0.7023769}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 260425683}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90.764}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -802.00006, y: 340.09857}
-  m_SizeDelta: {x: 201.4513, y: 273.4133}
+  m_SizeDelta: {x: 273.4133, y: 201.4513}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &445448326
 MonoBehaviour:
@@ -658,7 +670,7 @@ MonoBehaviour:
       m_Calls: []
   m_Sprite: {fileID: 0}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -1556,6 +1568,52 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1050058415}
   m_CullTransparentMesh: 1
+--- !u!1 &1156694824
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1156694825}
+  - component: {fileID: 1156694826}
+  m_Layer: 0
+  m_Name: PicureTaker
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1156694825
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1156694824}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 191.7038, y: -7.3447876, z: -459.0923}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1156694826
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1156694824}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34e7784e7b6c58c40a28b3b89206516b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pictureRenderer: {fileID: 445448326}
+  picture: {fileID: 0}
 --- !u!1 &1269082896
 GameObject:
   m_ObjectHideFlags: 0
@@ -1991,3 +2049,4 @@ SceneRoots:
   - {fileID: 1269082899}
   - {fileID: 260425683}
   - {fileID: 2006673530}
+  - {fileID: 1156694825}
