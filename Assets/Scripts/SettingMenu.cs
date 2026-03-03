@@ -9,6 +9,7 @@ public class SettingMenu : MonoBehaviour
     public void BackButton()
     {
         settingMenu.SetActive(false);
+
     }
 
     public void HomeButton()
