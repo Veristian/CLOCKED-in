@@ -284,6 +284,18 @@ public class InputManager : Singleton<InputManager>
                 attitudeText.text = "Gyroscope not available.";
             return;
         }
+        if (AttitudeSensor.current == null)
+        {
+            Debug.LogWarning("Attitude Sensor not available on this device.");
+            if (attitudeText != null)
+                attitudeText.text = "Attitude Sensor not available.";
+            // return;
+        }
+        if (UnityEngine.InputSystem.Gyroscope.current == null)
+        {
+            Debug.LogWarning("Gyroscope device not found.");
+            // return;
+        }
         Vector3 angularVelocity = UnityEngine.InputSystem.Gyroscope.current.angularVelocity.ReadValue();
         Quaternion attitude = AttitudeSensor.current.attitude.ReadValue();
 
@@ -324,8 +336,9 @@ public class InputManager : Singleton<InputManager>
         else
             sector = 0;
 
-        attitudeText.text =
-            $"Device Rotation\nX: {euler.x:F1} Y: {euler.y:F1} Z: {euler.z:F1} and {unityAttitude.x:F1},{unityAttitude.y:F1},{unityAttitude.z:F1},{unityAttitude.w:F1}\nPosition+offset\nX: {(euler.x + rotationOffset.x):F1} Y: {(euler.y + rotationOffset.y):F1} Z: {(euler.z + rotationOffset.z):F1}\nangularVelocity\nX: {angularVelocity.x:F1} Y: {angularVelocity.y:F1} Z: {angularVelocity.z:F1} \n new position\nX: {newPos.x:F1} Y: {newPos.y:F1} Z: {newPos.z:F1}\n Final Direction: {finalDirection:F1} Sector: {sector}";
+        if (attitudeText != null)
+            attitudeText.text =
+                $"Device Rotation\nX: {euler.x:F1} Y: {euler.y:F1} Z: {euler.z:F1} and {unityAttitude.x:F1},{unityAttitude.y:F1},{unityAttitude.z:F1},{unityAttitude.w:F1}\nPosition+offset\nX: {(euler.x + rotationOffset.x):F1} Y: {(euler.y + rotationOffset.y):F1} Z: {(euler.z + rotationOffset.z):F1}\nangularVelocity\nX: {angularVelocity.x:F1} Y: {angularVelocity.y:F1} Z: {angularVelocity.z:F1} \n new position\nX: {newPos.x:F1} Y: {newPos.y:F1} Z: {newPos.z:F1}\n Final Direction: {finalDirection:F1} Sector: {sector}";
 
         CanvasManager.Instance.MoveToSector(sector);
 
