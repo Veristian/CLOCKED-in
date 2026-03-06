@@ -58,6 +58,7 @@ public class CanvasManager : Singleton<CanvasManager>
 
     public void ActivateCamera(int cameraNumber)
     {
+        if (activeSector == cameraNumber) return; // No need to switch if already active
         camera1.gameObject.SetActive(cameraNumber == 1);
         camera2.gameObject.SetActive(cameraNumber == 2);
         camera3.gameObject.SetActive(cameraNumber == 3);
