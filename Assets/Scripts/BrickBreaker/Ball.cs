@@ -40,10 +40,10 @@ public class Ball : MonoBehaviour
     //     InputManager.Instance.OnTouchUpPerformed -= CancelReset;
     // }
 
-    private void Start()
-    {
-        ResetBall();
-    }
+    // private void Start()
+    // {
+    //     ResetBall();
+    // }
 
     public void ResetBall()
     {
@@ -63,6 +63,7 @@ public class Ball : MonoBehaviour
         // IsReady = true;
         // resetCompletionSource = new TaskCompletionSource<bool>();
         // await resetCompletionSource.Task;
+        Debug.Log("Player is ready, launching ball...");
         Vector3 force = new Vector3(Random.Range(-1f, 1f), -1f, 0f);
         rb.AddForce(force.normalized * speed, ForceMode2D.Impulse);
     }

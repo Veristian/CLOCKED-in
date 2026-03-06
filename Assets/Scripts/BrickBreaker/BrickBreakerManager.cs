@@ -42,7 +42,7 @@ public class BrickBreakerManager : Singleton<BrickBreakerManager>
         {
             bricks[i].ResetBrick();
         }
-        ball.ResetBall();
+        // ball.ResetBall();
 
     }
 
