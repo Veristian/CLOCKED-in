@@ -326,12 +326,12 @@ public class InputManager : Singleton<InputManager>
         float finalDirection = Mathf.Atan2(y, x) * Mathf.Rad2Deg;
 
         int sector;
-
-        if (finalDirection < -30f && finalDirection >= -90f)
+        float middleSectorArea = 30f; // Adjust this value to increase/decrease the size of the middle sector
+        if (finalDirection < -middleSectorArea/2 && finalDirection >= -90f)
             sector = 1;
-        else if (finalDirection < 30f && finalDirection >= -30f)
+        else if (finalDirection < middleSectorArea/2 && finalDirection >= -middleSectorArea/2)
             sector = 2;
-        else if (finalDirection < 90f && finalDirection >= 30f)
+        else if (finalDirection < 90f && finalDirection >= middleSectorArea/2)
             sector = 3;
         else
             sector = 0;

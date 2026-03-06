@@ -13,6 +13,7 @@ public class SubmissionBox : MonoBehaviour
             submittedPapers.Add(paper);
             paper.isSubmitted = true;
             paper.draggable3D.SetCanDrag(false);
+            paper.draggable3D.DisableCollider();
             paper.transform.position = transform.position + Vector3.up * 0.5f * submittedPapers.Count;
             // paper.transform.rotation = Quaternion.Euler(0, 0, 0);
             Debug.Log("SubmissionBox: Received paper with Stamp Color " + paper.paperStampColor + " and Label Color " + paper.paperLabelColor);

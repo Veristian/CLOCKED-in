@@ -28,4 +28,11 @@ public class Draggable3D : MonoBehaviour
     {
         CanDrag = canDrag;
     }
+    public void DisableCollider()
+    {
+        if (boxCollider != null)
+        {
+            boxCollider.enabled = false;
+        }
+    }
 }
