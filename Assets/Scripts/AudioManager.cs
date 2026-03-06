@@ -29,6 +29,6 @@ public class AudioManager : MonoBehaviour
     {
         float masterVolume = PlayerPrefs.GetFloat(MASTER_KEY, 1f);
 
-        mixer.SetFloat(AudioController.MIXER_MASTER, Mathf.Log10(masterVolume) * 20);
+        mixer.SetFloat(AudioController.MIXER_MASTER, Mathf.Log10(masterVolume) * -20);
     }
 }
