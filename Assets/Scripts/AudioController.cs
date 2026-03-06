@@ -1,8 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.Audio;
-using UnityEngine.UI;
+    using System.Collections;
+    using System.Collections.Generic;
+    using UnityEngine;
+    using UnityEngine.Audio;
+    using UnityEngine.UI;
 
 public class AudioController : MonoBehaviour
 {
@@ -28,6 +28,6 @@ public class AudioController : MonoBehaviour
 
     void SetMasterVolume(float value)
     {
-        mixer.SetFloat(MIXER_MASTER, Mathf.Log10(value) * 20);
+        mixer.SetFloat(MIXER_MASTER, Mathf.Log10(Mathf.Clamp(value, 0.0001f, 1f)) * 20);
     }
 }
