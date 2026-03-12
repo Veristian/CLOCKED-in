@@ -10,6 +10,7 @@ public enum SFX
     Clank,
     BossWalk,
     Click,
+    Click2,
 
     Select,
 
@@ -101,5 +102,10 @@ public class AudioPooler : Singleton<AudioPooler>
     public void PlayButtonClick()
     {
         Play(SFX.Click);
+    }
+
+    public void PlayButtonClickTwo()
+    {
+        Play(SFX.Click2);
     }
 }
