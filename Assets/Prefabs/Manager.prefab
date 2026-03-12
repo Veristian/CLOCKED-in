@@ -102,6 +102,8 @@ MonoBehaviour:
   isTouching: 0
   onTouchDown: 0
   onTouchUp: 0
+  FakeGyroLeft: 0
+  FakeGyroRight: 0
 --- !u!1 &1533825959179148797
 GameObject:
   m_ObjectHideFlags: 0
@@ -135,6 +137,7 @@ Transform:
   - {fileID: 7578511077725605582}
   - {fileID: 1816436545205017573}
   - {fileID: 7196292578819292522}
+  - {fileID: 6881698668038898917}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3434110336126279442
@@ -307,6 +310,7 @@ MonoBehaviour:
   Sector2Transform: {x: 0, y: 0, z: 0}
   Sector3Transform: {x: 2555, y: 0, z: 0}
   snapDistance: 0.1
+  activeSector: 0
 --- !u!1 &4990978573315429306
 GameObject:
   m_ObjectHideFlags: 0
@@ -539,6 +543,51 @@ MonoBehaviour:
         m_Calls: []
   m_LegacyBlendHint: 0
   m_ComponentOwner: {fileID: 5452406452559213136}
+--- !u!1 &8054547911662721547
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6881698668038898917}
+  - component: {fileID: 5293209873889789186}
+  m_Layer: 0
+  m_Name: AudioPool
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6881698668038898917
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8054547911662721547}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1932554545074431456}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5293209873889789186
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8054547911662721547}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d53d92480349e946bd6ff22e84c0a2f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds: []
 --- !u!1 &8651367283666949149
 GameObject:
   m_ObjectHideFlags: 0
@@ -584,7 +633,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Sanity: 0
+  sanityLossPerSecond: 2
+  sanityLossDuringGrace: 0.1
+  sanityLossPerWorkDone: 10
   WorkProgress: 0
+  sanityEffectMaterial: {fileID: 0}
+  sanitySlider: {fileID: 0}
 --- !u!1 &8996884618090068535
 GameObject:
   m_ObjectHideFlags: 0
