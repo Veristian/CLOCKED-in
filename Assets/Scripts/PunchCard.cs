@@ -5,10 +5,14 @@ using UnityEngine.SceneManagement;
 using UnityEditor;
 #endif
 
+[RequireComponent(typeof(AudioSource))]
 public class PunchCard : MonoBehaviour
 {
     public UIDraggable draggable;
     public RectTransform cardRectTransform;
+    public AudioClip paperRustleClip;
+    public AudioClip clankClip;
+    public AudioSource audioSource;
 
     [Header("Drop Slots")]
     [SerializeField] private RectTransform startSlot;     
@@ -28,7 +32,8 @@ public class PunchCard : MonoBehaviour
     {
         if (draggable == null)
             draggable = GetComponent<UIDraggable>();
-
+        if (audioSource == null)
+            audioSource = GetComponent<AudioSource>();
         if (cardRectTransform == null)
             cardRectTransform = GetComponent<RectTransform>();
 
@@ -36,9 +41,31 @@ public class PunchCard : MonoBehaviour
             settingMenu = GameObject.Find("setting menu"); // Fallback
 
         if (draggable != null)
+        {
             draggable.onEndDrag.AddListener(CheckDrop);
-
+            if (paperRustleClip != null)
+            {
+                draggable.onBeginDrag.AddListener(() => PlayRustle());
+                draggable.onEndDrag.AddListener(() => PlayRustle());
+            }
+        }
+        
         originalPosition = cardRectTransform.anchoredPosition;
+    }
+
+    void PlayRustle()
+    {
+        if (paperRustleClip != null && audioSource != null)
+        {
+            audioSource.PlayOneShot(paperRustleClip);
+        }
+    }
+    void PlayClank()
+    {
+        if (clankClip != null && audioSource != null)
+        {
+            audioSource.PlayOneShot(clankClip);
+        }
     }
 
     private void CheckDrop()
@@ -54,6 +81,7 @@ public class PunchCard : MonoBehaviour
             {
                 PlayerPrefs.SetInt("CurrentLevel", 1);
                 SceneManager.LoadScene(startSceneName);
+                PlayClank();
             }
             return;
         }
@@ -64,12 +92,14 @@ public class PunchCard : MonoBehaviour
             {
                 settingMenu.SetActive(true);
                 cardRectTransform.anchoredPosition = originalPosition;
+                PlayClank();
             }
             return; // remove if you want to allow multiple actions
         }
 
         if (exitSlot != null && GetOverlapRatio(cardRect, GetScreenRect(exitSlot)) >= overlapThreshold)
         {
+            PlayClank();
             QuitApplication();
         }
 

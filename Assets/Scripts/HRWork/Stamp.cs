@@ -63,6 +63,7 @@ public class Stamp : MonoBehaviour
             {
                 stampArea.ApplyStamp(activeStampColor);
                 stamping.SetTrigger("Stamp");
+                AudioPooler.Instance.Play(SFX.Stamp);
             }
         }
 
@@ -91,6 +92,7 @@ public class Stamp : MonoBehaviour
                     stampRenderer.material = defaultMaterial;
                 }
                 stamping.SetTrigger("Stamp");
+                AudioPooler.Instance.Play(SFX.Stamp);
             }
         }
     }

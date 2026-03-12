@@ -62,6 +62,7 @@ public class MinigameSelector : Singleton<MinigameSelector>
     }
     public void OpenSnake()
     {
+        AudioPooler.Instance.Play(SFX.Select);
         if (snake != null)
         {
             snake.SetActive(true);
@@ -75,6 +76,7 @@ public class MinigameSelector : Singleton<MinigameSelector>
 
     public void OpenBrickBreaker()
     {
+        AudioPooler.Instance.Play(SFX.Select);
         if (brickBreaker != null)
         {
             brickBreaker.SetActive(true);
@@ -89,6 +91,7 @@ public class MinigameSelector : Singleton<MinigameSelector>
 
     public void OpenGalaga()
     {
+        AudioPooler.Instance.Play(SFX.Select);
         if (galaga != null)
         {
             galaga.SetActive(true);

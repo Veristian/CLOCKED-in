@@ -1196,6 +1196,7 @@ GameObject:
   m_Component:
   - component: {fileID: 139263062}
   - component: {fileID: 139263061}
+  - component: {fileID: 139263063}
   m_Layer: 0
   m_Name: Audio Manager
   m_TagString: Untagged
@@ -1231,6 +1232,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &139263063
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 139263060}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d53d92480349e946bd6ff22e84c0a2f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds: []
 --- !u!1 &140658734 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2638620972425505365, guid: 91a264f97f705ea488c72a1ca5292a7e, type: 3}
@@ -2726,7 +2740,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh168124
+  m_Name: pb_Mesh32292
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -4203,7 +4217,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -231.4, y: -58.3}
+  m_AnchoredPosition: {x: -231.3999, y: -58.30005}
   m_SizeDelta: {x: 365.1941, y: 90.05383}
   m_Pivot: {x: 0, y: 1}
 --- !u!1 &652131528
@@ -8215,7 +8229,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh168940
+  m_Name: pb_Mesh33104
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -10516,7 +10530,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh168108
+  m_Name: pb_Mesh32276
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2

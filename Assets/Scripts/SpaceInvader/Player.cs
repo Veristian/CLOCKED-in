@@ -85,6 +85,7 @@ public class Player : MonoBehaviour
     {
         if (laser == null) {
             laser = Instantiate(laserPrefab, transform.position, Quaternion.identity, transform.parent);
+            AudioPooler.Instance.Play(SFX.Blast);
         }
     }
 

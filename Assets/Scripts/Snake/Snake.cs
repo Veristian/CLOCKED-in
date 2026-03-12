@@ -192,6 +192,7 @@ public class Snake : MonoBehaviour
             speedText.text = "Speed: " + speedMultiplier.ToString("F1");
             Grow();
             AttributeManager.Instance.IncreaseSanity(sanityPerFoodCurve.Evaluate(score));
+            AudioPooler.Instance.Play(SFX.EatApple);
         }
         else if (other.gameObject.CompareTag("Obstacle"))
         {

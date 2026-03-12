@@ -125,6 +125,7 @@ public class SpaceInvadersManager : Singleton<SpaceInvadersManager>
 
     public void OnInvaderKilled(Invader invader)
     {
+        AudioPooler.Instance.Play(SFX.Explode);
         invader.gameObject.SetActive(false);
 
         SetScore(score + invader.score);

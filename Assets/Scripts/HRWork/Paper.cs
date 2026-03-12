@@ -54,6 +54,9 @@ public class Paper : MonoBehaviour
         if (draggable3D == null)
             draggable3D = GetComponent<Draggable3D>();
         draggable3D.OnEndDrag.AddListener(CheckPlaceInSubmissionBox);
+        draggable3D.OnEndDrag.AddListener(() => AudioPooler.Instance.Play(SFX.PaperRustle));
+        draggable3D.OnBeginDrag.AddListener(() => AudioPooler.Instance.Play(SFX.PaperRustle));
+
         
     }
 

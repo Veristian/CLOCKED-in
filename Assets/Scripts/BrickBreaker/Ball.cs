@@ -112,6 +112,7 @@ public class Ball : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        AudioPooler.Instance.Play(SFX.BallBounce);
         if (collision.gameObject.name == "Brick")
         {
             Brick brick = collision.gameObject.GetComponent<Brick>();
