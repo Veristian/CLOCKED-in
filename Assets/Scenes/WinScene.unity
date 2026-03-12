@@ -661,6 +661,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 766837161}
+        m_TargetAssemblyTypeName: AudioPooler, Assembly-CSharp
+        m_MethodName: PlayButtonClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &283412436
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1207,6 +1219,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 766837161}
+        m_TargetAssemblyTypeName: AudioPooler, Assembly-CSharp
+        m_MethodName: PlayButtonClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &593767869
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1617,7 +1641,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d53d92480349e946bd6ff22e84c0a2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sounds: []
+  sounds:
+  - sfx: 0
+    clip: {fileID: 8300000, guid: 3cd4bb14bd90ef34c8db34870fd8ad4a, type: 3}
+    volume: 1
+  - sfx: 1
+    clip: {fileID: 8300000, guid: 75a7a9ab01e2c4942a4e235533f63832, type: 3}
+    volume: 1
+  - sfx: 2
+    clip: {fileID: 8300000, guid: 258c0869106b63c429b8a6c7c4bad26e, type: 3}
+    volume: 1
+  - sfx: 3
+    clip: {fileID: 8300000, guid: a3913809c34508b4db678b68b34b3eac, type: 3}
+    volume: 1
+  - sfx: 4
+    clip: {fileID: 8300000, guid: 487a7d948bf9f3545985f21437ca99d9, type: 3}
+    volume: 1
+  - sfx: 5
+    clip: {fileID: 8300000, guid: a131f2dad07728e42804c0293e0a9566, type: 3}
+    volume: 1
+  - sfx: 6
+    clip: {fileID: 8300000, guid: 0707ab0e73a1c734ba05c806bd29c358, type: 3}
+    volume: 1
+  - sfx: 7
+    clip: {fileID: 8300000, guid: 1e9365ca0d0aaa84a8a1b1aa4fe9dcc9, type: 3}
+    volume: 1
+  - sfx: 8
+    clip: {fileID: 8300000, guid: 73e5a5b9fd539b9419b66a7e160d73ce, type: 3}
+    volume: 1
+  - sfx: 9
+    clip: {fileID: 8300000, guid: 1600f6a9427fdc441ba055ee7c56cc9e, type: 3}
+    volume: 1
 --- !u!4 &766837162
 Transform:
   m_ObjectHideFlags: 0
