@@ -37,7 +37,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _BreathSpeed: 2
+    - _BreathSpeed: 0
     - _NoiseDensity: 3.7
     - _NoiseIntensity: 2
     - _NoisePower: 2

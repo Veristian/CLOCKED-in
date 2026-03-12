@@ -3238,24 +3238,24 @@ MonoBehaviour:
   bossSettingPerLevel:
   - level: 1
     workGiven: 3
-    minReentryInterval: 20
-    maxReentryInterval: 30
+    minReentryInterval: 30
+    maxReentryInterval: 40
   - level: 2
     workGiven: 5
-    minReentryInterval: 19
-    maxReentryInterval: 29
+    minReentryInterval: 29
+    maxReentryInterval: 39
   - level: 3
     workGiven: 7
-    minReentryInterval: 18
-    maxReentryInterval: 28
+    minReentryInterval: 28
+    maxReentryInterval: 38
   - level: 4
     workGiven: 9
-    minReentryInterval: 17
-    maxReentryInterval: 27
+    minReentryInterval: 27
+    maxReentryInterval: 37
   - level: 5
     workGiven: 11
-    minReentryInterval: 15
-    maxReentryInterval: 25
+    minReentryInterval: 25
+    maxReentryInterval: 35
   timeToBossAngry: 5
   timeToBossSatisfied: 10
   dialogChangeTime: 2
