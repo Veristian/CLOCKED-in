@@ -64,6 +64,7 @@ public class AudioPooler : Singleton<AudioPooler>
         obj.transform.parent = transform;
 
         AudioSource source = obj.AddComponent<AudioSource>();
+        source.outputAudioMixerGroup = AudioManager.instance.mixer.FindMatchingGroups("Master")[0];
         pool.Add(source);
 
         return source;

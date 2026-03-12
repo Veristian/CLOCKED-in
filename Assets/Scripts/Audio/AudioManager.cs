@@ -6,7 +6,7 @@ using UnityEngine.Audio;
 public class AudioManager : MonoBehaviour
 {
     public static AudioManager instance;
-    [SerializeField] AudioMixer mixer;
+    public AudioMixer mixer;
     public const string MASTER_KEY = "Master Volume";
 
     void Awake()
