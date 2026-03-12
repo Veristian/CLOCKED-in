@@ -5,7 +5,7 @@ using System.Linq;
 using TMPro;
 using UnityEngine;
  
-
+[RequireComponent(typeof(AudioSource))]
 public class BossManager : MonoBehaviour
 {
     [Serializable]
@@ -51,6 +51,8 @@ public class BossManager : MonoBehaviour
     private float minReentryInterval = 10f;
     private float maxReentryInterval = 20f;
     private float reentryTimer;
+    AudioSource audioSource;
+    public AudioClip[] bossAudioClips;
 
     [Header("References")]
     public TextMeshProUGUI bossDialogBox;
@@ -58,6 +60,7 @@ public class BossManager : MonoBehaviour
 
     private void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         SetBossReentryInterval();
         // BossStart();
 
@@ -157,7 +160,7 @@ public class BossManager : MonoBehaviour
         {
             
             bossDialogBox.text = bossDialogBox.text + dialog[bossDialogBox.text.Length];
-            
+            audioSource.PlayOneShot(bossAudioClips[UnityEngine.Random.Range(0, bossAudioClips.Length)]);
         }
         else
         {
