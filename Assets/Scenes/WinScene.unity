@@ -1657,21 +1657,24 @@ MonoBehaviour:
   - sfx: 4
     clip: {fileID: 8300000, guid: 487a7d948bf9f3545985f21437ca99d9, type: 3}
     volume: 1
-  - sfx: 5
-    clip: {fileID: 8300000, guid: a131f2dad07728e42804c0293e0a9566, type: 3}
-    volume: 1
-  - sfx: 6
-    clip: {fileID: 8300000, guid: 0707ab0e73a1c734ba05c806bd29c358, type: 3}
-    volume: 1
-  - sfx: 7
-    clip: {fileID: 8300000, guid: 1e9365ca0d0aaa84a8a1b1aa4fe9dcc9, type: 3}
-    volume: 1
-  - sfx: 8
-    clip: {fileID: 8300000, guid: 73e5a5b9fd539b9419b66a7e160d73ce, type: 3}
-    volume: 1
-  - sfx: 9
+  - sfx: 10
     clip: {fileID: 8300000, guid: 1600f6a9427fdc441ba055ee7c56cc9e, type: 3}
     volume: 1
+  - sfx: 6
+    clip: {fileID: 8300000, guid: a131f2dad07728e42804c0293e0a9566, type: 3}
+    volume: 1
+  - sfx: 7
+    clip: {fileID: 8300000, guid: 0707ab0e73a1c734ba05c806bd29c358, type: 3}
+    volume: 1
+  - sfx: 8
+    clip: {fileID: 8300000, guid: 1e9365ca0d0aaa84a8a1b1aa4fe9dcc9, type: 3}
+    volume: 1
+  - sfx: 9
+    clip: {fileID: 8300000, guid: 73e5a5b9fd539b9419b66a7e160d73ce, type: 3}
+    volume: 1
+  - sfx: 5
+    clip: {fileID: 8300000, guid: 631ee731e89206846802dc1be8692e7d, type: 3}
+    volume: 0.3
 --- !u!4 &766837162
 Transform:
   m_ObjectHideFlags: 0
