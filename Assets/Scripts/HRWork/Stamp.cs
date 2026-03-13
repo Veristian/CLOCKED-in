@@ -53,7 +53,19 @@ public class Stamp : MonoBehaviour
     void OnStartStamp()
     {
         Collider[] overlap = Physics.OverlapBox(transform.position, stampCollider.size*transform.localScale.x, Quaternion.identity, interactableLayer);
-        Collider other = overlap.Length > 0 ? overlap[0] : null;
+        Collider other = null;
+        float closestDistance = float.MaxValue;
+
+        foreach (Collider col in overlap)
+        {
+            float dist = (col.ClosestPoint(transform.position) - transform.position).sqrMagnitude;
+
+            if (dist < closestDistance)
+            {
+                closestDistance = dist;
+                other = col;
+            }
+        }
         if (other == null) return;
         if (other.CompareTag("StampArea"))
         {
