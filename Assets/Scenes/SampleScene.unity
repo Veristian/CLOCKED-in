@@ -11333,19 +11333,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7934396080884953513, guid: ad27547063206de4ea739aa35490abe5, type: 3}
       propertyPath: sanityPerScoreCurve.m_Curve.Array.data[0].time
-      value: 4.563385
+      value: 20.027374
       objectReference: {fileID: 0}
     - target: {fileID: 7934396080884953513, guid: ad27547063206de4ea739aa35490abe5, type: 3}
       propertyPath: sanityPerScoreCurve.m_Curve.Array.data[1].time
-      value: 1004.56335
+      value: 1020.02734
       objectReference: {fileID: 0}
     - target: {fileID: 7934396080884953513, guid: ad27547063206de4ea739aa35490abe5, type: 3}
       propertyPath: sanityPerScoreCurve.m_Curve.Array.data[0].value
-      value: 10.367399
+      value: 4.9770126
       objectReference: {fileID: 0}
     - target: {fileID: 7934396080884953513, guid: ad27547063206de4ea739aa35490abe5, type: 3}
       propertyPath: sanityPerScoreCurve.m_Curve.Array.data[1].value
-      value: 59.3674
+      value: 53.977013
       objectReference: {fileID: 0}
     - target: {fileID: 7934396080884953513, guid: ad27547063206de4ea739aa35490abe5, type: 3}
       propertyPath: sanityPerScoreCurve.m_Curve.Array.data[0].outSlope
@@ -12102,19 +12102,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5032779215130205093, guid: f9772970e810bca44923db25149af4a1, type: 3}
       propertyPath: sanityPerFoodCurve.m_Curve.Array.data[0].time
-      value: 0
+      value: 0.31061935
       objectReference: {fileID: 0}
     - target: {fileID: 5032779215130205093, guid: f9772970e810bca44923db25149af4a1, type: 3}
       propertyPath: sanityPerFoodCurve.m_Curve.Array.data[1].time
-      value: 100
+      value: 100.31062
       objectReference: {fileID: 0}
     - target: {fileID: 5032779215130205093, guid: f9772970e810bca44923db25149af4a1, type: 3}
       propertyPath: sanityPerFoodCurve.m_Curve.Array.data[0].value
-      value: 9.797625
+      value: 17.25434
       objectReference: {fileID: 0}
     - target: {fileID: 5032779215130205093, guid: f9772970e810bca44923db25149af4a1, type: 3}
       propertyPath: sanityPerFoodCurve.m_Curve.Array.data[1].value
-      value: 24.797625
+      value: 32.25434
       objectReference: {fileID: 0}
     - target: {fileID: 5032779215130205093, guid: f9772970e810bca44923db25149af4a1, type: 3}
       propertyPath: sanityPerFoodCurve.m_Curve.Array.data[0].outSlope
