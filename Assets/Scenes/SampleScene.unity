@@ -2726,7 +2726,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh38746
+  m_Name: pb_Mesh148032
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -3395,18 +3395,18 @@ MonoBehaviour:
   timeToBossSatisfied: 10
   dialogChangeTime: 2
   bossConverstation:
-  - Hey. look here a second
+  - Hey, there's something on your face
   - I hate life
   - Steven is gay
   - My wife cheated on me
   - I want ice cream
   - '*The entire Bee Movie script*'
-  - My bee step on my dog.
-  - My therapist ias depression.
-  - No Game No Live still has no season 2.
-  - my dad ate my cat.
-  - The toilet is clogged with sushi.
-  - They put pizza on my pineapple.
+  - My bee step on my dog
+  - My therapist has depression
+  - No Game No Life still has no season 2
+  - My dad ate my cat
+  - The toilet is clogged with sushi
+  - They put pizza on my pineapple
   reprimandDialog: Hey! Look at me when im talking to you
   angryDialog: Fine! If you don't want to listen, then just take more work!
   bossAudioClips:
@@ -8795,7 +8795,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh39582
+  m_Name: pb_Mesh150570
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -11171,7 +11171,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh38730
+  m_Name: pb_Mesh147972
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
