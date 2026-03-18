@@ -2726,7 +2726,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh61874
+  m_Name: pb_Mesh38746
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -3420,6 +3420,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 1edb92c1c901eb94aa00f2ebd064c0e3, type: 3}
   bossDialogBox: {fileID: 1938146390}
   bossAnimator: {fileID: 1943836600}
+  bossWarningDirector: {fileID: 736110595}
 --- !u!82 &479660497
 AudioSource:
   m_ObjectHideFlags: 0
@@ -4660,6 +4661,7 @@ GameObject:
   - component: {fileID: 736110592}
   - component: {fileID: 736110591}
   - component: {fileID: 736110594}
+  - component: {fileID: 736110595}
   m_Layer: 5
   m_Name: SanityCanvas
   m_TagString: Untagged
@@ -4680,6 +4682,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2012917918}
+  - {fileID: 1690462246}
   - {fileID: 544613314}
   - {fileID: 903175874}
   - {fileID: 645350394}
@@ -4768,6 +4771,25 @@ MonoBehaviour:
   pauseButton: {fileID: 544613313}
   settingMenu: {fileID: 2012917917}
   useTimeScale: 1
+--- !u!320 &736110595
+PlayableDirector:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 736110589}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_PlayableAsset: {fileID: 11400000, guid: 967470d7008f7604a8f2ceab17ecb877, type: 2}
+  m_InitialState: 0
+  m_WrapMode: 2
+  m_DirectorUpdateMode: 1
+  m_InitialTime: 0
+  m_SceneBindings:
+  - key: {fileID: 6989658155322814696, guid: 967470d7008f7604a8f2ceab17ecb877, type: 2}
+    value: {fileID: 1690462243}
+  m_ExposedReferences:
+    m_References: []
 --- !u!1 &762584312 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6212549166380897330, guid: 91a264f97f705ea488c72a1ca5292a7e, type: 3}
@@ -8773,7 +8795,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh48822
+  m_Name: pb_Mesh39582
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -10696,6 +10718,81 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 9097979508267286119, guid: 91a264f97f705ea488c72a1ca5292a7e, type: 3}
   m_PrefabInstance: {fileID: 541694360}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1690462243
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1690462246}
+  - component: {fileID: 1690462245}
+  - component: {fileID: 1690462244}
+  m_Layer: 5
+  m_Name: Boss Warning
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!114 &1690462244
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1690462243}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 11e6f279ade864c6d951e8db74c11b54, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1690462245
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1690462243}
+  m_CullTransparentMesh: 1
+--- !u!224 &1690462246
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1690462243}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1.11111, y: 1.11111, z: 1.11111}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 736110590}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -9.001221, y: 423.33344}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1713076999
 GameObject:
   m_ObjectHideFlags: 0
@@ -11074,7 +11171,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh61814
+  m_Name: pb_Mesh38730
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -12901,7 +12998,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1752423017015500607, guid: 3ac502e49b2188f4485eaa66043ccabb, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2129304245628536835, guid: 3ac502e49b2188f4485eaa66043ccabb, type: 3}
       propertyPath: m_Value
@@ -12913,15 +13010,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3060573292990200625, guid: 3ac502e49b2188f4485eaa66043ccabb, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3060573292990200625, guid: 3ac502e49b2188f4485eaa66043ccabb, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3060573292990200625, guid: 3ac502e49b2188f4485eaa66043ccabb, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3506701731670819620, guid: 3ac502e49b2188f4485eaa66043ccabb, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -13109,11 +13206,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8841720849572112234, guid: 3ac502e49b2188f4485eaa66043ccabb, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8841720849572112234, guid: 3ac502e49b2188f4485eaa66043ccabb, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

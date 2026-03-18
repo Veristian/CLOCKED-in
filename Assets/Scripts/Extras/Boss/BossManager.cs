@@ -1,9 +1,10 @@
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Playables;  
 
 [RequireComponent(typeof(AudioSource))]
 public class BossManager : MonoBehaviour
@@ -36,13 +37,11 @@ public class BossManager : MonoBehaviour
     public float timeToBossAngry = 5f;
     public float timeToBossSatisfied = 10f;
     public float dialogChangeTime = 2f;
-    public List<string> bossConverstation;  
-    // public List<string> bossListenToMe;
+    public List<string> bossConverstation;
     public string reprimandDialog = "Hey! Look at me when im talking to you";
     public string angryDialog = "Fine! If you don't want to listen, then just take more work!";
     bool startedDialog;
     float bossAngryTimer;
-    // float bossSatisfiedTimer;  
     float dialogTimer;
     string currentDialog;
     int currentDialogIndex;
@@ -58,25 +57,28 @@ public class BossManager : MonoBehaviour
     public TextMeshProUGUI bossDialogBox;
     public Animator bossAnimator;
 
-    private List<string> selectedConversations;   // holds the 6 random ones for this boss visit
+    [Header("Warning Timeline")]
+    public PlayableDirector bossWarningDirector;  
+
+    private List<string> selectedConversations; // holds the 6 random line for this boss visit
+    private bool hasPlayedWarning;   // ← ONLY NEW FIELD
 
     private void Start()
     {
         audioSource = GetComponent<AudioSource>();
         SetBossReentryInterval();
+        hasPlayedWarning = false;   
         // BossStart();
-
     }
 
     void SetBossReentryInterval()
     {
         BossSettingPerLevel boss = bossSettingPerLevel.FirstOrDefault(w => w.level == GameManager.Instance.currentLevelIndex + 1);
-        // Debug.Log(GameManager.Instance.currentLevelIndex);
         minReentryInterval = boss.minReentryInterval;
         maxReentryInterval = boss.maxReentryInterval;
         reentryTimer = UnityEngine.Random.Range(minReentryInterval, maxReentryInterval);
     }
-    //Boss Appeaar
+
     void TriggerBossAnim(string animName)
     {
         if (bossAnimator == null) return;
@@ -86,11 +88,18 @@ public class BossManager : MonoBehaviour
     {
         TriggerBossAnim("Enter");
     }
-    //Boss Leave
     void TriggerBossLeaveAnimation()
     {
         TriggerBossAnim("Leave");
     }
+
+    // play the boss warning timeline
+    void PlayBossWarning()
+    {
+        if (bossWarningDirector != null)
+            bossWarningDirector.Play();
+    }
+
     public void BossStart()
     {
         reentryTimer = UnityEngine.Random.Range(minReentryInterval, maxReentryInterval);
@@ -104,21 +113,21 @@ public class BossManager : MonoBehaviour
         bossAngryTimer = 0;
         TriggerBossStartAnimation();
     }
+
     public void BossLeave()
     {
         startedDialog = false;
         bossDialogBox.text = "";
+        hasPlayedWarning = false;   // reset for next countdown
         TriggerBossLeaveAnimation();
-
     }
-    //Boss Talk Counter
 
-    //Boss Dialog Spawner
     void SetDialog(string dialog)
     {
         currentDialog = dialog;
         bossDialogBox.text = "";
     }
+
     void Dialog()
     {
         if (!startedDialog)
@@ -137,8 +146,7 @@ public class BossManager : MonoBehaviour
         }
         else
         {
-
-            if (!readyToContinue)//&& dialogTimer < 0)
+            if (!readyToContinue)
             {
                 AnimateDialog(reprimandDialog);
             }
@@ -153,10 +161,10 @@ public class BossManager : MonoBehaviour
                     BossLeave();
                 }
             }
-
         }
         dialogTimer -= Time.deltaTime;
     }
+
     bool AnimateDialog(string dialog)
     {
         if (bossDialogBox == null) return false;
@@ -165,31 +173,25 @@ public class BossManager : MonoBehaviour
 
         if (bossDialogBox.text != dialog)
         {
-
             bossDialogBox.text = bossDialogBox.text + dialog[bossDialogBox.text.Length];
             audioSource.PlayOneShot(bossAudioClips[UnityEngine.Random.Range(0, bossAudioClips.Length)]);
         }
         else
         {
-
             dialogTimer = dialogChangeTime;
-            // readyToContinue = true;
-            Debug.Log(bossDialogBox.text);
-            Debug.Log(dialog);
             return true;
         }
         return false;
-
     }
+
     private void FixedUpdate()
     {
         Timer();
         CallAttention();
         Dialog();
         BossReentry();
-
     }
-    //Boss Gives more works
+
     void GiveWork(int amount)
     {
         HRMiniGameManager.Instance.SpawnPaper(amount);
@@ -215,18 +217,18 @@ public class BossManager : MonoBehaviour
             OnBossAngry();
         }
     }
-    //Boss detect ur listening
+
     bool CheckAttention()
     {
         return CanvasManager.Instance.activeSector == 2;
     }
+
     void CallAttention()
     {
         if (!startedDialog) return;
         if (!CheckAttention() && readyToContinue)
         {
             readyToContinue = false;
-            Debug.Log("asdas");
             currentDialogIndex = Mathf.Clamp(currentDialogIndex - 1, 0, selectedConversations.Count);
         }
         else if (CheckAttention() && !readyToContinue)
@@ -240,11 +242,18 @@ public class BossManager : MonoBehaviour
         if (!startedDialog)
         {
             reentryTimer -= Time.fixedDeltaTime;
+
+            // 3 seconds before reentry play warning
+            if (reentryTimer <= 3f && !hasPlayedWarning)
+            {
+                PlayBossWarning();
+                hasPlayedWarning = true;
+            }
+
             if (reentryTimer <= 0)
             {
                 BossStart();
             }
         }
     }
-
 }
