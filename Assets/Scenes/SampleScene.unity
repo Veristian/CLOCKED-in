@@ -5164,11 +5164,11 @@ PrefabInstance:
       objectReference: {fileID: 8300000, guid: 631ee731e89206846802dc1be8692e7d, type: 3}
     - target: {fileID: 5293209873889789186, guid: 5db3ddf0f0912fa44bf73808501b1e2a, type: 3}
       propertyPath: sounds.Array.data[0].volume
-      value: 1
+      value: 0.505
       objectReference: {fileID: 0}
     - target: {fileID: 5293209873889789186, guid: 5db3ddf0f0912fa44bf73808501b1e2a, type: 3}
       propertyPath: sounds.Array.data[1].volume
-      value: 1
+      value: 0.255
       objectReference: {fileID: 0}
     - target: {fileID: 5293209873889789186, guid: 5db3ddf0f0912fa44bf73808501b1e2a, type: 3}
       propertyPath: sounds.Array.data[2].volume
@@ -5192,15 +5192,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5293209873889789186, guid: 5db3ddf0f0912fa44bf73808501b1e2a, type: 3}
       propertyPath: sounds.Array.data[7].volume
-      value: 1
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 5293209873889789186, guid: 5db3ddf0f0912fa44bf73808501b1e2a, type: 3}
       propertyPath: sounds.Array.data[8].volume
-      value: 1
+      value: 0.085
       objectReference: {fileID: 0}
     - target: {fileID: 5293209873889789186, guid: 5db3ddf0f0912fa44bf73808501b1e2a, type: 3}
       propertyPath: sounds.Array.data[9].volume
-      value: 1
+      value: 0.15
       objectReference: {fileID: 0}
     - target: {fileID: 5293209873889789186, guid: 5db3ddf0f0912fa44bf73808501b1e2a, type: 3}
       propertyPath: sounds.Array.data[10].volume
@@ -8537,7 +8537,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 24300002, guid: c14040136f3684841a4cccd5f8982930, type: 2}
   m_audioClip: {fileID: 8300000, guid: dbb1636dd036fb548bb91f1e85498e30, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.4
+  m_Volume: 0.3
   m_Pitch: 1
   Loop: 1
   Mute: 0
