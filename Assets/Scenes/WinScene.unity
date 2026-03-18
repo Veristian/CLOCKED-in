@@ -283,7 +283,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 24300002, guid: c14040136f3684841a4cccd5f8982930, type: 2}
   m_audioClip: {fileID: 8300000, guid: a472ea9e400d1b041a10bce888d90848, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.514
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -1644,10 +1644,10 @@ MonoBehaviour:
   sounds:
   - sfx: 0
     clip: {fileID: 8300000, guid: 3cd4bb14bd90ef34c8db34870fd8ad4a, type: 3}
-    volume: 1
+    volume: 0.505
   - sfx: 1
     clip: {fileID: 8300000, guid: 75a7a9ab01e2c4942a4e235533f63832, type: 3}
-    volume: 1
+    volume: 0.255
   - sfx: 2
     clip: {fileID: 8300000, guid: 258c0869106b63c429b8a6c7c4bad26e, type: 3}
     volume: 1
@@ -1665,13 +1665,13 @@ MonoBehaviour:
     volume: 1
   - sfx: 7
     clip: {fileID: 8300000, guid: 0707ab0e73a1c734ba05c806bd29c358, type: 3}
-    volume: 1
+    volume: 0.1
   - sfx: 8
     clip: {fileID: 8300000, guid: 1e9365ca0d0aaa84a8a1b1aa4fe9dcc9, type: 3}
-    volume: 1
+    volume: 0.085
   - sfx: 9
     clip: {fileID: 8300000, guid: 73e5a5b9fd539b9419b66a7e160d73ce, type: 3}
-    volume: 1
+    volume: 0.15
   - sfx: 5
     clip: {fileID: 8300000, guid: 631ee731e89206846802dc1be8692e7d, type: 3}
     volume: 0.3

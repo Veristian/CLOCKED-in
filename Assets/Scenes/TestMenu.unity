@@ -418,10 +418,10 @@ AudioSource:
   m_GameObject: {fileID: 34207219}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: c14040136f3684841a4cccd5f8982930, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.3
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -3180,7 +3180,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 24300002, guid: c14040136f3684841a4cccd5f8982930, type: 2}
   m_audioClip: {fileID: 8300000, guid: dbb1636dd036fb548bb91f1e85498e30, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.3
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -14175,7 +14175,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2129304245628536835, guid: 3ac502e49b2188f4485eaa66043ccabb, type: 3}
       propertyPath: m_MinValue
-      value: 0.01
+      value: 0.0001
       objectReference: {fileID: 0}
     - target: {fileID: 3506701731670819620, guid: 3ac502e49b2188f4485eaa66043ccabb, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
