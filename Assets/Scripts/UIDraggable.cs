@@ -40,7 +40,7 @@ public class UIDraggable : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-        if (!CanDrag || CanvasManager.Instance.activeSector != 2)
+        if (!CanDrag)
         {
             eventData.pointerDrag = null;
             return;

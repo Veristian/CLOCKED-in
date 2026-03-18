@@ -53,6 +53,10 @@ public class InputManager : Singleton<InputManager>
     public bool FakeGyroLeft;
     public bool FakeGyroRight;
 
+    [Header("Gyro Settings")]
+    [SerializeField] private float middleSectorArea = 30f; // Adjust this value to increase/decrease the size of the middle sector
+    [SerializeField] private float extraSectorArea = 10f; // Adjust this value to increase/decrease the size of the extra sectors on the sides
+
     protected override void Awake()
     {
         
@@ -326,15 +330,17 @@ public class InputManager : Singleton<InputManager>
         float finalDirection = Mathf.Atan2(y, x) * Mathf.Rad2Deg;
 
         int sector;
-        float middleSectorArea = 30f; // Adjust this value to increase/decrease the size of the middle sector
-        if (finalDirection < -middleSectorArea/2 && finalDirection >= -90f)
+        if (finalDirection < (-middleSectorArea/2 - extraSectorArea) && finalDirection >= -90f)
             sector = 1;
-        else if (finalDirection < middleSectorArea/2 && finalDirection >= -middleSectorArea/2)
-            sector = 2;
-        else if (finalDirection < 90f && finalDirection >= middleSectorArea/2)
+        else if (finalDirection < 90f && finalDirection >= (middleSectorArea/2 + extraSectorArea))
             sector = 3;
+        // else if (finalDirection < (middleSectorArea/2 - extraSectorArea) && finalDirection >= (-middleSectorArea/2 + extraSectorArea))
+        //     sector = 2;
+        else if (((finalDirection < (middleSectorArea/2 - extraSectorArea) && finalDirection >= -middleSectorArea/2) && CanvasManager.Instance.activeSector == 3) || ((finalDirection < middleSectorArea/2 && finalDirection >= (-middleSectorArea/2 + extraSectorArea)) && CanvasManager.Instance.activeSector == 1))
+            sector = 2;
+
         else
-            sector = 0;
+            return; // if it's in the extra sector, do nothing
 
         if (attitudeText != null)
             attitudeText.text =
