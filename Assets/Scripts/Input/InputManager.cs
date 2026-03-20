@@ -63,7 +63,6 @@ public class InputManager : Singleton<InputManager>
         base.Awake();
         playerInput = GetComponent<PlayerInput>();
 
-        // playerInput.actions["TouchDelta"].performed += OnTouchDelta;
         playerInput.actions["TouchContact"].performed += OnTouchDown;
         playerInput.actions["TouchContact"].canceled += OnTouchUp;
         playerInput.actions["TouchPos"].performed += OnTouchPosition;
@@ -73,8 +72,6 @@ public class InputManager : Singleton<InputManager>
         playerInput.actions["D"].performed += ctx => OnSwipeRight?.Invoke();
         playerInput.actions["Space"].performed += ctx => OnVolUpPerformed?.Invoke();
         playerInput.actions["Space"].performed += ctx => OnVolDownPerformed?.Invoke();
-        // playerInput.actions["TouchStartTime"].performed += ctx => OnTouchStartTime(ctx.ReadValue<float>());
-        // playerInput.actions["TouchStartPosition"]. += OnTouchStartPosition;
         
         gyro = UnityEngine.InputSystem.Gyroscope.current;
         if (UnityEngine.InputSystem.Gyroscope.current != null)
@@ -88,66 +85,6 @@ public class InputManager : Singleton<InputManager>
     }
 
 
-
-    // private void OnEnable()
-    // {
-    //     EnhancedTouchSupport.Enable();
-    //     Touch.onFingerDown += FingerDown;
-    //     Touch.onFingerMove += FingerMove;
-    //     Touch.onFingerUp += FingerUp;
-    // }
-
-    // private void OnDisable()
-    // {
-    //     Touch.onFingerDown -= FingerDown;
-    //     Touch.onFingerMove -= FingerMove;
-    //     Touch.onFingerUp -= FingerUp;
-    //     EnhancedTouchSupport.Disable();
-    // }
-
-    // private void FingerDown(Finger finger)
-    // {
-    //     startPos = finger.screenPosition;
-    //     startTime = Time.time;
-    //     isPanning = true;
-    // }
-
-    // private void FingerMove(Finger finger)
-    // {
-    //     if (!isPanning) return;
-
-    //     Vector2 delta = finger.delta;
-    //     OnPan?.Invoke(delta);
-    // }
-
-    // private void FingerUp(Finger finger)
-    // {
-    //     float time = Time.time - startTime;
-    //     Vector2 endPos = finger.screenPosition;
-    //     Vector2 distance = endPos - startPos;
-
-    //     isPanning = false;
-
-    //     if (distance.magnitude >= swipeMinDistance && time <= swipeMaxTime)
-    //     {
-    //         OnSwipe?.Invoke(distance.normalized);
-    //     }
-    // }
-    // public void OnTouchDelta(InputAction.CallbackContext context)
-    // {
-    //     Vector2 delta = context.ReadValue<Vector2>();
-    //     Debug.Log("Touch Delta: " + delta);
-    //     if (delta.magnitude >= swipeMinDistance)
-    //     {
-    //         isPanning = false;
-    //         OnSwipe?.Invoke(delta);
-    //     }
-    //     else
-    //     {
-    //         isPanning = true;
-    //         OnPan?.Invoke(delta);
-    //     }
-    // }
     public void OnTouchDown(InputAction.CallbackContext context)
     {
         // This can be used to detect touch start or end if needed
@@ -190,45 +127,25 @@ public class InputManager : Singleton<InputManager>
             SwipeHandler(distance.normalized);
         }
         OnTouchUpPerformed?.Invoke();
-        // Debug.Log("Touch Contact: " + isTouching + touchPosition);
     }
     public void OnTouchPosition(InputAction.CallbackContext context)
     {
         Vector2 position = context.ReadValue<Vector2>();
         touchPosition = position;
-        // Debug.Log("Touch Position: " + position);
     }
 
-    // public void OnTouchStartTime(InputAction.CallbackContext context)
-    // {
-    //     if (!context.performed)
-    //         return;
-
-    //     double touchStartTime = context.ReadValue<double>();
-    //     Debug.Log($"Touch start time: {touchStartTime}");
-    // }
-
-
-    // public void OnTouchStartPosition(Vector2 position)
-    // {
-    //     startPos = position;
-    //     Debug.Log("Touch Start Position: " + startPos);
-    // }
 
     public void SwipeHandler(Vector2 direction)
     {
-        // Debug.Log("Swipe Detected in direction: " + direction);
         //detect swipe for all 4 directions
         if (Mathf.Abs(direction.x) > Mathf.Abs(direction.y))
         {
             if (direction.x > 0)
             {
-                // Debug.Log("Swipe Right");
                 OnSwipeRight?.Invoke();
             }
             else
             {
-                // Debug.Log("Swipe Left");
                 OnSwipeLeft?.Invoke();
             }
         }
@@ -236,32 +153,14 @@ public class InputManager : Singleton<InputManager>
         {
             if (direction.y > 0)
             {
-                // Debug.Log("Swipe Up");
                 OnSwipeUp?.Invoke();
             }
             else
             {
-                // Debug.Log("Swipe Down");
                 OnSwipeDown?.Invoke();
             }
         }
     }
-
-    
-
-    // public void OnSwipeInput(InputAction.CallbackContext context)
-    // {
-    //     Vector2 swipeDirection = context.ReadValue<Vector2>();
-    //     OnSwipe?.Invoke();
-    // }
-
-    // public void OnPanInput(InputAction.CallbackContext context)
-    // {
-    //     Vector2 panDelta = context.ReadValue<Vector2>();
-    //     OnPan?.Invoke(panDelta);
-    // }
-
-
 
 
     void Update()
@@ -273,12 +172,6 @@ public class InputManager : Singleton<InputManager>
         FakeGyroRight = playerInput.actions["J"].WasPressedThisFrame();
 
     }
-
-    // private void InputEventsRecognizer()
-    // {
-        
-    // }
-
     private void GyroInputUpdate()
     {
         
@@ -334,13 +227,10 @@ public class InputManager : Singleton<InputManager>
             sector = 1;
         else if (finalDirection < 90f && finalDirection >= (middleSectorArea/2 + extraSectorArea))
             sector = 3;
-        // else if (finalDirection < (middleSectorArea/2 - extraSectorArea) && finalDirection >= (-middleSectorArea/2 + extraSectorArea))
-        //     sector = 2;
         else if (((finalDirection < (middleSectorArea/2 - extraSectorArea) && finalDirection >= -middleSectorArea/2) && CanvasManager.Instance.activeSector == 3) || ((finalDirection < middleSectorArea/2 && finalDirection >= (-middleSectorArea/2 + extraSectorArea)) && CanvasManager.Instance.activeSector == 1))
             sector = 2;
-
         else
-            return; // if it's in the extra sector, do nothing
+            return; 
 
         if (attitudeText != null)
             attitudeText.text =

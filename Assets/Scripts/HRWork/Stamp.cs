@@ -18,28 +18,7 @@ public class Stamp : MonoBehaviour
     public Animator stamping;
 
     Draggable3D draggable3D;
-    // void OnTriggerEnter(Collider other)
-    // {
-    //     if (other.CompareTag("StampArea"))
-    //     {
-    //         Debug.Log("StampHandler: OnTriggerEnter with " + other.name);
-    //         StampHandler stampArea = other.GetComponent<StampHandler>();
-    //         if (stampArea != null)
-    //         {
-    //             stampArea.ApplyStamp(activeStampColor);
-    //         }
-    //     }
 
-    //     if (other.CompareTag("InkArea"))
-    //     {
-    //         Debug.Log("StampHandler: OnTriggerEnter with " + other.name);
-    //         Ink inkArea = other.GetComponent<Ink>();
-    //         if (inkArea != null)
-    //         {
-    //             activeStampColor = inkArea.inkColor;
-    //         }
-    //     }
-    // }
 
     void Start()
     {

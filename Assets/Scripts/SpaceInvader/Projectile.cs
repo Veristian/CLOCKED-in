@@ -1,5 +1,4 @@
 using UnityEngine;
-
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(BoxCollider2D))]
 public class Projectile : MonoBehaviour
@@ -9,16 +8,12 @@ public class Projectile : MonoBehaviour
     public float speed = 20f;
     public float timeLimit = 5;
     float time;
-
     [Header("Particle Effects")]
     public GameObject BoomEffect;
-
-
     private void Awake()
     {
         boxCollider = GetComponent<BoxCollider2D>();
     }
-
     private void Update()
     {
         transform.position += speed * Time.deltaTime * direction;
@@ -28,25 +23,19 @@ public class Projectile : MonoBehaviour
             Destroy(gameObject);
         }
     }
-
     private void OnTriggerEnter2D(Collider2D other)
     {
         CheckCollision(other);
     }
-
     private void OnTriggerStay2D(Collider2D other)
     {
         CheckCollision(other);
     }
-
     private void CheckCollision(Collider2D other)
     {
         Bunker bunker = other.gameObject.GetComponent<Bunker>();
-
         if (bunker == null || bunker.CheckCollision(boxCollider, transform.position)) {
             Destroy(gameObject);
-           // Instantiate(BoomEffect, transform.position, Quaternion.identity);
         }
     }
-
 }

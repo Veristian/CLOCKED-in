@@ -62,33 +62,7 @@ public class Snake : MonoBehaviour
     }
 
 
-    // private void OnHandleInput(Vector2Int dir)
-    // {
-    //     // Only allow turning up or down while moving in the x-axis
-    //     if (direction.x != 0f || (input[0] != Vector2Int.up && input[0] != Vector2Int.down))
-    //     {
-    //         if (dir == Vector2Int.up)
-    //         {
-    //             input.Add(Vector2Int.up);
-    //         }
-    //         else if (dir == Vector2Int.down)
-    //         {
-    //             input.Add(Vector2Int.down);
-    //         }
-    //     }
-    //     // Only allow turning left or right while moving in the y-axis
-    //     else if (direction.y != 0f || (input[0] != Vector2Int.left && input[0] != Vector2Int.right))
-    //     {
-    //         if (dir == Vector2Int.right)
-    //         {
-    //             input.Add(Vector2Int.right);
-    //         }
-    //         else if (dir == Vector2Int.left)
-    //         {
-    //             input.Add(Vector2Int.left);
-    //         }
-    //     }
-    // }
+
     private void OnHandleInput(Vector2Int dir)
     {
         Vector2Int last = input.Count > 0 ? input[input.Count - 1] : direction;

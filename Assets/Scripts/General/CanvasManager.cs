@@ -23,18 +23,6 @@ public class CanvasManager : Singleton<CanvasManager>
     {
         MoveToSector(2); // Start at sector 2
     }
-    // void Update()
-    // {
-    //     if (Vector3.Distance(PlayAreaTransform.localPosition, targetPosition) <= snapDistance)
-    //     {
-    //         PlayAreaTransform.localPosition = targetPosition;
-    //     }
-    //     else
-    //     {
-    //         PlayAreaTransform.localPosition = Vector3.Lerp(PlayAreaTransform.localPosition, targetPosition, 0.1f);
-    //     }
-
-    // }
     public void MoveToSector(int sector)
     {
         switch (sector)

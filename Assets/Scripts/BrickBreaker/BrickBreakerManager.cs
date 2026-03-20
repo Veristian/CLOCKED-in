@@ -42,15 +42,9 @@ public class BrickBreakerManager : Singleton<BrickBreakerManager>
         {
             bricks[i].ResetBrick();
         }
-        // ball.ResetBall();
 
     }
 
-    // private void OnLevelLoaded(Scene scene, LoadSceneMode mode)
-    // {
-    //     SceneManager.sceneLoaded -= OnLevelLoaded;
-    //     FindSceneReferences();
-    // }
 
     public void OnBallMiss()
     {

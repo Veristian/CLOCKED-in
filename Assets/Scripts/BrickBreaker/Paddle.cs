@@ -3,8 +3,6 @@
 [RequireComponent(typeof(Rigidbody2D))]
 public class Paddle : MonoBehaviour
 {
-    // private Rigidbody2D rb;
-    // private Vector2 direction;
     [SerializeField] private Camera mainCamera;
 
     public float speed = 30f;
@@ -30,23 +28,10 @@ public class Paddle : MonoBehaviour
 
     public void ResetPaddle()
     {
-        // rb.velocity = Vector2.zero;
         transform.position = initialPosition;
     }
 
-    // private void Update()
-    // {
-    //     // if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow)) {
-    //     //     direction = Vector2.left;
-    //     // } else if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow)) {
-    //     //     direction = Vector2.right;
-    //     // } else {
-    //     //     direction = Vector2.zero;
-    //     // }
-    //     if (InputManager.Instance == null) return;
-    //     if (!InputManager.Instance.isTouching) return;
-    //     transform.position = Vector2.Lerp(transform.position, new Vector3(mainCamera.ScreenToWorldPoint(InputManager.Instance.touchPosition).x, transform.position.y, Mathf.Infinity), speed * Time.deltaTime);
-    // }
+
     private void Update()
     {
         if (InputManager.Instance == null) return;
@@ -73,12 +58,6 @@ public class Paddle : MonoBehaviour
         transform.position = targetPos;
     }
 
-    // private void FixedUpdate()
-    // {
-    //     if (direction != Vector2.zero) {
-    //         rb.AddForce(direction * speed);
-    //     }
-    // }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {

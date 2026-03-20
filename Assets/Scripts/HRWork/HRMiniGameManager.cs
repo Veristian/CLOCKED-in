@@ -6,16 +6,13 @@ public class HRMiniGameManager : Singleton<HRMiniGameManager>
 {
     
     //Spawn points
-    // public Transform paperSpawnPoint;
     public GameObject paperPrefab;
     public PaperStack paperStack;
     public List<Paper> allPapers = new List<Paper>();
-    // List<SubmissionBox> allSubmissionBoxes = new List<SubmissionBox>();
 
     protected override void Awake()
     {
         base.Awake();
-        // allSubmissionBoxes.AddRange(FindObjectsByType<SubmissionBox>(FindObjectsSortMode.None));
         if (paperStack == null)
         {
             paperStack = FindAnyObjectByType<PaperStack>();

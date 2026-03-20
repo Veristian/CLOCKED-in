@@ -31,7 +31,7 @@ public class Invader : MonoBehaviour
     {
         animationFrame++;
 
-        // Loop back to the start if the animation frame exceeds the length
+        
         if (animationFrame >= animationSprites.Length) {
             animationFrame = 0;
         }
@@ -42,7 +42,7 @@ public class Invader : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.layer == LayerMask.NameToLayer("Laser")) {
-            //StartCoroutine(PlayBoomEffect());
+            
              Instantiate(BoomEffect, transform.position, Quaternion.identity, transform.parent);
    
             SpaceInvadersManager.Instance.OnInvaderKilled(this);
@@ -51,13 +51,7 @@ public class Invader : MonoBehaviour
         }
     }
 
-    //IEnumerator PlayBoomEffect()
-    //{
-    //    Instantiate(BoomEffect, transform.position, Quaternion.identity);
-    //    yield return new WaitForSeconds(0.5f);
-    //    Destroy(BoomEffect);
 
-    //}
     
 
 }

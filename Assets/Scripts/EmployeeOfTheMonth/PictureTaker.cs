@@ -44,12 +44,10 @@ public class PictureTaker : MonoBehaviour
             if (path == null)
                 return;
 
-            // Option 1: Just copy the original file to persistent storage (fastest, no texture issues)
             string savePath = Path.Combine(Application.persistentDataPath, savedFileName);
             File.Copy(path, savePath, true);
             Debug.Log("Saved image to: " + savePath);
 
-            // Load as Texture2D
             Texture2D texture = LoadTextureFromFile(savePath);
 
             if (texture == null)
@@ -72,43 +70,8 @@ public class PictureTaker : MonoBehaviour
         }, maxSize);
     }
 
-    /// <summary>
-    /// Copies a non-readable texture to a new readable Texture2D using RenderTexture (Android-safe)
-    /// </summary>
-    private Texture2D CopyTexture(Texture2D source)
-    {
-        RenderTexture rt = RenderTexture.GetTemporary(
-            source.width,
-            source.height,
-            0,
-            RenderTextureFormat.Default,
-            RenderTextureReadWrite.Linear
-        );
 
-        Graphics.Blit(source, rt);
 
-        RenderTexture previous = RenderTexture.active;
-        RenderTexture.active = rt;
-
-        Texture2D readableTexture = new Texture2D(
-            source.width,
-            source.height,
-            TextureFormat.RGBA32,
-            false
-        );
-
-        readableTexture.ReadPixels(new Rect(0, 0, rt.width, rt.height), 0, 0);
-        readableTexture.Apply();
-
-        RenderTexture.active = previous;
-        RenderTexture.ReleaseTemporary(rt);
-
-        return readableTexture;
-    }
-
-    /// <summary>
-    /// Load a PNG from persistent storage and return a Texture2D
-    /// </summary>
     private Texture2D LoadTextureFromFile(string filePath)
     {
         if (!File.Exists(filePath))
@@ -129,9 +92,7 @@ public class PictureTaker : MonoBehaviour
         return texture;
     }
 
-    /// <summary>
-    /// Load previously saved picture (if exists) on app start
-    /// </summary>
+
     private Sprite LoadSavedPicture()
     {
         string savePath = Path.Combine(Application.persistentDataPath, savedFileName);
@@ -157,38 +118,5 @@ public class PictureTaker : MonoBehaviour
         return sprite;
     }
 
-    private void TakePictureAndShow(int maxSize)
-    {
-        NativeCamera.TakePicture((path) =>
-        {
-            if (path == null) return;
 
-            Texture2D texture = NativeCamera.LoadImageAtPath(path, maxSize);
-            if (texture == null) return;
-
-            GameObject quad = GameObject.CreatePrimitive(PrimitiveType.Quad);
-            quad.transform.position = Camera.main.transform.position + Camera.main.transform.forward * 2.5f;
-            quad.transform.forward = Camera.main.transform.forward;
-            quad.transform.localScale = new Vector3(1f, texture.height / (float)texture.width, 1f);
-
-            Renderer renderer = quad.GetComponent<Renderer>();
-            Material mat = new Material(Shader.Find("Unlit/Texture"));
-            renderer.material = mat;
-            mat.mainTexture = texture;
-
-            Destroy(quad, 5f);
-            Destroy(texture, 5f);
-        }, maxSize);
-    }
-
-    private void RecordVideo()
-    {
-        NativeCamera.RecordVideo((path) =>
-        {
-            if (path != null)
-            {
-                Handheld.PlayFullScreenMovie("file://" + path);
-            }
-        });
-    }
 }

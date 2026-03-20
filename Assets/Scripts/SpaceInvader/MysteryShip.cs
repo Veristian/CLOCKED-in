@@ -20,16 +20,6 @@ public class MysteryShip : MonoBehaviour
     BoxCollider2D boxCollider;
     private void Start()
     {
-        // mainCamera = Camera.main ?? FindAnyObjectByType<Camera>();
-
-        // // Transform the viewport to world coordinates so we can set the mystery
-        // // ship's destination points
-        // Vector3 leftEdge = mainCamera.ViewportToWorldPoint(Vector3.zero);
-        // Vector3 rightEdge = mainCamera.ViewportToWorldPoint(Vector3.right);
-
-        // // Offset each destination by 1 unit so the ship is fully out of sight
-        // leftDestination = new Vector3(leftEdge.x - 1f, transform.position.y, transform.position.z);
-        // rightDestination = new Vector3(rightEdge.x + 1f, transform.position.y, transform.position.z);
         spriteRenderer = GetComponent<SpriteRenderer>();
         boxCollider = GetComponent<BoxCollider2D>();
         Despawn();

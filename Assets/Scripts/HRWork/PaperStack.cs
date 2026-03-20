@@ -31,34 +31,6 @@ public class PaperStack : MonoBehaviour
 
     }
 
-    // private void OnTriggerEnter(Collider other)
-    // {
-    //     if (!other.CompareTag("Paper")) return;
-
-    //     var paper = other.GetComponent<Draggable3D>();
-    //     if (paper == null || paperList.Contains(paper)) return;
-
-    //     enteringPaper = paper;
-
-    //     UnityEngine.Events.UnityAction action = () => EnterPaperToStack(paper);
-
-    //     endDragActions[paper] = action;
-    //     paper.OnEndDrag.AddListener(action);
-    // }
-
-    // private void OnTriggerExit(Collider other)
-    // {
-    //     var paper = other.GetComponent<Draggable3D>();
-    //     if (paper == null) return;
-
-    //     if (endDragActions.TryGetValue(paper, out var action))
-    //     {
-    //         paper.OnEndDrag.RemoveListener(action);
-    //         endDragActions.Remove(paper);
-    //     }
-    // }
-
-
 
 
     public void EnterPaperToStack(Draggable3D paper)
@@ -105,12 +77,6 @@ public class PaperStack : MonoBehaviour
             return;
         }
 
-        // if (activePaper.IsDragging)
-        // {
-        //     paperList.Remove(activePaper);
-        //     activePaper = null;
-        //     SetActivePaper();
-        // }
     }
 
     public void SetActivePaper()
@@ -123,13 +89,6 @@ public class PaperStack : MonoBehaviour
             MoveActivePaperToAvailableArea();
             TidyPapers();
 
-            // activePaper?.OnBeginDrag.AddListener(() =>
-            // {
-            //     activePaper?.OnBeginDrag.RemoveAllListeners();
-            //     activePaper = null;
-            //     SetActivePaper();
-
-            // });
         }
         else
         {

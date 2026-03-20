@@ -9,7 +9,6 @@ public class GameManager : Singleton<GameManager>
     {
         public readonly int levelNumber;
         public int papersToSpawn;
-        // public float bossAppearanceRate; //percentage chance of boss appearing this level for every minute
 
         public GameLevel(int levelNumber, int papersToSpawn)
         {
