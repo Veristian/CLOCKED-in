@@ -186,7 +186,7 @@ public class InputManager : Singleton<InputManager>
         Vector3 euler = relativeRotation.eulerAngles;
 
         float yaw = Mathf.DeltaAngle(0, euler.y);
-        float roll = Mathf.DeltaAngle(0, euler.z);
+        float roll = -Mathf.DeltaAngle(0, euler.z);
 
         float x = Mathf.Cos(yaw * Mathf.Deg2Rad) + Mathf.Cos(roll * Mathf.Deg2Rad);
         float y = Mathf.Sin(yaw * Mathf.Deg2Rad) + Mathf.Sin(roll * Mathf.Deg2Rad);

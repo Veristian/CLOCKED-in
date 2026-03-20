@@ -89,9 +89,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e493eb71fffc3ab41bc338cb31bcbd27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attitudeText: {fileID: 0}
-  rotationOffset: {x: 0, y: 0, z: 0}
-  newPos: {x: 0, y: 0, z: 0}
   touchPosition: {x: 0, y: 0}
   swipeMinDistance: 100
   swipeMaxTime: 0.5
@@ -105,7 +102,7 @@ MonoBehaviour:
   FakeGyroLeft: 0
   FakeGyroRight: 0
   middleSectorArea: 15
-  extraSectorArea: 7.75
+  extraSectorArea: 7.25
 --- !u!1 &1533825959179148797
 GameObject:
   m_ObjectHideFlags: 0
