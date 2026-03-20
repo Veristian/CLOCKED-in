@@ -8,16 +8,7 @@ using System.Threading.Tasks;
 [RequireComponent(typeof(PlayerInput))]
 public class InputManager : Singleton<InputManager>
 {
-    public TextMeshProUGUI attitudeText;
-
     public static PlayerInput playerInput;
-    private static UnityEngine.InputSystem.Gyroscope gyro;
-    public static Vector3 deviceRotation;
-
-
-    public Vector3 rotationOffset = new Vector3(0, 0, 0);
-    public Vector3 newPos = new Vector3(0, 0, 0);
-
     public Vector2 touchPosition;
     public event System.Action<Vector2> OnSwipe;
     public event System.Action OnSwipeUp;
@@ -54,12 +45,15 @@ public class InputManager : Singleton<InputManager>
     public bool FakeGyroRight;
 
     [Header("Gyro Settings")]
-    [SerializeField] private float middleSectorArea = 30f; // Adjust this value to increase/decrease the size of the middle sector
-    [SerializeField] private float extraSectorArea = 10f; // Adjust this value to increase/decrease the size of the extra sectors on the sides
+    [SerializeField] private float middleSectorArea = 30f;
+    [SerializeField] private float extraSectorArea = 10f;
+
+    private Quaternion referenceRotation;
+    private bool isCalibrated = false;
 
     protected override void Awake()
     {
-        
+
         base.Awake();
         playerInput = GetComponent<PlayerInput>();
 
@@ -72,31 +66,23 @@ public class InputManager : Singleton<InputManager>
         playerInput.actions["D"].performed += ctx => OnSwipeRight?.Invoke();
         playerInput.actions["Space"].performed += ctx => OnVolUpPerformed?.Invoke();
         playerInput.actions["Space"].performed += ctx => OnVolDownPerformed?.Invoke();
-        
-        gyro = UnityEngine.InputSystem.Gyroscope.current;
-        if (UnityEngine.InputSystem.Gyroscope.current != null)
-        {
-            InputSystem.EnableDevice(UnityEngine.InputSystem.Gyroscope.current);
-        }
+
         if (AttitudeSensor.current != null)
         {
             InputSystem.EnableDevice(AttitudeSensor.current);
         }
     }
 
-
     public void OnTouchDown(InputAction.CallbackContext context)
     {
-        // This can be used to detect touch start or end if needed
+
         isTouching = true;
         startPos = touchPosition;
         startTime = Time.time;
-        // Debug.Log("Touch Contact: " + isTouching + touchPosition);
+
         _ = EndSwipe();
         OnTouchDownPerformed?.Invoke();
     }
-
-
 
     private async Task EndSwipe()
     {
@@ -109,7 +95,7 @@ public class InputManager : Singleton<InputManager>
         {
             SwipeHandler(distance.normalized);
         }
-        
+
     }
     public void OnTouchUp(InputAction.CallbackContext context)
     {
@@ -134,10 +120,9 @@ public class InputManager : Singleton<InputManager>
         touchPosition = position;
     }
 
-
     public void SwipeHandler(Vector2 direction)
     {
-        //detect swipe for all 4 directions
+
         if (Mathf.Abs(direction.x) > Mathf.Abs(direction.y))
         {
             if (direction.x > 0)
@@ -162,7 +147,6 @@ public class InputManager : Singleton<InputManager>
         }
     }
 
-
     void Update()
     {
         GyroInputUpdate();
@@ -172,31 +156,18 @@ public class InputManager : Singleton<InputManager>
         FakeGyroRight = playerInput.actions["J"].WasPressedThisFrame();
 
     }
+
     private void GyroInputUpdate()
     {
-        
-        if (gyro == null)
-        {
-            if (attitudeText != null)
-                attitudeText.text = "Gyroscope not available.";
-            return;
-        }
+
         if (AttitudeSensor.current == null)
         {
-            Debug.LogWarning("Attitude Sensor not available on this device.");
-            if (attitudeText != null)
-                attitudeText.text = "Attitude Sensor not available.";
-            // return;
+            Debug.LogWarning("Attitude Sensor not available.");
+            return;
         }
-        if (UnityEngine.InputSystem.Gyroscope.current == null)
-        {
-            Debug.LogWarning("Gyroscope device not found.");
-            // return;
-        }
-        Vector3 angularVelocity = UnityEngine.InputSystem.Gyroscope.current.angularVelocity.ReadValue();
+
         Quaternion attitude = AttitudeSensor.current.attitude.ReadValue();
 
-        // Device → Unity coordinate conversion
         Quaternion unityAttitude = new Quaternion(
             attitude.x,
             attitude.y,
@@ -204,46 +175,47 @@ public class InputManager : Singleton<InputManager>
             -attitude.w
         );
 
-        Vector3 euler = unityAttitude.eulerAngles;
-        deviceRotation = euler;
+        if (!isCalibrated)
+        {
+            referenceRotation = unityAttitude;
+            isCalibrated = true;
+        }
 
-        Vector3 delta = angularVelocity * Time.deltaTime * 180/ Mathf.PI; // convert from radian to degree
-        newPos += delta;
+        Quaternion relativeRotation = Quaternion.Inverse(referenceRotation) * unityAttitude;
 
-        newPos.x = Mathf.Repeat(newPos.x + 180, 360) - 180;
-        newPos.y = Mathf.Repeat(newPos.y + 180, 360) - 180;
-        newPos.z = Mathf.Repeat(newPos.z + 180, 360) - 180;
+        Vector3 euler = relativeRotation.eulerAngles;
 
-        float angle1 = newPos.y * Mathf.Deg2Rad;
-        float angle2 = newPos.z * Mathf.Deg2Rad;
+        float yaw = Mathf.DeltaAngle(0, euler.y);
+        float roll = Mathf.DeltaAngle(0, euler.z);
 
-        float x = Mathf.Cos(angle1) + Mathf.Cos(angle2);
-        float y = Mathf.Sin(angle1) + Mathf.Sin(angle2);
+        float x = Mathf.Cos(yaw * Mathf.Deg2Rad) + Mathf.Cos(roll * Mathf.Deg2Rad);
+        float y = Mathf.Sin(yaw * Mathf.Deg2Rad) + Mathf.Sin(roll * Mathf.Deg2Rad);
 
         float finalDirection = Mathf.Atan2(y, x) * Mathf.Rad2Deg;
 
         int sector;
-        if (finalDirection < (-middleSectorArea/2 - extraSectorArea) && finalDirection >= -90f)
-            sector = 1;
-        else if (finalDirection < 90f && finalDirection >= (middleSectorArea/2 + extraSectorArea))
+
+        if (finalDirection < (-middleSectorArea / 2 - extraSectorArea) && finalDirection >= -90f)
             sector = 3;
-        else if (((finalDirection < (middleSectorArea/2 - extraSectorArea) && finalDirection >= -middleSectorArea/2) && CanvasManager.Instance.activeSector == 3) || ((finalDirection < middleSectorArea/2 && finalDirection >= (-middleSectorArea/2 + extraSectorArea)) && CanvasManager.Instance.activeSector == 1))
+        else if (finalDirection >= (middleSectorArea / 2 + extraSectorArea) && finalDirection < 90f)
+            sector = 1;
+        else if (
+            ((finalDirection >= -middleSectorArea / 2 && finalDirection < (middleSectorArea / 2 - extraSectorArea))
+                && CanvasManager.Instance.activeSector == 1)
+            ||
+            ((finalDirection >= (-middleSectorArea / 2 + extraSectorArea) && finalDirection < middleSectorArea / 2)
+                && CanvasManager.Instance.activeSector == 3)
+        )
             sector = 2;
         else
-            return; 
-
-        if (attitudeText != null)
-            attitudeText.text =
-                $"Device Rotation\nX: {euler.x:F1} Y: {euler.y:F1} Z: {euler.z:F1} and {unityAttitude.x:F1},{unityAttitude.y:F1},{unityAttitude.z:F1},{unityAttitude.w:F1}\nPosition+offset\nX: {(euler.x + rotationOffset.x):F1} Y: {(euler.y + rotationOffset.y):F1} Z: {(euler.z + rotationOffset.z):F1}\nangularVelocity\nX: {angularVelocity.x:F1} Y: {angularVelocity.y:F1} Z: {angularVelocity.z:F1} \n new position\nX: {newPos.x:F1} Y: {newPos.y:F1} Z: {newPos.z:F1}\n Final Direction: {finalDirection:F1} Sector: {sector}";
+            return;
 
         CanvasManager.Instance.MoveToSector(sector);
-
     }
 
     public void OnSetPosition()
     {
-        rotationOffset = new Vector3(-deviceRotation.x, -deviceRotation.y, -deviceRotation.z);
-        newPos = new Vector3(0, 0, 0);
+        isCalibrated = false;
     }
 
     public void OnVolumeUp(string msg)
