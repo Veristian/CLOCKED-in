@@ -167,26 +167,19 @@ public class InputManager : Singleton<InputManager>
         }
 
         Quaternion attitude = AttitudeSensor.current.attitude.ReadValue();
-
-        Quaternion unityAttitude = new Quaternion(
-            attitude.x,
-            attitude.y,
-            -attitude.z,
-            -attitude.w
-        );
-
+        
         if (!isCalibrated)
         {
-            referenceRotation = unityAttitude;
+            referenceRotation = attitude;
             isCalibrated = true;
         }
 
-        Quaternion relativeRotation = Quaternion.Inverse(referenceRotation) * unityAttitude;
+        Quaternion relativeRotation = Quaternion.Inverse(referenceRotation) * attitude;
 
         Vector3 euler = relativeRotation.eulerAngles;
 
         float yaw = Mathf.DeltaAngle(0, euler.y);
-        float roll = -Mathf.DeltaAngle(0, euler.z);
+        float roll = Mathf.DeltaAngle(0, euler.z);
 
         float x = Mathf.Cos(yaw * Mathf.Deg2Rad) + Mathf.Cos(roll * Mathf.Deg2Rad);
         float y = Mathf.Sin(yaw * Mathf.Deg2Rad) + Mathf.Sin(roll * Mathf.Deg2Rad);
@@ -196,15 +189,15 @@ public class InputManager : Singleton<InputManager>
         int sector;
 
         if (finalDirection < (-middleSectorArea / 2 - extraSectorArea) && finalDirection >= -90f)
-            sector = 3;
-        else if (finalDirection >= (middleSectorArea / 2 + extraSectorArea) && finalDirection < 90f)
             sector = 1;
+        else if (finalDirection >= (middleSectorArea / 2 + extraSectorArea) && finalDirection < 90f)
+            sector = 3;
         else if (
             ((finalDirection >= -middleSectorArea / 2 && finalDirection < (middleSectorArea / 2 - extraSectorArea))
-                && CanvasManager.Instance.activeSector == 1)
+                && CanvasManager.Instance.activeSector == 3)
             ||
             ((finalDirection >= (-middleSectorArea / 2 + extraSectorArea) && finalDirection < middleSectorArea / 2)
-                && CanvasManager.Instance.activeSector == 3)
+                && CanvasManager.Instance.activeSector == 1)
         )
             sector = 2;
         else
